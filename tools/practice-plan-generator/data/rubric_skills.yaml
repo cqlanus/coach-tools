@@ -1,0 +1,159 @@
+# LGLL Player Skills Rubric — structured for drill mapping
+# Stages: introduced | developing | proficient | automatic
+# Categories: basic_fundamentals | basic_situations | intermediate_fundamentals | intermediate_situations
+
+categories:
+  basic_fundamentals:
+    label: "Basic Fundamentals"
+    description: "Individual physical skills — foundation of the game"
+    skills:
+      throwing:
+        label: "Throwing"
+        sub_skills:
+          - arm_action
+          - arm_strength
+      catch_thrown_ball:
+        label: "Catch Thrown Ball"
+        sub_skills:
+          - glove_windshield_wiper
+          - thumb_to_thumb
+          - moves_feet_to_ball
+      catch_fly_ball:
+        label: "Catch Fly Ball"
+        sub_skills:
+          - glove_windshield_wiper_fly
+          - thumb_to_thumb_fly
+          - catch_at_chin_level
+          - moves_feet_to_ball_fly
+      fielding_grounder:
+        label: "Fielding Grounder"
+        sub_skills:
+          - two_hands_out_front
+      swinging_mechanics:
+        label: "Swinging Mechanics"
+        sub_skills:
+          - balance
+          - load
+          - hand_arm_action
+          - hip_action
+      hitting_skills:
+        label: "Hitting Skills"
+        sub_skills:
+          - swinging_hard
+          - contact_ability
+          - strike_zone_awareness
+      base_running:
+        label: "Base Running"
+        sub_skills:
+          - rounding_the_bag
+          - sliding
+      pitching_mechanics:
+        label: "Pitching Mechanics"
+        sub_skills:
+          - pitching_balance
+          - pitching_arm_action
+          - pitching_hip_action
+          - glove_position
+          - follow_through
+      pitching_skills:
+        label: "Pitching Skills"
+        sub_skills:
+          - velocity
+          - strike_throwing
+      catching_fundamentals:
+        label: "Catching Fundamentals"
+        sub_skills:
+          - receiving_ball
+          - positioning_behind_home
+          - hustle_after_passed_ball
+
+  basic_situations:
+    label: "Basic Situations"
+    description: "Game-situation decisions every player should be developing"
+    skills:
+      covering_first:
+        label: "Covering First Base"
+      mi_covering_second:
+        label: "MI Covering Second"
+      mi_cutoff:
+        label: "MI Cutoff (outfield ball)"
+      outfield_throw_to_second:
+        label: "Outfield Throw to Second"
+      outfield_throw_to_cutoff:
+        label: "Outfield Throw to Cutoff"
+      baserunning_decisions:
+        label: "Baserunning Decisions"
+        sub_skills:
+          - run_through_first
+          - round_first
+          - double
+          - first_to_third
+          - second_to_home
+          - tagging_from_third
+          - no_force_ball_in_front
+          - fly_ball_less_than_two_outs
+      baserunning_listening_to_coach:
+        label: "Baserunning — Listening to Coach"
+      calling_for_ball:
+        label: "Calling for the Ball"
+      force_vs_tag:
+        label: "Force Play vs. Tag Play"
+      team_concept:
+        label: "Team Concept"
+        sub_skills:
+          - ball_base_or_backup
+          - basic_positioning
+
+  intermediate_fundamentals:
+    label: "Intermediate Fundamentals"
+    description: "Advanced individual skills — layer on top of basics"
+    skills:
+      forehands_backhands:
+        label: "Forehands & Backhands"
+      first_base_short_hops:
+        label: "First Base — Short Hops"
+      first_base_footwork:
+        label: "First Base — Footwork"
+      bunting:
+        label: "Bunting"
+      hitting_inside_outside:
+        label: "Hitting Inside/Outside Pitches"
+      charging_the_ball:
+        label: "Charging the Ball"
+      outfield_grounders:
+        label: "Outfield Grounders"
+      outfield_fly_ball_footwork:
+        label: "Outfield Fly Ball Footwork"
+      throwing_relays:
+        label: "Throwing Relays"
+      infield_tagging_runner:
+        label: "Infield — Tagging Runner"
+      catching_next_level:
+        label: "Catching — Next Level"
+        sub_skills:
+          - blocking
+          - throwing_to_bases
+          - fielding_in_front_of_home
+
+  intermediate_situations:
+    label: "Intermediate Situations"
+    description: "Multi-player coordination plays"
+    skills:
+      infield_where_to_throw:
+        label: "Infield — Where to Throw"
+      infield_stopping_lead_runner:
+        label: "Infield — Stopping Lead Runner"
+      backing_up_the_play:
+        label: "Backing Up the Play"
+      pop_ups_infield_outfield:
+        label: "Pop Ups — Infield/Outfield"
+        sub_skills:
+          - calling_each_other_off
+      catcher_fielding_in_front:
+        label: "Catcher — Fielding in Front of Plate"
+      advanced_positioning:
+        label: "Team Concept — Advanced Positioning"
+        sub_skills:
+          - double_play_depth
+          - infield_in
+          - outfield_deep

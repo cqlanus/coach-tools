@@ -1,0 +1,27 @@
+# ── coach.chrislanus.com ────────────────────────────────────────────────────
+# Add this block to your existing Caddyfile at:
+# /Users/cqlanus/projects/services/files/Caddyfile
+#
+# Caddy handles TLS automatically via Let's Encrypt.
+# Ensure coach.chrislanus.com DNS A record points to your lanbuntu IP.
+
+coach.chrislanus.com {
+    # Next.js web app
+    reverse_proxy localhost:3010
+
+    # FastAPI — proxied under /api/ so Next.js rewrites work cleanly
+    # (Next.js next.config.js already rewrites /api/* → :3011)
+    # If you want to expose the API directly too:
+    # handle /api/* {
+    #     uri strip_prefix /api
+    #     reverse_proxy localhost:3011
+    # }
+
+    # Static files (Next.js handles this, but explicit for clarity)
+    encode gzip zstd
+
+    log {
+        output file /var/log/caddy/coach.log
+        format json
+    }
+}

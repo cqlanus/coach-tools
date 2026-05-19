@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LGLL brand */
+  --color-navy:       #1B3A6B;
+  --color-navy-light: #2E5FA3;
+  --color-navy-dark:  #122850;
+  --color-red:        #C8102E;
+  --color-red-light:  #E63048;
+  --color-cream:      #F0EAD6;
+  --color-cream-dark: #D6CEBC;
+
+  /* Field / defense tool */
+  --grass:      #0f2417;
+  --grass-mid:  #163620;
+  --grass-light:#1e4a2a;
+  --dirt:       #8b5e3c;
+
+  /* Assignment colors */
+  --ball:   #3b82f6;
+  --cover:  #22c55e;
+  --backup: #f59e0b;
+  --cut:    #a78bfa;
+  --hold:   #4b5563;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  /* Smooth scrolling everywhere except reduced-motion */
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  /* Focus ring consistent with brand */
+  :focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-navy-light/20 border border-white/10 rounded-xl;
+  }
+
+  .btn-primary {
+    @apply bg-red text-cream font-display font-bold uppercase tracking-wide
+           px-6 py-3 rounded-lg hover:bg-red-light transition-colors
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 text-cream font-display font-semibold uppercase tracking-wide
+           px-6 py-3 rounded-lg hover:bg-white/20 transition-colors border border-white/20;
+  }
+
+  .section-label {
+    @apply font-display font-bold uppercase tracking-widest text-xs text-cream/50;
+  }
+}
