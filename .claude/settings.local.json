@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip *)",
+      "Bash(mkdir -p ~/.claude/skills/baseball-lineup/references)",
+      "Bash(cp /tmp/baseball-lineup-skill/skill-lineup/SKILL.md ~/.claude/skills/baseball-lineup/)",
+      "Bash(cp /tmp/baseball-lineup-skill/skill-lineup/references/algorithm-detail.md ~/.claude/skills/baseball-lineup/references/)",
+      "Bash(cp /tmp/baseball-lineup-skill/skill-lineup/references/bench-examples.md ~/.claude/skills/baseball-lineup/references/)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3010/)",
+      "Bash(npx playwright *)",
+      "Bash(node -e \"require\\('playwright'\\)\")",
+      "Bash(playwright --version)",
+      "Read(//Users/cqlanus/.config/**)",
+      "Read(//Users/cqlanus/Library/Caches/ms-playwright/**)",
+      "Bash(/Users/cqlanus/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell --headless --screenshot=/tmp/lineup-home.png --window-size=1280,800 http://localhost:3010/)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(/Users/cqlanus/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell --headless --screenshot=/tmp/lineup-home-scroll.png --window-size=1280,900 'http://localhost:3010/#lineup')",
+      "Bash(/Users/cqlanus/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell --headless --screenshot=/tmp/lineup-step1.png --window-size=1280,900 http://localhost:3010/lineup)",
+      "Bash(curl *)",
+      "Bash(python3 -m json.tool)",
+      "Bash(python3 -)"
+    ]
+  }
+}

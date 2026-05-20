@@ -42,7 +42,7 @@ const tools = [
     description:
       "Generate a full position rotation for a game — minimizes repeat positions and handles bench equitably.",
     icon: "📝",
-    status: "coming-soon",
+    status: "live",
   },
 ];
 
