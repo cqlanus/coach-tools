@@ -29,6 +29,14 @@ const tools = [
     status: "live",
   },
   {
+    href: "/skills-rubric",
+    label: "Player Skills Rubric",
+    description:
+      "Developmental stage model for evaluating players across fundamentals and game situations. Reference guide with printable evaluation form.",
+    icon: "📊",
+    status: "live",
+  },
+  {
     href: "/lineup",
     label: "Game Day Lineup",
     description:

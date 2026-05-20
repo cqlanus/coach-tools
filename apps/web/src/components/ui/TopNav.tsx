@@ -4,10 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const tools = [
-  { href: "/defense",  label: "Defense",  icon: "🏟️" },
-  { href: "/practice", label: "Practice", icon: "📋" },
-  { href: "/throwing", label: "Throwing", icon: "⚾" },
-  { href: "/lineup",   label: "Lineup",   icon: "📝" },
+  { href: "/defense",       label: "Defense",  icon: "🏟️" },
+  { href: "/practice",      label: "Practice", icon: "📋" },
+  { href: "/throwing",      label: "Throwing", icon: "⚾" },
+  { href: "/skills-rubric", label: "Skills",   icon: "📊" },
+  { href: "/lineup",        label: "Lineup",   icon: "📝" },
 ];
 
 export function TopNav() {
