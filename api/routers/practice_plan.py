@@ -11,7 +11,7 @@ from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-from typing import Literal
+from typing import Literal, Optional
 
 # Add the practice-plan-generator tool to the path
 TOOL_DIR = Path(__file__).parent.parent.parent / "tools" / "practice-plan-generator"
@@ -36,8 +36,8 @@ class PracticePlanRequest(BaseModel):
 
 
 class PracticePlanResponse(BaseModel):
-    docx_url: str | None = None
-    xlsx_url: str | None = None
+    docx_url: Optional[str] = None
+    xlsx_url: Optional[str] = None
     summary: dict
 
 
@@ -67,11 +67,11 @@ def generate_practice_plan(req: PracticePlanRequest):
 
         if req.format in ("both", "docx"):
             path = generate_docx(plan)
-            docx_url = f"/practice-plan/download/{Path(path).name}"
+            docx_url = f"/api/practice-plan/download/{Path(path).name}"
 
         if req.format in ("both", "xlsx"):
             path = generate_xlsx(plan)
-            xlsx_url = f"/practice-plan/download/{Path(path).name}"
+            xlsx_url = f"/api/practice-plan/download/{Path(path).name}"
 
         # Build a JSON-serialisable summary
         summary = {
