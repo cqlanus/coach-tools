@@ -11,7 +11,7 @@ from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-from typing import Literal, Optional
+from typing import Literal, List, Optional
 
 # Add the practice-plan-generator tool to the path
 TOOL_DIR = Path(__file__).parent.parent.parent / "tools" / "practice-plan-generator"
@@ -33,6 +33,7 @@ class PracticePlanRequest(BaseModel):
     ]
     player_count: int = 12
     format: Literal["both", "docx", "xlsx"] = "both"
+    pinned_drill_ids: List[str] = []
 
 
 class PracticePlanResponse(BaseModel):
@@ -60,6 +61,7 @@ def generate_practice_plan(req: PracticePlanRequest):
             coaches=req.coaches,
             focus=req.focus,
             player_count=req.player_count,
+            pinned_drill_ids=req.pinned_drill_ids,
         )
 
         docx_url = None
@@ -88,7 +90,9 @@ def generate_practice_plan(req: PracticePlanRequest):
                 }
                 for p in plan["phases"]
             ],
-            "equipment": plan["all_equipment"],
+            "equipment":      plan["all_equipment"],
+            "pinned_placed":  plan.get("pinned_placed", []),
+            "pinned_total":   len(req.pinned_drill_ids),
         }
 
         return PracticePlanResponse(
@@ -111,6 +115,16 @@ def download_file(filename: str):
         filename=filename,
         media_type="application/octet-stream",
     )
+
+
+@router.get("/drills")
+def get_drills():
+    """Return the full drill library for the browse UI."""
+    try:
+        from generator import load_drills
+        return {"drills": load_drills()}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/options")

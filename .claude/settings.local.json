@@ -20,7 +20,14 @@
       "Bash(/Users/cqlanus/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell --headless --screenshot=/tmp/lineup-step1.png --window-size=1280,900 http://localhost:3010/lineup)",
       "Bash(curl *)",
       "Bash(python3 -m json.tool)",
-      "Bash(python3 -)"
+      "Bash(python3 -)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(f'{len\\(d[\\\\\"drills\\\\\"]\\)} drills loaded'\\); print\\('Sample:', d['drills'][0]['name'], '|', d['drills'][0]['station_role']\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(/Users/cqlanus/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell --headless --screenshot=/tmp/practice-configure.png --window-size=1280,900 http://localhost:3010/practice)",
+      "Bash(/Users/cqlanus/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell --headless --screenshot=/tmp/practice-library.png --window-size=1280,1200 --virtual-time-budget=3000 'http://localhost:3010/practice#library')",
+      "Bash(cat)",
+      "Bash(/Users/cqlanus/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell --headless --screenshot=/tmp/defense-fixed.png --window-size=1280,900 http://localhost:3010/defense)",
+      "Bash(node *)"
     ]
   }
 }

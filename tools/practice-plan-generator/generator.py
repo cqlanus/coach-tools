@@ -160,18 +160,29 @@ def fill_time(pool, budget, used_ids):
 
 # ── Opening block ─────────────────────────────────────────────────────────────
 
-def build_opening(drills, location, coaches, focus, budget, short=False):
+def build_opening(drills, location, coaches, focus, budget, short=False, pinned_drills=None):
     """
     Build opening arc: movement → baserunning → throwing.
-    Returns list of {sub_phase, drill, minutes}.
+    Returns list of {sub_phase, drill, minutes, pinned}.
     """
+    pinned_drills = pinned_drills or []
     opening_pool = [d for d in drills
                     if available(d, location, coaches)
                     and d.get("station_role") == "opening"]
 
+    # Force-include pinned drills even if they don't meet location/coach constraints
+    pool_ids = {d["id"] for d in opening_pool}
+    for pd in pinned_drills:
+        if pd["id"] not in pool_ids:
+            opening_pool.append(pd)
+
     warmup_pool   = [d for d in opening_pool if d["id"] in _WARMUP_IDS]
     baserun_pool  = [d for d in opening_pool if d["id"] in _BASERUNNING_IDS]
     throwing_pool = [d for d in opening_pool if d["id"] in _THROWING_IDS]
+
+    pinned_warmup   = {d["id"] for d in pinned_drills if d["id"] in _WARMUP_IDS}
+    pinned_baserun  = {d["id"] for d in pinned_drills if d["id"] in _BASERUNNING_IDS}
+    pinned_throwing = {d["id"] for d in pinned_drills if d["id"] in _THROWING_IDS}
 
     if short:  # 60-min: skip baserunning, split remaining between movement and throwing
         splits = {"movement": int(budget * 0.40), "baserunning": 0,
@@ -184,29 +195,55 @@ def build_opening(drills, location, coaches, focus, budget, short=False):
     result = []
     used   = set()
 
-    def fill_sub(pool, sub_label, sub_budget):
+    def fill_sub(pool, sub_label, sub_budget, priority_ids=None):
         if sub_budget <= 0 or not pool:
             return
-        items = fill_time(pool, sub_budget, used)
+        priority_ids = priority_ids or set()
+        remaining = sub_budget
+        # Place pinned drills first
+        for d in pool:
+            if d["id"] not in priority_ids or d["id"] in used:
+                continue
+            preferred = (d["duration_min"] + d["duration_max"]) // 2
+            assign = min(preferred, remaining)
+            if assign < d["duration_min"]:
+                if remaining >= d["duration_min"]:
+                    assign = d["duration_min"]
+                else:
+                    continue
+            result.append({"sub_phase": sub_label, "drill": d, "minutes": assign, "pinned": True})
+            used.add(d["id"])
+            remaining -= assign
+        # Fill remaining time normally
+        items = fill_time(pool, remaining, used)
         for d, m in items:
-            result.append({"sub_phase": sub_label, "drill": d, "minutes": m})
+            result.append({"sub_phase": sub_label, "drill": d, "minutes": m, "pinned": False})
 
-    fill_sub(warmup_pool,   "Movement & Stretch",   splits["movement"])
-    fill_sub(baserun_pool,  "Base Running",          splits["baserunning"])
+    fill_sub(warmup_pool,   "Movement & Stretch",   splits["movement"],   pinned_warmup)
+    fill_sub(baserun_pool,  "Base Running",          splits["baserunning"], pinned_baserun)
     # Give throwing any leftover time from movement/baserunning
     used_minutes = sum(i["minutes"] for i in result)
-    throwing_budget = budget - used_minutes - (0 if short else 0)
-    fill_sub(throwing_pool, "Throwing Progression",  max(splits["throwing"], throwing_budget))
+    throwing_budget = budget - used_minutes
+    fill_sub(throwing_pool, "Throwing Progression",  max(splits["throwing"], throwing_budget),
+             pinned_throwing)
     return result
 
 
 # ── Stations block ────────────────────────────────────────────────────────────
 
-def build_stations(drills, location, coaches, focus, budget, player_count=12):
+def build_stations(drills, location, coaches, focus, budget, player_count=12, pinned_drills=None):
     """
     Build simultaneous station rotation.
     Returns dict with rotation plan and per-station details.
     """
+    pinned_drills = pinned_drills or []
+    # Index pinned drills by station_role (first one per role wins)
+    pinned_by_role = {}
+    for pd in pinned_drills:
+        role = pd.get("station_role", "")
+        if role not in pinned_by_role:
+            pinned_by_role[role] = pd
+
     composition = list(STATION_COMPOSITIONS.get(focus, STATION_COMPOSITIONS["balanced"]))
 
     # Gym: replace pitching station with throwing if no mound available
@@ -224,22 +261,28 @@ def build_stations(drills, location, coaches, focus, budget, player_count=12):
     used_ids = set()
 
     for role, label in composition:
-        candidates = [
-            d for d in drills
-            if d.get("station_role") == role
-            and location in d.get("locations", [])
-            and d.get("station_safe", False)
-            and d["id"] not in used_ids
-            and d["duration_min"] <= rotation_minutes
-        ]
-        if not candidates:
-            continue
+        is_pinned = False
+        # Use pinned drill for this slot if one was reserved
+        pinned_for_role = pinned_by_role.get(role)
+        if pinned_for_role and pinned_for_role["id"] not in used_ids:
+            chosen = pinned_for_role
+            is_pinned = True
+        else:
+            candidates = [
+                d for d in drills
+                if d.get("station_role") == role
+                and location in d.get("locations", [])
+                and d.get("station_safe", False)
+                and d["id"] not in used_ids
+                and d["duration_min"] <= rotation_minutes
+            ]
+            if not candidates:
+                continue
+            focused = [d for d in candidates if focus_ok(d, focus)]
+            pool = focused if focused else candidates
+            random.shuffle(pool)
+            chosen = pool[0]
 
-        # Prefer focus-relevant drills
-        focused = [d for d in candidates if focus_ok(d, focus)]
-        pool = focused if focused else candidates
-        random.shuffle(pool)
-        chosen = pool[0]
         used_ids.add(chosen["id"])
 
         group_size    = chosen.get("group_size_ideal") or (player_count // n_stations)
@@ -249,12 +292,13 @@ def build_stations(drills, location, coaches, focus, budget, player_count=12):
             coaches_left -= 1
 
         stations.append({
-            "label":         label,
-            "role":          role,
-            "drill":         chosen,
-            "group_size":    group_size,
-            "minutes":       rotation_minutes,
+            "label":          label,
+            "role":           role,
+            "drill":          chosen,
+            "group_size":     group_size,
+            "minutes":        rotation_minutes,
             "coach_assigned": coach_here,
+            "pinned":         is_pinned,
         })
 
     return {
@@ -267,12 +311,16 @@ def build_stations(drills, location, coaches, focus, budget, player_count=12):
 
 # ── Team time block ───────────────────────────────────────────────────────────
 
-def build_team_time(drills, location, coaches, focus, budget):
+def build_team_time(drills, location, coaches, focus, budget, pinned_drills=None):
     """
     Select 1-2 whole-team activities. Situations focus leads instructive→game-like;
     all others lead game-like, optional instructive build-up if time allows.
     Falls back progressively when location or focus constrains the pool.
     """
+    pinned_drills = pinned_drills or []
+    pinned_team = [d for d in pinned_drills if d.get("station_role") == "team"]
+    pinned_ids  = {d["id"] for d in pinned_team}
+
     def get_candidates(loc, cch, foc):
         return [
             d for d in drills
@@ -304,9 +352,13 @@ def build_team_time(drills, location, coaches, focus, budget):
     else:
         ordered = game_like[:1] + (instructive[:1] if budget >= 40 else [])
 
-    # If neither list had anything, use whatever candidates we have
     if not ordered:
         ordered = candidates[:2]
+
+    # Inject pinned drills at the front (skip any already in the ordered list)
+    ordered_ids  = {d["id"] for d in ordered}
+    pinned_extra = [d for d in pinned_team if d["id"] not in ordered_ids]
+    ordered      = pinned_extra + ordered
 
     result    = []
     used_ids  = set()
@@ -322,7 +374,7 @@ def build_team_time(drills, location, coaches, focus, budget):
                 assign = d["duration_min"]
             else:
                 continue
-        result.append({"drill": d, "minutes": assign})
+        result.append({"drill": d, "minutes": assign, "pinned": d["id"] in pinned_ids})
         used_ids.add(d["id"])
         remaining -= assign
 
@@ -339,10 +391,18 @@ def build_team_time(drills, location, coaches, focus, budget):
 # ── Plan assembly ─────────────────────────────────────────────────────────────
 
 def build_practice_plan(duration, location, coaches, focus,
-                        practice_date=None, player_count=12):
+                        practice_date=None, player_count=12, pinned_drill_ids=None):
     drills  = load_drills()
     budgets = (sixty_min_phases(location, focus) if duration == 60
                else PHASE_BUDGETS[duration].copy())
+
+    # Resolve pinned drill IDs to full drill objects
+    pinned_drill_ids = pinned_drill_ids or []
+    drills_by_id     = {d["id"]: d for d in drills}
+    pinned_all       = [drills_by_id[pid] for pid in pinned_drill_ids if pid in drills_by_id]
+    pinned_opening   = [d for d in pinned_all if d.get("station_role") == "opening"]
+    pinned_stations  = [d for d in pinned_all if d.get("station_role", "").startswith("station_")]
+    pinned_team      = [d for d in pinned_all if d.get("station_role") == "team"]
 
     plan = {
         "date":         practice_date or date.today().strftime("%B %d, %Y"),
@@ -361,14 +421,15 @@ def build_practice_plan(duration, location, coaches, focus,
 
     def add_equipment(items_or_stations):
         for item in items_or_stations:
-            d = item.get("drill") or item.get("drill")
+            d = item.get("drill")
             if d:
                 for eq in d.get("equipment", []):
                     plan["all_equipment"].add(eq)
 
     # Opening
     opening_items   = build_opening(drills, location, coaches, focus,
-                                    budgets["opening"], short=(duration == 60))
+                                    budgets["opening"], short=(duration == 60),
+                                    pinned_drills=pinned_opening)
     opening_minutes = sum(i["minutes"] for i in opening_items)
     add_equipment(opening_items)
     plan["phases"].append({
@@ -380,7 +441,8 @@ def build_practice_plan(duration, location, coaches, focus,
     # Stations
     if budgets["stations"] > 0:
         sdata = build_stations(drills, location, coaches, focus,
-                               budgets["stations"], player_count)
+                               budgets["stations"], player_count,
+                               pinned_drills=pinned_stations)
         for s in sdata["stations"]:
             for eq in s["drill"].get("equipment", []):
                 plan["all_equipment"].add(eq)
@@ -392,7 +454,8 @@ def build_practice_plan(duration, location, coaches, focus,
 
     # Team time
     if budgets["team"] > 0:
-        team_items   = build_team_time(drills, location, coaches, focus, budgets["team"])
+        team_items   = build_team_time(drills, location, coaches, focus, budgets["team"],
+                                       pinned_drills=pinned_team)
         team_minutes = sum(i["minutes"] for i in team_items)
         add_equipment(team_items)
         plan["phases"].append({
@@ -407,12 +470,24 @@ def build_practice_plan(duration, location, coaches, focus,
         plan["phases"].append({
             "key": "closure", "label": "Closure", "type": "closure",
             "minutes": 5, "start": clock,
-            "items": [{"sub_phase": "Closure", "drill": closure, "minutes": 5}],
+            "items": [{"sub_phase": "Closure", "drill": closure, "minutes": 5, "pinned": False}],
         })
         clock += 5
 
     plan["total_minutes"] = clock
     plan["all_equipment"] = sorted(plan["all_equipment"])
+
+    # Collect which pinned drills made it into the plan
+    placed_pinned = []
+    for phase in plan["phases"]:
+        for item in phase.get("items", []):
+            if item.get("pinned"):
+                placed_pinned.append(item["drill"]["name"])
+        for station in phase.get("data", {}).get("stations", []):
+            if station.get("pinned"):
+                placed_pinned.append(station["drill"]["name"])
+    plan["pinned_placed"] = placed_pinned
+
     return plan
 
 

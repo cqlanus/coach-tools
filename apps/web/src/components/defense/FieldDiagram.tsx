@@ -57,9 +57,9 @@ export function FieldDiagram({
         opacity="0.7"
       />
 
-      {/* ── Foul lines ── */}
-      <line x1="260" y1="340" x2="30"  y2="60"  stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-      <line x1="260" y1="340" x2="490" y2="60"  stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
+      {/* ── Foul lines — aligned to diamond edges (45°), perpendicular at home ── */}
+      <line x1="260" y1="340" x2="0"   y2="80"  stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
+      <line x1="260" y1="340" x2="520" y2="80"  stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
 
       {/* ── Infield grass ── */}
       <path
