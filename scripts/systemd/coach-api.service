@@ -5,8 +5,8 @@ After=network.target
 [Service]
 Type=simple
 User=cqlanus
-WorkingDirectory=/home/cqlanus/projects/coach-tools/api
-ExecStart=/home/cqlanus/projects/coach-tools/api/.venv/bin/uvicorn main:app --port 3011 --host 127.0.0.1
+WorkingDirectory=/home/cqlanus/Documents/coach-tools/api
+ExecStart=/home/cqlanus/Documents/coach-tools/api/.venv/bin/uvicorn main:app --port 3011 --host 127.0.0.1
 Restart=on-failure
 RestartSec=5
 Environment=PYTHONUNBUFFERED=1

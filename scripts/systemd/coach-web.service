@@ -5,8 +5,8 @@ After=network.target
 [Service]
 Type=simple
 User=cqlanus
-WorkingDirectory=/home/cqlanus/projects/coach-tools/apps/web
-ExecStart=/home/cqlanus/.nvm/versions/node/v20/bin/node node_modules/.bin/next start -p 3010
+WorkingDirectory=/home/cqlanus/Documents/coach-tools/apps/web
+ExecStart=/home/cqlanus/.nvm/versions/node/v24.16.0/bin/node node_modules/.bin/next start -p 3010
 Restart=on-failure
 RestartSec=5
 Environment=NODE_ENV=production
