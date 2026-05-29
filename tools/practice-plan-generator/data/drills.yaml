@@ -536,6 +536,7 @@ drills:
   - Watch the ball, not the hop — track it all the way
   - Soft hands — give a little at contact
   - 'Backhand: bend your knee, not your back'
+  - Repetition builds confidence — the short hop is one of the biggest fear moments for young fielders; this drill removes that fear
   duration_min: 5
   duration_max: 10
   players_min: 4
@@ -856,6 +857,7 @@ drills:
   - 'High tee: keep hands on top, hit a line drive not a pop-up'
   - 'Low tee: let it travel deep, don''t drop your back shoulder'
   - 'Outside tee: stay through the ball, drive it the other way'
+  - Stride before the swing — top hand drives the barrel through the ball, finish with hands high
   duration_min: 10
   duration_max: 20
   players_min: 2
@@ -1112,6 +1114,11 @@ drills:
   - Run THROUGH the bag — don't slow down before it
   - Hit the front corner of the bag
   - Look right after you cross — is there an overthrow?
+  notes: 'Timing benchmarks for reference: under 4.0 seconds = college-level speed; 4.0–4.4
+    = travel ball range; 4.4+ = developmental focus area. Track every player and group
+    them so you know where to invest coaching time.
+
+    '
   duration_min: 5
   duration_max: 10
   players_min: 4
@@ -1416,6 +1423,7 @@ drills:
   - Body in front of the ball — that's job one
   - Drop to your knees, don't reach down
   - 'Head down: direct the ball to your feet'
+  - A passed ball is a coaching failure, not bad luck — it means this drill didn't happen enough
   duration_min: 8
   duration_max: 12
   players_min: 2
@@ -2316,9 +2324,10 @@ drills:
   - pitching_skills
   - strike_throwing
   - pitching_mechanics
-  description: 'Pitcher throws to a specific target — catcher holds glove in a zone (low-away, low-in, up-in) and pitcher
-    tries to hit it. Run 3-5 pitches to each zone. Can also tape a strike zone on a net or wall and throw at it without a
-    catcher. Track hit/miss. Good as a standalone station when a catcher isn''t available.
+  description: 'Pitcher throws to a specific target — catcher holds glove in one of four corners and pitcher tries to hit
+    it. 4-corner framework: low-in, low-out, high-in, high-out. Run 10 pitches to each corner and track strikes vs. misses.
+    Can also tape a strike zone on a net or wall and throw at it without a catcher. Rewards location over velocity — separates
+    deep-game pitchers from walk-prone ones.
 
     '
   coaching_cues:
@@ -3561,3 +3570,884 @@ drills:
   station_safe: true
   group_size_ideal: null
   self_directed: true
+- id: high_tee_low_tee
+  name: High-Tee Low-Tee
+  category: hitting
+  focus_tags:
+  - balanced
+  - hitting
+  skills:
+  - swinging_mechanics
+  - hitting_skills
+  - contact_ability
+  - strike_zone_awareness
+  description: 'Two tees placed on the same plate at different heights. Batter swings at the low ball without
+    resetting feet, then swings at the high ball within the same rep. Develops the ability to handle different
+    pitch heights within a single at-bat and trains the eye-level adjustment needed against pitchers who
+    work up and down in the zone.
+
+    '
+  coaching_cues:
+  - Adjust your bat path between swings — don't just take the same swing twice
+  - 'Low tee: let it travel deep, stay level'
+  - 'High tee: hands up, stay on top of the ball'
+  - Feet stay planted — the adjustment comes from your hands and path
+  duration_min: 8
+  duration_max: 12
+  players_min: 2
+  players_max: 4
+  coaches_needed: 1
+  group_type: small_group
+  locations:
+  - field
+  - overtime
+  - gym
+  equipment:
+  - tee
+  - wiffle_balls_or_baseballs
+  - bats
+  - net_or_fence
+  level: intermediate
+  position_specific: null
+  station_role: station_hitting
+  station_safe: true
+  group_size_ideal: 2
+  self_directed: true
+  notes: 'Requires two tees. Set the low tee at knee height and the high tee at letter height on the same
+    plate. Batter does not reset feet between the two swings — the whole point is the in-rep adjustment.
+
+    '
+- id: inside_outside_tee
+  name: Inside-Outside Tee
+  category: hitting
+  focus_tags:
+  - balanced
+  - hitting
+  skills:
+  - hitting_skills
+  - contact_ability
+  - strike_zone_awareness
+  - hand_arm_action
+  description: 'Tee is repositioned to the inside and outside halves of the plate with target zones marked —
+    pull gap for inside pitches, opposite field for outside. Hitter takes 10 swings inside focusing on pulling
+    to the gap, then 10 swings outside driving the ball the other way. Determines whether a hitter can punish
+    corner pitchers on both sides of the plate.
+
+    '
+  coaching_cues:
+  - 'Inside: meet the ball out front, drive to the pull gap'
+  - 'Outside: let it travel deep, drive it the other way'
+  - Your approach changes with pitch location — don't use the same swing both ways
+  - If you can't go opposite field on an outside pitch, the pitcher will own the outer half
+  duration_min: 8
+  duration_max: 15
+  players_min: 2
+  players_max: 4
+  coaches_needed: 1
+  group_type: small_group
+  locations:
+  - field
+  - overtime
+  - gym
+  equipment:
+  - tee
+  - wiffle_balls_or_baseballs
+  - bats
+  - net_or_fence
+  - cones
+  level: basic
+  position_specific: null
+  station_role: station_hitting
+  station_safe: true
+  group_size_ideal: 2
+  self_directed: true
+- id: two_strike_approach
+  name: Two-Strike Approach
+  category: hitting
+  focus_tags:
+  - balanced
+  - hitting
+  skills:
+  - hitting_skills
+  - contact_ability
+  - strike_zone_awareness
+  description: 'Pitcher delivers pitches in two-strike counts exclusively. Batter chokes up half an inch,
+    widens their stance slightly, and focuses on making contact — not driving the ball. Goal is 10 consecutive
+    contact swings. Prioritizes putting the ball in play and surviving the at-bat over swinging for power.
+
+    '
+  coaching_cues:
+  - Choke up a half inch — more control, more bat speed where it counts
+  - Widen your stance slightly — more balance, less lunge
+  - 'Two-strike goal: put it in play. Power comes on your pitch.'
+  - Foul it off if you have to — survive the at-bat
+  duration_min: 8
+  duration_max: 12
+  players_min: 3
+  players_max: 8
+  coaches_needed: 1
+  group_type: small_group
+  locations:
+  - field
+  - overtime
+  equipment:
+  - baseballs_or_wiffle_balls
+  - bats
+  - helmets
+  - l_screen_or_net
+  level: intermediate
+  position_specific: null
+  station_role: station_hitting
+  station_safe: true
+  group_size_ideal: 4
+  self_directed: false
+- id: bunt_and_hit_and_run
+  name: Bunt and Hit-and-Run
+  category: hitting
+  focus_tags:
+  - balanced
+  - hitting
+  - situations
+  - baserunning
+  skills:
+  - hitting_skills
+  - contact_ability
+  - baserunning_decisions
+  - baserunning_listening_to_coach
+  - team_concept
+  description: 'Live situation with a runner on first and full defense in position. Coach signals bunt or
+    hit-and-run from the dugout before the pitch. On a bunt call, batter squares early and redirects the
+    ball; on a hit-and-run, the runner breaks on the pitch and the batter must protect them by swinging at
+    anything close to the zone — ideally hitting the ball to the right side. Defense plays live throughout.
+
+    '
+  coaching_cues:
+  - 'Bunt: square early, give the pitcher a target — then redirect it fair'
+  - 'Hit-and-run: the runner is going — swing at anything close, protect them'
+  - 'Hit-and-run swing: ground ball to the right side if possible'
+  - Know the sign before you step in the box
+  duration_min: 12
+  duration_max: 20
+  players_min: 9
+  players_max: null
+  coaches_needed: 2
+  group_type: whole_team
+  locations:
+  - field
+  equipment:
+  - baseballs
+  - bats
+  - helmets
+  - bases
+  level: intermediate
+  position_specific: null
+  station_role: team
+  station_safe: false
+  group_size_ideal: null
+  self_directed: false
+- id: two_strike_battle_bp
+  name: Two-Strike Battle BP
+  category: hitting
+  focus_tags:
+  - balanced
+  - hitting
+  skills:
+  - hitting_skills
+  - contact_ability
+  - strike_zone_awareness
+  - swinging_hard
+  description: 'Live at-bats starting from an 0-2 count. Pitcher attacks the corners; hitter must fight off
+    pitches and put the ball in fair play. Fouling off 3 or more consecutive pitches earns the hitter a
+    fresh count. Separates league-average hitters from those who can compete all the way through a tough
+    at-bat. Builds the mental discipline required at the heart of an order.
+
+    '
+  coaching_cues:
+  - 'You''re behind: shorten your approach, make contact your first priority'
+  - Choke up, widen your stance — more control, stay in the at-bat
+  - 'Foul it off: three fouls earns a fresh count'
+  - 'Don''t expand the zone: make them throw strikes, even from 0-2'
+  duration_min: 15
+  duration_max: 25
+  players_min: 4
+  players_max: null
+  coaches_needed: 2
+  group_type: small_group
+  locations:
+  - field
+  equipment:
+  - baseballs
+  - bats
+  - helmets
+  - catcher_gear
+  level: intermediate
+  position_specific: null
+  station_role: team
+  station_safe: false
+  group_size_ideal: null
+  self_directed: false
+- id: changeup_progression
+  name: Change-Up Progression
+  category: pitching
+  focus_tags:
+  - pitching
+  skills:
+  - pitching_mechanics
+  - pitching_skills
+  - pitching_arm_action
+  description: 'Three-stage progression for developing a change-up as a secondary pitch. Stage 1 (grip drill):
+    pitcher works through slow-motion arm action with change-up grip (circle or three-finger), no live throw
+    — feel the grip and confirm arm speed matches the fastball. Stage 2: toss change-ups from 30 feet to a
+    partner, focusing on arm speed staying the same — the grip does the work. Stage 3: full-distance mixed
+    with fastballs (2:1 fastball-to-change-up ratio), catcher calls the pitch. The single most useful
+    secondary pitch a youth or high school pitcher can develop.
+
+    '
+  coaching_cues:
+  - 'Grip: circle or 3-finger — ball deeper in the hand than a fastball'
+  - Arm speed stays the same — the grip slows the pitch, not a deliberate slowdown
+  - 'Stage 2: throw it TO the glove, not around it'
+  - 'Stage 3: mix it in live — same arm action as your fastball, every time'
+  duration_min: 10
+  duration_max: 20
+  players_min: 2
+  players_max: 6
+  coaches_needed: 1
+  group_type: position_group
+  locations:
+  - field
+  - overtime
+  equipment:
+  - baseballs
+  level: intermediate
+  position_specific:
+  - pitcher
+  station_role: station_pitching
+  station_safe: true
+  group_size_ideal: 2
+  self_directed: false
+- id: live_ab_simulation
+  name: Live At-Bat Simulation
+  category: pitching
+  focus_tags:
+  - pitching
+  - situations
+  skills:
+  - pitching_skills
+  - strike_throwing
+  - pitching_mechanics
+  - team_concept
+  description: 'Pitcher faces a live hitter with an imaginary runner and a scripted game situation. Catcher
+    calls pitches and establishes a game plan. Coach tracks balls, strikes, and contact quality. Run a
+    12-15 pitch simulated inning. Teaches the mental side of pitching — sequencing, attacking hitters,
+    adjusting to counts — that a flat bullpen session cannot replicate.
+
+    '
+  coaching_cues:
+  - Attack the count — don't pitch backwards unless you have a specific reason
+  - 'Sequence: use this pitch to set up the next one'
+  - 'Catcher: make a plan before each batter and communicate it'
+  - Work fast — dead time between pitches drains your own momentum
+  duration_min: 10
+  duration_max: 20
+  players_min: 3
+  players_max: 8
+  coaches_needed: 1
+  group_type: position_group
+  locations:
+  - field
+  equipment:
+  - baseballs
+  - catcher_gear
+  - bats
+  - helmets
+  level: intermediate
+  position_specific:
+  - pitcher
+  - catcher
+  station_role: station_pitching
+  station_safe: false
+  group_size_ideal: 3
+  self_directed: false
+- id: triangle_ground_balls
+  name: Triangle Ground Balls
+  category: fielding
+  focus_tags:
+  - balanced
+  - fielding
+  skills:
+  - fielding_grounder
+  - moves_feet_to_ball
+  - throwing
+  - infield_where_to_throw
+  description: 'Three cones form a triangle with the coach at the apex. Fielder starts at the base of the
+    triangle. Coach hits or rolls a ground ball in either direction. Fielder reads the ball, fields it, and
+    throws to one of the two base cones. Rotate every 5 reps. Builds field-and-throw rhythm and throw
+    decision-making in both directions without the complexity of a full infield setup.
+
+    '
+  coaching_cues:
+  - Read the ball early — start moving before it reaches you
+  - Field it clean first, then find your cone — don't throw before you know where
+  - Shuffle your feet toward your target before releasing
+  duration_min: 8
+  duration_max: 12
+  players_min: 3
+  players_max: 8
+  coaches_needed: 1
+  group_type: small_group
+  locations:
+  - field
+  - overtime
+  - gym
+  equipment:
+  - baseballs
+  - cones
+  level: basic
+  position_specific:
+  - infield
+  station_role: station_fielding
+  station_safe: true
+  group_size_ideal: 4
+  self_directed: false
+- id: six_fs_walkthrough
+  name: Six F's Walk-Through
+  category: fielding
+  focus_tags:
+  - balanced
+  - fielding
+  skills:
+  - fielding_grounder
+  - two_hands_out_front
+  - moves_feet_to_ball
+  - throwing
+  - arm_action
+  description: "Structured progression through Perry Hill's Six F's fielding framework. Coach hits a slow\
+    \ grounder. Fielder narrates each F aloud while executing — Feet (ready position, weight on balls of\
+    \ feet), Field (glove to ball out front), Funnel (bring ball to body center), Footwork (clean footwork\
+    \ pattern to throwing position), Fire (clean arm slot release), Follow (step toward target after throwing).\
+    \ Start with 12 reps at slow pace, gradually increase to game speed. Forces a clean, complete sequence\
+    \ on every rep — often called the single most useful infield drill because of this.\n"
+  coaching_cues:
+  - 'Say it out loud: Feet, Field, Funnel, Footwork, Fire, Follow'
+  - 'Feet: weight on balls of feet, glove near the ground in ready position'
+  - 'Field: glove out in front — not between your legs'
+  - 'Funnel: bring it to your body center, two-hand secure'
+  - 'Footwork: quick clean steps toward your target before you throw'
+  - 'Follow: step toward the target after the release'
+  duration_min: 8
+  duration_max: 15
+  players_min: 4
+  players_max: 10
+  coaches_needed: 1
+  group_type: small_group
+  locations:
+  - field
+  - overtime
+  - gym
+  equipment:
+  - baseballs
+  - cones
+  level: basic
+  position_specific:
+  - infield
+  station_role: station_fielding
+  station_safe: true
+  group_size_ideal: 4
+  self_directed: false
+- id: tag_plays_second
+  name: Tag Plays at Second
+  category: fielding
+  focus_tags:
+  - balanced
+  - fielding
+  - situations
+  skills:
+  - mi_covering_second
+  - force_vs_tag
+  - team_concept
+  description: 'Middle infielder receives a feed at second base and applies a tag on a simulated sliding
+    runner. Coach or partner feeds the ball while another player simulates sliding — using both pop-up and
+    hook slide techniques so the fielder learns different tag applications. Fielder learns to swipe-tag low
+    and protect the ball after the tag. One of the most under-coached aspects of infield defense.
+
+    '
+  coaching_cues:
+  - 'Swipe-tag: bring the glove down to the bag, let the runner slide into it'
+  - 'Pop-up slide: tag the foot as it comes up toward the bag'
+  - 'Hook slide: follow the foot — tag where they end, not where they started'
+  - Protect the ball after the tag — squeeze it, don't let it get knocked loose
+  duration_min: 8
+  duration_max: 12
+  players_min: 3
+  players_max: 8
+  coaches_needed: 1
+  group_type: position_group
+  locations:
+  - field
+  - gym
+  equipment:
+  - baseballs
+  - bases
+  level: intermediate
+  position_specific:
+  - middle_infield
+  station_role: station_fielding
+  station_safe: false
+  group_size_ideal: 4
+  self_directed: false
+- id: double_play_execution
+  name: Double Play Execution
+  category: fielding
+  focus_tags:
+  - balanced
+  - fielding
+  - situations
+  skills:
+  - fielding_grounder
+  - mi_covering_second
+  - throwing
+  - catch_thrown_ball
+  - team_concept
+  description: 'Full double play sequence from both sides. Fielder fields a ground ball, feeds the pivot
+    man at second, and pivot turns and fires to first. Run the most common combinations: 4-6-3, 6-4-3, and
+    optionally 5-2-3. Emphasis on the complete chain — feed quality, pivot footwork, and first-base throw
+    accuracy. Separates teams that routinely convert two outs from those that settle for one.
+
+    '
+  coaching_cues:
+  - 'Feed: catchable and chest-high — make your partner''s job easy'
+  - 'Pivot: catch, find your grip, clear the runner, throw — in that order'
+  - 'First-base throw: step toward first, chest-high strike'
+  - 'Both players: communicate before the ball is hit — who''s covering?'
+  duration_min: 10
+  duration_max: 20
+  players_min: 5
+  players_max: null
+  coaches_needed: 1
+  group_type: position_group
+  locations:
+  - field
+  - gym
+  equipment:
+  - baseballs
+  - bases
+  level: intermediate
+  position_specific:
+  - middle_infield
+  - first_base
+  station_role: station_fielding
+  station_safe: false
+  group_size_ideal: 5
+  self_directed: false
+- id: do_or_die
+  name: Do or Die
+  category: fielding
+  focus_tags:
+  - balanced
+  - fielding
+  - situations
+  skills:
+  - outfield_grounders
+  - outfield_throw_to_cutoff
+  - charging_the_ball
+  - throwing
+  - arm_action
+  description: 'Ball gets through the infield and the outfielder must charge and make a throw home. Coach
+    rolls or hits a ground ball through the infield. Outfielder charges at full speed, fields on the run,
+    and makes a one-hop throw initially (full-air throw once mechanics improve) to home plate or a cutoff.
+    Simulates the most critical defensive play in a close game — preventing the tying or go-ahead run from
+    scoring on a single with runners on base.
+
+    '
+  coaching_cues:
+  - Sprint to the ball — this is an emergency, not a routine play
+  - Field it with momentum going toward home
+  - 'One hop is fine: accurate one-hop beats an offline air throw'
+  - 'After you release: back up the play — don''t watch it'
+  duration_min: 8
+  duration_max: 15
+  players_min: 3
+  players_max: null
+  coaches_needed: 1
+  group_type: small_group
+  locations:
+  - field
+  equipment:
+  - baseballs
+  - bases
+  level: intermediate
+  position_specific:
+  - outfield
+  station_role: station_fielding
+  station_safe: false
+  group_size_ideal: 4
+  self_directed: false
+- id: wall_ball_reads
+  name: Wall Ball Reads
+  category: fielding
+  focus_tags:
+  - balanced
+  - fielding
+  skills:
+  - catch_fly_ball
+  - outfield_grounders
+  - outfield_fly_ball_footwork
+  description: 'Outfielder reads a carom off a vertical surface — wall, fence, or batting cage netting.
+    Coach throws balls at varying angles off the wall. Fielder reads the carom angle before the ball arrives,
+    positions to field it cleanly, and makes a recovery throw. Turns a potential extra-base hit into a
+    single. Best for teams with an outfield fence; introduce at 14U or younger if a fence is present.
+
+    '
+  coaching_cues:
+  - Watch the angle of the throw — the wall tells you where the ball is going
+  - Get to your position off the wall before the carom arrives
+  - 'After it comes off: field it like a ground ball, same mechanics'
+  - 'Quick recovery throw: no time to reset perfectly — throw off your momentum'
+  duration_min: 8
+  duration_max: 12
+  players_min: 2
+  players_max: 6
+  coaches_needed: 1
+  group_type: small_group
+  locations:
+  - field
+  equipment:
+  - baseballs
+  level: intermediate
+  position_specific:
+  - outfield
+  station_role: station_fielding
+  station_safe: true
+  group_size_ideal: 3
+  self_directed: false
+- id: long_toss_progression
+  name: Long Toss Progression
+  category: throwing
+  focus_tags:
+  - balanced
+  - throwing
+  - pitching
+  skills:
+  - throwing
+  - arm_action
+  - arm_strength
+  description: 'Structured distance-building arm warm-up and conditioning sequence. Pairs start 10 feet apart
+    and back up 5 feet after every 5 throws until reaching maximum comfortable distance, then walk back in
+    using the same pattern. Total duration 10 minutes. Develops arm endurance and builds consistent mechanics
+    over increasing distance. Use as a daily warm-up or dedicated arm-care routine at every level.
+
+    '
+  coaching_cues:
+  - Same mechanics at every distance — don't sacrifice form to gain distance
+  - 'Going back: throw on a line. Coming back in: arc is fine.'
+  - Stop when your arm signals fatigue — push distance gradually over weeks, not one session
+  - Four-seam grip on every throw — build the habit
+  duration_min: 8
+  duration_max: 12
+  players_min: 4
+  players_max: null
+  coaches_needed: 1
+  group_type: pairs
+  locations:
+  - field
+  - overtime
+  equipment:
+  - baseballs
+  level: basic
+  position_specific: null
+  station_role: opening
+  station_safe: true
+  group_size_ideal: null
+  self_directed: true
+- id: catcher_pop_time
+  name: Catcher Pop-Time
+  category: catching
+  focus_tags:
+  - balanced
+  - catching
+  skills:
+  - catching_next_level
+  - catching_fundamentals
+  - throwing
+  - arm_action
+  description: 'Catcher is timed on stolen base attempts — from pitch catch to ball arriving at second base.
+    Coach throws pitches while the catcher receives, quickly transfers to throwing grip, and fires a strike
+    to second. A stopwatch measures release-to-glove time. Benchmark targets: under 2.0 seconds for travel
+    ball, under 2.2 seconds for high school, 2.2-2.4 for recreational. Builds the quick-transfer habit
+    that shuts down the running game.
+
+    '
+  coaching_cues:
+  - 'Quick transfer: catch it and your throwing hand is already moving'
+  - 'Stay low: rise slightly as you throw — don''t stand straight up first'
+  - 'Throw to second: hit the bag, accurate and firm'
+  - 'Pop and throw: the entire catch-to-release motion is one connected move'
+  duration_min: 8
+  duration_max: 12
+  players_min: 2
+  players_max: 4
+  coaches_needed: 1
+  group_type: position_group
+  locations:
+  - field
+  equipment:
+  - baseballs
+  - catcher_gear
+  - bases
+  - stopwatch
+  level: intermediate
+  position_specific:
+  - catcher
+  station_role: station_catching
+  station_safe: false
+  group_size_ideal: 2
+  self_directed: false
+- id: lead_and_steal_reads
+  name: Lead and Steal Reads
+  category: baserunning
+  focus_tags:
+  - balanced
+  - baserunning
+  - situations
+  skills:
+  - base_running
+  - baserunning_decisions
+  - baserunning_listening_to_coach
+  description: 'Runner practices primary and secondary leads at first base. Runner takes a comfortable primary
+    lead (2-3 steps), freezes while coach checks form — weight on balls of feet, knees bent, ready in both
+    directions. On the pitch, runner takes a secondary lead (2 shuffle steps toward second). From a script,
+    coach calls "go" (steal) or "stay." Runner executes without hesitation. Builds the correct drop-step
+    and steal jump for the legal leadoff running game.
+
+    '
+  coaching_cues:
+  - 'Primary lead: 2-3 steps, weight on balls of feet, ready to go either direction'
+  - 'Secondary: 2 shuffle steps as the pitch is delivered — not before it'
+  - 'On ''go'': crossover step first, then drive — don''t false-step toward the pitcher'
+  - Know your pitcher — time their delivery before you commit to a steal
+  duration_min: 8
+  duration_max: 12
+  players_min: 4
+  players_max: null
+  coaches_needed: 1
+  group_type: small_group
+  locations:
+  - field
+  - gym
+  equipment:
+  - bases
+  level: intermediate
+  position_specific: null
+  station_role: opening
+  station_safe: true
+  group_size_ideal: null
+  self_directed: false
+- id: rundown_pickle
+  name: Rundown Pickle
+  category: baserunning
+  focus_tags:
+  - balanced
+  - baserunning
+  - situations
+  skills:
+  - base_running
+  - baserunning_decisions
+  - team_concept
+  - force_vs_tag
+  description: 'Runner is caught between two bases and must survive a defensive rundown. Two fielders run
+    the standard rundown — one chases, the other receives the throw to force the runner back. At high
+    school level, add a third fielder for the delayed cutoff. Offense goal: survive as long as possible
+    and ideally reach a base safely. Defense goal: get the out in as few throws as possible. Happens more
+    often in youth baseball than most coaches anticipate.
+
+    '
+  coaching_cues:
+  - 'Runner: make the fielder commit a throw before you change direction'
+  - 'Runner: buy time — every wasted throw is a chance for a mistake'
+  - 'Defense: run the runner back toward the previous base, force the tag'
+  - 'Fewer throws = fewer errors: get the out in 1-2 throws if possible'
+  duration_min: 8
+  duration_max: 15
+  players_min: 5
+  players_max: null
+  coaches_needed: 1
+  group_type: small_group
+  locations:
+  - field
+  - gym
+  - overtime
+  equipment:
+  - baseballs
+  - bases
+  level: basic
+  position_specific: null
+  station_role: team
+  station_safe: false
+  group_size_ideal: null
+  self_directed: false
+- id: run_the_bases_race
+  name: Run the Bases Race
+  category: baserunning
+  focus_tags:
+  - balanced
+  - baserunning
+  skills:
+  - base_running
+  - rounding_the_bag
+  - run_through_first
+  description: 'Players race around the full diamond in heats of 2-3. Low-pressure competitive activity
+    that builds base path familiarity for beginners. Players learn the correct sequence of bases and develop
+    a feel for running at full speed. Keep it fun and fast-paced.
+
+    '
+  coaching_cues:
+  - Touch every base — don't cut corners
+  - Run THROUGH first base, round the rest
+  - Sprint all the way home — don't coast at the end
+  duration_min: 5
+  duration_max: 10
+  players_min: 4
+  players_max: null
+  coaches_needed: 1
+  group_type: whole_team
+  locations:
+  - field
+  - gym
+  equipment:
+  - bases
+  level: basic
+  position_specific: null
+  station_role: opening
+  station_safe: true
+  group_size_ideal: null
+  self_directed: true
+- id: bunt_defense_coverage
+  name: Bunt Defense Coverage
+  category: situations
+  focus_tags:
+  - balanced
+  - situations
+  - fielding
+  skills:
+  - team_concept
+  - ball_base_or_backup
+  - basic_positioning
+  - backing_up_the_play
+  - covering_first
+  description: 'Live bunt situation with full defensive assignments. Coach calls the bunt direction (toward
+    third, toward first, or push bunt down the middle) and places the ball accordingly. Defense executes:
+    corner infielders charge, catcher fields the area in front of the plate, pitcher covers the vacated
+    base, middle infielders cover second and back up. Progress to running the play from the stretch at 12U
+    and up. One of the most common ways teams give up free baserunners.
+
+    '
+  coaching_cues:
+  - 'Third baseman: charge on any bunt down the line — that''s your ball'
+  - 'Pitcher: cover first if the first baseman fields the bunt'
+  - 'Catcher: own the area in front of the plate, be loud about who has it'
+  - Everyone has an assignment — nobody watches the play happen
+  duration_min: 10
+  duration_max: 15
+  players_min: 7
+  players_max: null
+  coaches_needed: 2
+  group_type: whole_team
+  locations:
+  - field
+  equipment:
+  - baseballs
+  - bases
+  level: basic
+  position_specific: null
+  station_role: team
+  station_safe: false
+  group_size_ideal: null
+  self_directed: false
+- id: first_and_third_plays
+  name: First and Third Plays
+  category: situations
+  focus_tags:
+  - balanced
+  - situations
+  - baserunning
+  - fielding
+  skills:
+  - team_concept
+  - basic_positioning
+  - force_vs_tag
+  - baserunning_decisions
+  - baserunning_listening_to_coach
+  description: 'Runners on first and third with a steal attempt. First runner breaks for second on the pitch
+    while a runner holds at third. Defense must choose and execute their response: throw through to second
+    (risk the runner at third scoring), fake the throw to hold third and trail, or look home to freeze the
+    runner then trail. Run all three defensive options so infielders learn to read the situation, communicate
+    the call, and execute cleanly. Decides a surprising share of close games at every level.
+
+    '
+  coaching_cues:
+  - 'Defense: call your play BEFORE the runner goes — communicate it'
+  - 'Throw through: make sure second base is covered before you release'
+  - 'Look home: step toward the plate, pause, then throw through or trail to second'
+  - 'Runner at third: wait for the throw to be committed before you break'
+  duration_min: 12
+  duration_max: 20
+  players_min: 8
+  players_max: null
+  coaches_needed: 2
+  group_type: whole_team
+  locations:
+  - field
+  equipment:
+  - baseballs
+  - bases
+  level: intermediate
+  position_specific: null
+  station_role: team
+  station_safe: false
+  group_size_ideal: null
+  self_directed: false
+- id: inning_defense_race
+  name: Inning Defense Race
+  category: situations
+  focus_tags:
+  - balanced
+  - situations
+  - fielding
+  skills:
+  - team_concept
+  - ball_base_or_backup
+  - fielding_grounder
+  - catch_fly_ball
+  - covering_first
+  description: 'Defense takes the field and coach hits 3 batted balls in sequence — team must record 3 outs
+    as fast as possible while a stopwatch runs. Goal: complete the simulated inning in under 90 seconds.
+    Forces players to execute with urgency — no lollygagging between pitches, no slow jogs to position.
+    Reveals the difference between an efficient defense that builds tempo and one that bleeds time between
+    every play.
+
+    '
+  coaching_cues:
+  - Jog to your position, sprint to the ball
+  - 'Next pitch is coming: be set and ready before the coach hits'
+  - Communicate constantly — calls, backup assignments, base coverage
+  - Under 90 seconds is the goal — compete against your own best time
+  duration_min: 10
+  duration_max: 15
+  players_min: 9
+  players_max: null
+  coaches_needed: 2
+  group_type: whole_team
+  locations:
+  - field
+  equipment:
+  - baseballs
+  - bases
+  - fungo_bat
+  - stopwatch
+  level: intermediate
+  position_specific: null
+  station_role: team
+  station_safe: false
+  group_size_ideal: null
+  self_directed: false

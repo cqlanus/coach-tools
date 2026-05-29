@@ -28,7 +28,8 @@
       "Bash(cat)",
       "Bash(/Users/cqlanus/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell --headless --screenshot=/tmp/defense-fixed.png --window-size=1280,900 http://localhost:3010/defense)",
       "Bash(node *)",
-      "Bash(ansible --version)"
+      "Bash(ansible --version)",
+      "WebFetch(domain:joinstriveon.com)"
     ]
   }
 }
