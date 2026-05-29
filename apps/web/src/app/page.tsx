@@ -5,27 +5,11 @@ export const metadata: Metadata = { title: "Coach Tools" };
 
 const tools = [
   {
-    href: "/defense",
-    label: "Defensive Responsibilities",
-    description:
-      "Interactive field diagram — select a base situation and ball in play, see every player's assignment color-coded.",
-    icon: "🏟️",
-    status: "live",
-  },
-  {
     href: "/practice",
     label: "Practice Plan Generator",
     description:
       "Build a timed practice plan by duration, location, and focus area. Download as Word doc or spreadsheet.",
     icon: "📋",
-    status: "live",
-  },
-  {
-    href: "/throwing",
-    label: "Throwing Program",
-    description:
-      "8-week pre-season throwing program for 8U pitchers. Progressive arm care with drill descriptions.",
-    icon: "⚾",
     status: "live",
   },
   {
@@ -37,11 +21,27 @@ const tools = [
     status: "live",
   },
   {
+    href: "/throwing",
+    label: "Throwing Program",
+    description:
+      "8-week pre-season throwing program for 8U pitchers. Progressive arm care with drill descriptions.",
+    icon: "⚾",
+    status: "live",
+  },
+  {
     href: "/lineup",
     label: "Game Day Lineup",
     description:
       "Generate a full position rotation for a game — minimizes repeat positions and handles bench equitably.",
     icon: "📝",
+    status: "live",
+  },
+  {
+    href: "/defense",
+    label: "Defensive Responsibilities",
+    description:
+      "Interactive field diagram — select a base situation and ball in play, see every player's assignment color-coded.",
+    icon: "🏟️",
     status: "live",
   },
 ];
