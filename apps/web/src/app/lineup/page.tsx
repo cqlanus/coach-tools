@@ -201,6 +201,12 @@ export default function LineupPage() {
       }
       const data = await res.json();
       setDownloadUrl(data.docx_url);
+      const a = document.createElement("a");
+      a.href = data.docx_url;
+      a.download = "";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     } catch (e: unknown) {
       setDownloadError(e instanceof Error ? e.message : "Unknown error");
     } finally {
@@ -354,7 +360,7 @@ export default function LineupPage() {
                           <select
                             value={spec.position}
                             onChange={e => updateSpecialization(idx, specIdx, "position", e.target.value)}
-                            className={`flex-1 ${selectCls}`}
+                            className="flex-1 min-w-0 bg-navy-light/40 border border-white/15 text-cream text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-red/60 appearance-none"
                           >
                             <option value="">— position —</option>
                             {FIELD_POSITIONS[posKey]
@@ -364,7 +370,7 @@ export default function LineupPage() {
                           <select
                             value={spec.targetInnings}
                             onChange={e => updateSpecialization(idx, specIdx, "targetInnings", Number(e.target.value))}
-                            className={`w-20 ${selectCls}`}
+                            className="w-20 shrink-0 bg-navy-light/40 border border-white/15 text-cream text-sm rounded-lg px-2 py-2 focus:outline-none focus:border-red/60 appearance-none"
                           >
                             {[2, 3, 4].map(n => <option key={n} value={n}>{n} inn</option>)}
                           </select>
