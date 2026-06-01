@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { TopNav } from "@/components/ui/TopNav";
 import { generateLineup, DISPLAY_POSITIONS, FIELD_POSITIONS } from "@/lib/lineup-engine";
-import type { Player, LineupInput, LineupResult, OutfieldFormat } from "@/lib/lineup-engine";
+import type { Player, LineupInput, LineupResult, OutfieldFormat, Specialization } from "@/lib/lineup-engine";
 
 type LockRow = { pos: string; player: string };
 
@@ -63,8 +63,26 @@ export default function LineupPage() {
     setRoster(r => r.filter((_, i) => i !== idx));
   }
 
-  function updatePlayer(idx: number, field: keyof Player, value: string) {
+  function updatePlayer(idx: number, field: "name" | "number", value: string) {
     setRoster(r => r.map((p, i) => i === idx ? { ...p, [field]: value } : p));
+  }
+
+  function addSpecialization(playerIdx: number) {
+    setRoster(r => r.map((p, i) => i === playerIdx
+      ? { ...p, specializations: [...(p.specializations ?? []), { position: "", targetInnings: 2 }] }
+      : p));
+  }
+
+  function removeSpecialization(playerIdx: number, specIdx: number) {
+    setRoster(r => r.map((p, i) => i === playerIdx
+      ? { ...p, specializations: (p.specializations ?? []).filter((_, j) => j !== specIdx) }
+      : p));
+  }
+
+  function updateSpecialization(playerIdx: number, specIdx: number, field: keyof Specialization, value: string | number) {
+    setRoster(r => r.map((p, i) => i === playerIdx
+      ? { ...p, specializations: (p.specializations ?? []).map((s, j) => j !== specIdx ? s : { ...s, [field]: value }) }
+      : p));
   }
 
   function movePlayer(idx: number, dir: -1 | 1) {
@@ -138,6 +156,7 @@ export default function LineupPage() {
       battingOrder: validPlayers.map(p => ({
         name: p.name.trim(),
         number: p.number?.trim() || undefined,
+        specializations: (p.specializations ?? []).filter(s => s.position && s.targetInnings),
       })),
       pitchers: pitchers.slice(0, innings),
       catchers: catchers.slice(0, innings),
@@ -167,6 +186,9 @@ export default function LineupPage() {
           batting_order: validPlayers.map(p => ({
             name: p.name.trim(),
             number: p.number?.trim() || null,
+            specializations: (p.specializations ?? [])
+              .filter(s => s.position && s.targetInnings)
+              .map(s => ({ position: s.position, target_innings: s.targetInnings })),
           })),
           pitchers: pitchers.slice(0, innings),
           catchers: catchers.slice(0, innings),
@@ -288,36 +310,79 @@ export default function LineupPage() {
               <p className="text-cream/40 text-xs mb-3">
                 Enter players top-to-bottom in batting order. Jersey number is optional.
               </p>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 {roster.map((player, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <span className="text-cream/30 font-display font-bold text-sm w-5 shrink-0 text-right">
-                      {idx + 1}
-                    </span>
-                    <input
-                      type="text" placeholder="Player name" value={player.name}
-                      onChange={e => updatePlayer(idx, "name", e.target.value)}
-                      className="flex-1 bg-navy-light/40 border border-white/15 text-cream text-sm
-                        rounded-lg px-3 py-1.5 focus:outline-none focus:border-red/60"
-                    />
-                    <input
-                      type="text" placeholder="#" value={player.number ?? ""}
-                      onChange={e => updatePlayer(idx, "number", e.target.value)}
-                      className="w-12 bg-navy-light/40 border border-white/15 text-cream text-sm
-                        rounded-lg px-2 py-1.5 focus:outline-none focus:border-red/60 text-center"
-                    />
-                    <button
-                      onClick={() => movePlayer(idx, -1)} disabled={idx === 0}
-                      className="text-cream/30 hover:text-cream disabled:opacity-20 px-1 text-xs"
-                    >↑</button>
-                    <button
-                      onClick={() => movePlayer(idx, 1)} disabled={idx === roster.length - 1}
-                      className="text-cream/30 hover:text-cream disabled:opacity-20 px-1 text-xs"
-                    >↓</button>
-                    <button
-                      onClick={() => removePlayer(idx)}
-                      className="text-cream/30 hover:text-red-light px-1 text-sm"
-                    >×</button>
+                  <div key={idx} className="flex flex-col gap-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="text-cream/30 font-display font-bold text-sm w-5 shrink-0 text-right">
+                        {idx + 1}
+                      </span>
+                      <input
+                        type="text" placeholder="Player name" value={player.name}
+                        onChange={e => updatePlayer(idx, "name", e.target.value)}
+                        className="flex-1 bg-navy-light/40 border border-white/15 text-cream text-sm
+                          rounded-lg px-3 py-1.5 focus:outline-none focus:border-red/60"
+                      />
+                      <input
+                        type="text" placeholder="#" value={player.number ?? ""}
+                        onChange={e => updatePlayer(idx, "number", e.target.value)}
+                        className="w-12 bg-navy-light/40 border border-white/15 text-cream text-sm
+                          rounded-lg px-2 py-1.5 focus:outline-none focus:border-red/60 text-center"
+                      />
+                      <button
+                        onClick={() => movePlayer(idx, -1)} disabled={idx === 0}
+                        className="text-cream/30 hover:text-cream disabled:opacity-20 px-1 text-xs"
+                      >↑</button>
+                      <button
+                        onClick={() => movePlayer(idx, 1)} disabled={idx === roster.length - 1}
+                        className="text-cream/30 hover:text-cream disabled:opacity-20 px-1 text-xs"
+                      >↓</button>
+                      <button
+                        onClick={() => removePlayer(idx)}
+                        className="text-cream/30 hover:text-red-light px-1 text-sm"
+                      >×</button>
+                    </div>
+
+                    {/* Specialization rows */}
+                    {(player.specializations ?? []).map((spec, specIdx) => {
+                      const usedPositions = new Set(
+                        (player.specializations ?? []).filter((_, j) => j !== specIdx).map(s => s.position).filter(Boolean)
+                      );
+                      return (
+                        <div key={specIdx} className="flex items-center gap-2 ml-7">
+                          <span className="text-cream/20 text-xs">↳</span>
+                          <select
+                            value={spec.position}
+                            onChange={e => updateSpecialization(idx, specIdx, "position", e.target.value)}
+                            className={`flex-1 ${selectCls}`}
+                          >
+                            <option value="">— position —</option>
+                            {FIELD_POSITIONS[posKey]
+                              .filter(p => !usedPositions.has(p) || p === spec.position)
+                              .map(p => <option key={p} value={p}>{p}</option>)}
+                          </select>
+                          <select
+                            value={spec.targetInnings}
+                            onChange={e => updateSpecialization(idx, specIdx, "targetInnings", Number(e.target.value))}
+                            className={`w-20 ${selectCls}`}
+                          >
+                            {[2, 3, 4].map(n => <option key={n} value={n}>{n} inn</option>)}
+                          </select>
+                          <button
+                            onClick={() => removeSpecialization(idx, specIdx)}
+                            className="text-cream/30 hover:text-red-light px-1 text-sm"
+                          >×</button>
+                        </div>
+                      );
+                    })}
+                    {player.name.trim() && (
+                      <button
+                        onClick={() => addSpecialization(idx)}
+                        className="ml-7 text-cream/30 hover:text-cream/60 text-xs font-display transition-colors text-left"
+                      >
+                        + specialization
+                      </button>
+                    )}
                   </div>
                 ))}
               </div>
@@ -500,6 +565,24 @@ export default function LineupPage() {
                     </div>
                   )}
                 </div>
+
+                {/* Specialization fulfillment */}
+                {result.specializationResults.length > 0 && (
+                  <div className="flex flex-wrap gap-2 pb-3 border-b border-white/10">
+                    {result.specializationResults.map((sr, i) => {
+                      const fulfilled = sr.achieved >= sr.target;
+                      return (
+                        <span key={i} className={`text-xs px-2 py-1 rounded font-display font-semibold border ${
+                          fulfilled
+                            ? "border-green-400/40 text-green-400"
+                            : "border-white/15 text-cream/40"
+                        }`}>
+                          {sr.player} {sr.position}: {sr.achieved}/{sr.target}{fulfilled ? " ✓" : ""}
+                        </span>
+                      );
+                    })}
+                  </div>
+                )}
 
                 {/* Legend */}
                 <div className="flex items-center gap-4 text-xs">

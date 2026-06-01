@@ -27,9 +27,15 @@ router = APIRouter()
 
 # ── Pydantic models ─────────────────────────────────────────────────────────
 
+class SpecializationIn(BaseModel):
+    position: str
+    target_innings: int
+
+
 class PlayerIn(BaseModel):
     name: str
     number: Optional[str] = None
+    specializations: List[SpecializationIn] = []
 
 
 class LineupRequest(BaseModel):
@@ -167,16 +173,56 @@ def compute_lineup(req: LineupRequest):
     best_assignments = None
     best_repeats = float("inf")
     best_history = None
+    best_spec_achieved = None
+
+    spec_players = [p for p in req.batting_order if p.specializations]
 
     for pos_order in pos_orders:
         hist = {p: set() for p in all_players}
         asgn = []
         ok = True
 
+        spec_achieved_this = {
+            p.name: {s.position: 0 for s in p.specializations}
+            for p in spec_players
+        }
+
         for i in range(req.innings):
             pitcher, catcher = fixed[i]["pitcher"], fixed[i]["catcher"]
             bench_this = bench[i]
-            locked_this = locked[i]
+
+            locked_this = dict(locked[i])  # start with hard locks
+
+            if spec_players:
+                hard_locked_players = set(locked[i].values())
+                hard_locked_positions = set(locked[i].keys())
+                position_candidates = {}
+
+                for pi, player in enumerate(req.batting_order):
+                    name = player.name
+                    if not player.specializations:
+                        continue
+                    if name in (pitcher, catcher) or name in bench_this or name in hard_locked_players:
+                        continue
+                    eligible = [
+                        {"position": s.position, "remaining": s.target_innings - spec_achieved_this[name].get(s.position, 0)}
+                        for s in player.specializations
+                        if s.position and s.position not in hard_locked_positions
+                        and s.target_innings - spec_achieved_this[name].get(s.position, 0) > 0
+                    ]
+                    if not eligible:
+                        continue
+                    eligible.sort(key=lambda x: -x["remaining"])
+                    best = eligible[0]
+                    pos = best["position"]
+                    if pos not in position_candidates:
+                        position_candidates[pos] = []
+                    position_candidates[pos].append({"player": name, "remaining": best["remaining"], "batting_idx": pi})
+
+                for pos, candidates in position_candidates.items():
+                    candidates.sort(key=lambda x: (-x["remaining"], x["batting_idx"]))
+                    locked_this[pos] = candidates[0]["player"]
+
             locked_pos_keys = set(locked_this.keys())
             locked_player_values = list(locked_this.values())
             field_players = [
@@ -188,6 +234,13 @@ def compute_lineup(req: LineupRequest):
             if result is None:
                 ok = False
                 break
+
+            for pos, player in locked_this.items():
+                if locked[i].get(pos) == player:
+                    continue  # skip hard locks
+                if result.get(pos) == player and pos in spec_achieved_this.get(player, {}):
+                    spec_achieved_this[player][pos] += 1
+
             hist[pitcher].add("P")
             hist[catcher].add("C")
             for b in bench_this:
@@ -208,21 +261,38 @@ def compute_lineup(req: LineupRequest):
             for pos, name in asgn[i].items():
                 full_history[name].append(pos)
 
-        repeats = 0
+        spec_repeats = sum(
+            max(0, min(spec_achieved_this[p.name].get(s.position, 0), s.target_innings) - 1)
+            for p in spec_players
+            for s in p.specializations
+        )
+
+        raw_repeats = 0
         for positions in full_history.values():
             playing = [p for p in positions if p != "BENCH"]
             for j, p in enumerate(playing):
                 if playing.index(p) != j:
-                    repeats += 1
+                    raw_repeats += 1
 
-        if repeats < best_repeats:
-            best_repeats = repeats
+        adjusted_repeats = raw_repeats - spec_repeats
+
+        if adjusted_repeats < best_repeats:
+            best_repeats = adjusted_repeats
             best_assignments = asgn
             best_history = full_history
-            if repeats == 0:
+            best_spec_achieved = spec_achieved_this
+            if adjusted_repeats == 0:
                 break
 
-    return best_assignments, best_history, bench, bench_per_inning, field_key
+    specialization_results = [
+        {"player": p.name, "position": s.position, "target": s.target_innings,
+         "achieved": best_spec_achieved.get(p.name, {}).get(s.position, 0) if best_spec_achieved else 0}
+        for p in req.batting_order
+        for s in p.specializations
+        if s.position
+    ]
+
+    return best_assignments, best_history, bench, bench_per_inning, field_key, specialization_results
 
 
 # ── docx generation ──────────────────────────────────────────────────────────
@@ -439,7 +509,7 @@ def generate_lineup(req: LineupRequest):
             )
 
     try:
-        assignments, _, bench, bench_per_inning, field_key = compute_lineup(req)
+        assignments, _, bench, bench_per_inning, field_key, _ = compute_lineup(req)
         if assignments is None:
             raise HTTPException(status_code=500, detail="Could not compute a valid rotation — check inputs")
 

@@ -1,6 +1,19 @@
+export interface Specialization {
+  position: string;
+  targetInnings: number;
+}
+
 export interface Player {
   name: string;
   number?: string;
+  specializations?: Specialization[];
+}
+
+export interface SpecializationResult {
+  player: string;
+  position: string;
+  target: number;
+  achieved: number;
 }
 
 export type OutfieldFormat = "standard" | "4-outfielder";
@@ -29,6 +42,7 @@ export interface LineupResult {
   positionTotals: Record<string, string[]>;
   repeats: number;
   conflictErrors: string[];
+  specializationResults: SpecializationResult[];
 }
 
 export const FIELD_POSITIONS: Record<string, string[]> = {
@@ -149,6 +163,7 @@ function planBench(
 export function generateLineup(input: LineupInput): LineupResult {
   const { innings, battingOrder, pitchers, catchers, outfieldFormat, lockedFieldPositions } = input;
   const allPlayers = battingOrder.map(p => p.name);
+  const specPlayers = battingOrder.filter(p => p.specializations?.length);
 
   const locked: Array<Record<string, string>> = Array.from({ length: innings }, (_, i) =>
     lockedFieldPositions?.[i] ?? {}
@@ -185,6 +200,7 @@ export function generateLineup(input: LineupInput): LineupResult {
   let bestAssignments: Array<Record<string, string>> | null = null;
   let bestRepeats = Infinity;
   let bestHistory: Record<string, string[]> | null = null;
+  let bestSpecAchieved: Record<string, Record<string, number>> | null = null;
 
   for (const posOrder of posOrders) {
     const hist: Record<string, Set<string>> = Object.fromEntries(
@@ -193,10 +209,47 @@ export function generateLineup(input: LineupInput): LineupResult {
     const asgn: Array<Record<string, string>> = [];
     let ok = true;
 
+    // Per-posOrder specialization fulfillment tracking
+    const specAchievedThis: Record<string, Record<string, number>> = Object.fromEntries(
+      specPlayers.map(p => [p.name, Object.fromEntries((p.specializations ?? []).map(s => [s.position, 0]))])
+    );
+
     for (let i = 0; i < innings; i++) {
       const { pitcher, catcher } = fixed[i];
       const benchThis = bench[i];
-      const lockedThisInning = locked[i];
+
+      // Start with hard locks; inject specialization soft locks on top
+      const lockedThisInning: Record<string, string> = { ...locked[i] };
+
+      if (specPlayers.length > 0) {
+        const hardLockedPlayers = new Set(Object.values(locked[i]));
+        const hardLockedPositions = new Set(Object.keys(locked[i]));
+        const positionCandidates: Record<string, Array<{ player: string; remaining: number; battingIdx: number }>> = {};
+
+        for (let pi = 0; pi < battingOrder.length; pi++) {
+          const player = battingOrder[pi];
+          const name = player.name;
+          if (!player.specializations?.length) continue;
+          if (name === pitcher || name === catcher || benchThis.includes(name) || hardLockedPlayers.has(name)) continue;
+
+          const eligible = player.specializations
+            .filter(s => s.position && !hardLockedPositions.has(s.position))
+            .map(s => ({ position: s.position, remaining: s.targetInnings - (specAchievedThis[name]?.[s.position] ?? 0) }))
+            .filter(s => s.remaining > 0)
+            .sort((a, b) => b.remaining - a.remaining);
+
+          if (!eligible.length) continue;
+          const best = eligible[0];
+          if (!positionCandidates[best.position]) positionCandidates[best.position] = [];
+          positionCandidates[best.position].push({ player: name, remaining: best.remaining, battingIdx: pi });
+        }
+
+        for (const [pos, candidates] of Object.entries(positionCandidates)) {
+          candidates.sort((a, b) => b.remaining - a.remaining || a.battingIdx - b.battingIdx);
+          lockedThisInning[pos] = candidates[0].player;
+        }
+      }
+
       const lockedPositionKeys = Object.keys(lockedThisInning);
       const lockedPlayerValues = Object.values(lockedThisInning);
 
@@ -207,6 +260,14 @@ export function generateLineup(input: LineupInput): LineupResult {
 
       const result = tryAssign(0, new Set(lockedPlayerValues), orderedPos, fieldPlayers, { ...lockedThisInning }, hist);
       if (!result) { ok = false; break; }
+
+      // Increment specAchieved for soft locks that were fulfilled
+      for (const [pos, player] of Object.entries(lockedThisInning)) {
+        if (locked[i][pos] === player) continue; // skip hard locks
+        if (result[pos] === player && specAchievedThis[player]?.[pos] !== undefined) {
+          specAchievedThis[player][pos]++;
+        }
+      }
 
       hist[pitcher].add("P");
       hist[catcher].add("C");
@@ -225,17 +286,29 @@ export function generateLineup(input: LineupInput): LineupResult {
       Object.entries(asgn[i]).forEach(([pos, name]) => fullHistory[name].push(pos));
     }
 
-    let repeats = 0;
+    // Compute intentional (spec) repeats to subtract from raw count
+    let specRepeats = 0;
+    for (const player of specPlayers) {
+      for (const spec of (player.specializations ?? [])) {
+        const achieved = specAchievedThis[player.name]?.[spec.position] ?? 0;
+        specRepeats += Math.max(0, Math.min(achieved, spec.targetInnings) - 1);
+      }
+    }
+
+    let rawRepeats = 0;
     Object.values(fullHistory).forEach(positions => {
       const playing = positions.filter(p => p !== "BENCH");
-      playing.forEach((p, i) => { if (playing.indexOf(p) !== i) repeats++; });
+      playing.forEach((p, i) => { if (playing.indexOf(p) !== i) rawRepeats++; });
     });
 
-    if (repeats < bestRepeats) {
-      bestRepeats = repeats;
+    const adjustedRepeats = rawRepeats - specRepeats;
+
+    if (adjustedRepeats < bestRepeats) {
+      bestRepeats = adjustedRepeats;
       bestAssignments = asgn;
       bestHistory = fullHistory;
-      if (repeats === 0) break;
+      bestSpecAchieved = specAchievedThis;
+      if (adjustedRepeats === 0) break;
     }
   }
 
@@ -248,7 +321,21 @@ export function generateLineup(input: LineupInput): LineupResult {
         ...conflictErrors,
         "Could not compute a valid assignment — check that all innings have pitchers and catchers assigned.",
       ],
+      specializationResults: [],
     };
+  }
+
+  const specializationResults: SpecializationResult[] = [];
+  for (const player of battingOrder) {
+    for (const spec of (player.specializations ?? [])) {
+      if (!spec.position) continue;
+      specializationResults.push({
+        player: player.name,
+        position: spec.position,
+        target: spec.targetInnings,
+        achieved: bestSpecAchieved?.[player.name]?.[spec.position] ?? 0,
+      });
+    }
   }
 
   return {
@@ -262,5 +349,6 @@ export function generateLineup(input: LineupInput): LineupResult {
     positionTotals: bestHistory,
     repeats: bestRepeats,
     conflictErrors,
+    specializationResults,
   };
 }
