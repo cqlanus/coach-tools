@@ -40,6 +40,7 @@ class LineupRequest(BaseModel):
     pitchers: List[str]
     catchers: List[str]
     outfield_format: str = "standard"  # "standard" | "4-outfielder"
+    locked_field_positions: Optional[List[Dict[str, str]]] = None
 
 
 class LineupResponse(BaseModel):
@@ -99,7 +100,7 @@ def try_assign(pos_idx, assigned, pos_left, players, result, history):
     return None
 
 
-def plan_bench(all_players, innings, fixed, bench_per_inning):
+def plan_bench(all_players, innings, fixed, locked_field, bench_per_inning):
     if bench_per_inning <= 0:
         return [[] for _ in range(innings)]
 
@@ -107,6 +108,10 @@ def plan_bench(all_players, innings, fixed, bench_per_inning):
     for f in fixed:
         duties[f["pitcher"]] += 1
         duties[f["catcher"]] += 1
+    for locks in locked_field:
+        for player in locks.values():
+            if player in duties:
+                duties[player] += 1
 
     total_slots = bench_per_inning * innings
     base = total_slots // len(all_players)
@@ -119,9 +124,10 @@ def plan_bench(all_players, innings, fixed, bench_per_inning):
 
     for i in range(innings):
         pitcher, catcher = fixed[i]["pitcher"], fixed[i]["catcher"]
+        locked_players = list(locked_field[i].values())
         available = [
             p for p in all_players
-            if p != pitcher and p != catcher and counts[p] < targets[p]
+            if p != pitcher and p != catcher and p not in locked_players and counts[p] < targets[p]
         ]
         available.sort(key=lambda p: (duties[p], counts[p]))
         for j in range(bench_per_inning):
@@ -130,7 +136,7 @@ def plan_bench(all_players, innings, fixed, bench_per_inning):
                 counts[available[j]] += 1
         if len(bench[i]) < bench_per_inning:
             fallback = sorted(
-                [p for p in all_players if p != pitcher and p != catcher and p not in bench[i]],
+                [p for p in all_players if p != pitcher and p != catcher and p not in locked_players and p not in bench[i]],
                 key=lambda p: counts[p],
             )
             for fb in fallback:
@@ -152,8 +158,11 @@ def compute_lineup(req: LineupRequest):
     pos_orders = POS_ORDERS_4OF if use_4of else POS_ORDERS_STANDARD
     field_pos = set(FIELD_POSITIONS[field_key])
 
+    raw_locked = req.locked_field_positions or []
+    locked = [(raw_locked[i] if i < len(raw_locked) else {}) for i in range(req.innings)]
+
     fixed = [{"pitcher": req.pitchers[i], "catcher": req.catchers[i]} for i in range(req.innings)]
-    bench = plan_bench(all_players, req.innings, fixed, bench_per_inning)
+    bench = plan_bench(all_players, req.innings, fixed, locked, bench_per_inning)
 
     best_assignments = None
     best_repeats = float("inf")
@@ -167,9 +176,15 @@ def compute_lineup(req: LineupRequest):
         for i in range(req.innings):
             pitcher, catcher = fixed[i]["pitcher"], fixed[i]["catcher"]
             bench_this = bench[i]
-            field_players = [p for p in all_players if p != pitcher and p != catcher and p not in bench_this]
-            ordered_pos = [p for p in pos_order if p in field_pos]
-            result = try_assign(0, set(), ordered_pos, field_players, {}, hist)
+            locked_this = locked[i]
+            locked_pos_keys = set(locked_this.keys())
+            locked_player_values = list(locked_this.values())
+            field_players = [
+                p for p in all_players
+                if p != pitcher and p != catcher and p not in bench_this and p not in locked_player_values
+            ]
+            ordered_pos = [p for p in pos_order if p in field_pos and p not in locked_pos_keys]
+            result = try_assign(0, set(locked_player_values), ordered_pos, field_players, dict(locked_this), hist)
             if result is None:
                 ok = False
                 break

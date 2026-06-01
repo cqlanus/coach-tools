@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { TopNav } from "@/components/ui/TopNav";
-import { generateLineup, DISPLAY_POSITIONS } from "@/lib/lineup-engine";
+import { generateLineup, DISPLAY_POSITIONS, FIELD_POSITIONS } from "@/lib/lineup-engine";
 import type { Player, LineupInput, LineupResult, OutfieldFormat } from "@/lib/lineup-engine";
+
+type LockRow = { pos: string; player: string };
 
 type Step = "setup" | "assignments" | "result";
 type ResultView = "by-position" | "by-player";
@@ -39,6 +41,9 @@ export default function LineupPage() {
   // Assignments
   const [pitchers, setPitchers] = useState<string[]>(Array(6).fill(""));
   const [catchers, setCatchers] = useState<string[]>(Array(6).fill(""));
+  const [lockedFields, setLockedFields] = useState<LockRow[][]>(
+    Array.from({ length: 6 }, () => [])
+  );
 
   // Result
   const [result, setResult] = useState<LineupResult | null>(null);
@@ -72,6 +77,21 @@ export default function LineupPage() {
     });
   }
 
+  function addLockRow(inningIdx: number) {
+    setLockedFields(prev => prev.map((rows, i) => i === inningIdx ? [...rows, { pos: "", player: "" }] : rows));
+  }
+
+  function removeLockRow(inningIdx: number, rowIdx: number) {
+    setLockedFields(prev => prev.map((rows, i) => i === inningIdx ? rows.filter((_, j) => j !== rowIdx) : rows));
+  }
+
+  function updateLockRow(inningIdx: number, rowIdx: number, field: keyof LockRow, value: string) {
+    setLockedFields(prev => prev.map((rows, i) => {
+      if (i !== inningIdx) return rows;
+      return rows.map((row, j) => j !== rowIdx ? row : { ...row, [field]: value });
+    }));
+  }
+
   function goToAssignments() {
     setPitchers(prev => {
       const next = Array(innings).fill("");
@@ -83,12 +103,29 @@ export default function LineupPage() {
       prev.forEach((v, i) => { if (i < innings) next[i] = v; });
       return next;
     });
+    setLockedFields(prev => Array.from({ length: innings }, (_, i) => prev[i] ?? []));
     setStep("assignments");
   }
 
   const inningConflicts = pitchers.slice(0, innings).map((p, i) =>
     p && catchers[i] && p === catchers[i] ? i : null
   ).filter((x): x is number => x !== null);
+
+  const fieldLockConflicts: string[][] = lockedFields.slice(0, innings).map((rows, i) => {
+    const errors: string[] = [];
+    const pitcher = pitchers[i];
+    const catcher = catchers[i];
+    const seenPlayers = new Set<string>();
+    rows.forEach(({ pos, player }) => {
+      if (!pos || !player) return;
+      if (player === pitcher) errors.push(`${player} is also pitching inn ${i + 1}`);
+      if (player === catcher) errors.push(`${player} is also catching inn ${i + 1}`);
+      if (seenPlayers.has(player)) errors.push(`${player} locked to multiple positions inn ${i + 1}`);
+      seenPlayers.add(player);
+    });
+    return errors;
+  });
+  const hasFieldLockConflicts = fieldLockConflicts.some(errs => errs.length > 0);
 
   const allAssigned = pitchers.slice(0, innings).every(p => p) &&
     catchers.slice(0, innings).every(c => c);
@@ -105,6 +142,9 @@ export default function LineupPage() {
       pitchers: pitchers.slice(0, innings),
       catchers: catchers.slice(0, innings),
       outfieldFormat,
+      lockedFieldPositions: lockedFields.slice(0, innings).map(rows =>
+        Object.fromEntries(rows.filter(r => r.pos && r.player).map(r => [r.pos, r.player]))
+      ),
     };
     const res = generateLineup(input);
     setResult(res);
@@ -176,7 +216,7 @@ export default function LineupPage() {
         {/* Step indicator */}
         <div className="flex items-center gap-2 text-xs">
           {(["setup", "assignments", "result"] as Step[]).map((s, i) => {
-            const labels = ["Roster", "P & C", "Rotation"];
+            const labels = ["Roster", "Positions", "Rotation"];
             const active = step === s;
             const done = (step === "assignments" && s === "setup") || step === "result";
             return (
@@ -303,12 +343,12 @@ export default function LineupPage() {
             >
               {validPlayers.length < 8
                 ? `Need ${8 - validPlayers.length} more player${8 - validPlayers.length !== 1 ? "s" : ""} (min 8)`
-                : "Next: Assign Pitchers & Catchers →"}
+                : "Next: Assign Positions →"}
             </button>
           </div>
         )}
 
-        {/* ── STEP 2: P & C ASSIGNMENTS ── */}
+        {/* ── STEP 2: POSITION ASSIGNMENTS ── */}
         {step === "assignments" && (
           <>
             <div className="card p-5 flex flex-col gap-5">
@@ -352,6 +392,59 @@ export default function LineupPage() {
                       ⚠ Same player for pitcher and catcher — change one before generating.
                     </p>
                   )}
+
+                  {/* Field position locks */}
+                  {lockedFields[i].length > 0 && (
+                    <div className="mt-3 flex flex-col gap-2">
+                      {lockedFields[i].map((row, rowIdx) => {
+                        const lockedPosInInning = new Set(
+                          lockedFields[i].filter((_, j) => j !== rowIdx).map(r => r.pos).filter(Boolean)
+                        );
+                        const unavailablePlayers = new Set([
+                          pitchers[i],
+                          catchers[i],
+                          ...lockedFields[i].filter((_, j) => j !== rowIdx).map(r => r.player).filter(Boolean),
+                        ]);
+                        return (
+                          <div key={rowIdx} className="flex items-center gap-2">
+                            <select
+                              value={row.pos}
+                              onChange={e => updateLockRow(i, rowIdx, "pos", e.target.value)}
+                              className={`flex-1 ${selectCls}`}
+                            >
+                              <option value="">— position —</option>
+                              {FIELD_POSITIONS[posKey]
+                                .filter(p => !lockedPosInInning.has(p) || p === row.pos)
+                                .map(p => <option key={p} value={p}>{p}</option>)}
+                            </select>
+                            <select
+                              value={row.player}
+                              onChange={e => updateLockRow(i, rowIdx, "player", e.target.value)}
+                              className={`flex-1 ${selectCls}`}
+                            >
+                              <option value="">— player —</option>
+                              {playerNames
+                                .filter(n => !unavailablePlayers.has(n) || n === row.player)
+                                .map(n => <option key={n} value={n}>{n}</option>)}
+                            </select>
+                            <button
+                              onClick={() => removeLockRow(i, rowIdx)}
+                              className="text-cream/30 hover:text-red-light px-1 text-sm"
+                            >×</button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  <button
+                    onClick={() => addLockRow(i)}
+                    className="mt-2 text-cream/40 hover:text-cream text-xs font-display font-semibold transition-colors"
+                  >
+                    + Lock a position
+                  </button>
+                  {fieldLockConflicts[i]?.map((err, j) => (
+                    <p key={j} className="text-red-light text-xs mt-1">⚠ {err}</p>
+                  ))}
                 </div>
               ))}
             </div>
@@ -362,7 +455,7 @@ export default function LineupPage() {
               </button>
               <button
                 onClick={generate}
-                disabled={!allAssigned || inningConflicts.length > 0}
+                disabled={!allAssigned || inningConflicts.length > 0 || hasFieldLockConflicts}
                 className="btn-primary flex-1"
               >
                 Generate Rotation

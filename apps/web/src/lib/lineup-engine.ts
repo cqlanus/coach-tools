@@ -13,6 +13,7 @@ export interface LineupInput {
   pitchers: string[];
   catchers: string[];
   outfieldFormat: OutfieldFormat;
+  lockedFieldPositions?: Array<Record<string, string>>;
 }
 
 export interface InningAssignment {
@@ -30,7 +31,7 @@ export interface LineupResult {
   conflictErrors: string[];
 }
 
-const FIELD_POSITIONS: Record<string, string[]> = {
+export const FIELD_POSITIONS: Record<string, string[]> = {
   standard:       ["1B", "2B", "3B", "SS", "LF", "CF", "RF"],
   "4-outfielder": ["1B", "2B", "3B", "SS", "LF", "LC", "RC", "RF"],
   "8p":           ["1B", "2B", "3B", "SS", "LF", "RF"],
@@ -95,12 +96,16 @@ function planBench(
   allPlayers: string[],
   innings: number,
   fixed: Array<{ pitcher: string; catcher: string }>,
+  lockedField: Array<Record<string, string>>,
   benchPerInning: number
 ): string[][] {
   if (benchPerInning <= 0) return Array.from({ length: innings }, () => []);
 
   const duties: Record<string, number> = Object.fromEntries(allPlayers.map(p => [p, 0]));
   fixed.forEach(({ pitcher, catcher }) => { duties[pitcher]++; duties[catcher]++; });
+  lockedField.forEach(locks => {
+    Object.values(locks).forEach(player => { if (duties[player] !== undefined) duties[player]++; });
+  });
 
   const totalSlots = benchPerInning * innings;
   const base = Math.floor(totalSlots / allPlayers.length);
@@ -116,8 +121,9 @@ function planBench(
 
   for (let i = 0; i < innings; i++) {
     const { pitcher, catcher } = fixed[i];
+    const lockedPlayers = Object.values(lockedField[i] ?? {});
     const available = allPlayers
-      .filter(p => p !== pitcher && p !== catcher && counts[p] < targets[p])
+      .filter(p => p !== pitcher && p !== catcher && !lockedPlayers.includes(p) && counts[p] < targets[p])
       .sort((a, b) => duties[a] !== duties[b] ? duties[a] - duties[b] : counts[a] - counts[b]);
 
     for (let j = 0; j < benchPerInning && j < available.length; j++) {
@@ -127,7 +133,7 @@ function planBench(
 
     if (bench[i].length < benchPerInning) {
       const fallback = allPlayers
-        .filter(p => p !== pitcher && p !== catcher && !bench[i].includes(p))
+        .filter(p => p !== pitcher && p !== catcher && !lockedPlayers.includes(p) && !bench[i].includes(p))
         .sort((a, b) => counts[a] - counts[b]);
       for (const fb of fallback) {
         if (bench[i].length >= benchPerInning) break;
@@ -141,13 +147,26 @@ function planBench(
 }
 
 export function generateLineup(input: LineupInput): LineupResult {
-  const { innings, battingOrder, pitchers, catchers, outfieldFormat } = input;
+  const { innings, battingOrder, pitchers, catchers, outfieldFormat, lockedFieldPositions } = input;
   const allPlayers = battingOrder.map(p => p.name);
+
+  const locked: Array<Record<string, string>> = Array.from({ length: innings }, (_, i) =>
+    lockedFieldPositions?.[i] ?? {}
+  );
 
   const conflictErrors: string[] = [];
   for (let i = 0; i < innings; i++) {
     if (pitchers[i] && catchers[i] && pitchers[i] === catchers[i]) {
       conflictErrors.push(`Inning ${i + 1}: ${pitchers[i]} cannot be both pitcher and catcher`);
+    }
+    const inningLocks = locked[i];
+    const seenLocked = new Set<string>();
+    for (const [pos, player] of Object.entries(inningLocks)) {
+      if (!player) continue;
+      if (player === pitchers[i]) conflictErrors.push(`Inning ${i + 1}: ${player} is locked to ${pos} but also pitching`);
+      if (player === catchers[i]) conflictErrors.push(`Inning ${i + 1}: ${player} is locked to ${pos} but also catching`);
+      if (seenLocked.has(player)) conflictErrors.push(`Inning ${i + 1}: ${player} is locked to multiple positions`);
+      seenLocked.add(player);
     }
   }
 
@@ -161,7 +180,7 @@ export function generateLineup(input: LineupInput): LineupResult {
   const posOrders = use4OF ? POS_ORDERS_4OF : POS_ORDERS_STANDARD;
   const fieldPos = FIELD_POSITIONS[fieldKey];
 
-  const bench = planBench(allPlayers, innings, fixed, benchPerInning);
+  const bench = planBench(allPlayers, innings, fixed, locked, benchPerInning);
 
   let bestAssignments: Array<Record<string, string>> | null = null;
   let bestRepeats = Infinity;
@@ -177,12 +196,16 @@ export function generateLineup(input: LineupInput): LineupResult {
     for (let i = 0; i < innings; i++) {
       const { pitcher, catcher } = fixed[i];
       const benchThis = bench[i];
-      const fieldPlayers = allPlayers.filter(
-        p => p !== pitcher && p !== catcher && !benchThis.includes(p)
-      );
-      const orderedPos = posOrder.filter(pos => fieldPos.includes(pos));
+      const lockedThisInning = locked[i];
+      const lockedPositionKeys = Object.keys(lockedThisInning);
+      const lockedPlayerValues = Object.values(lockedThisInning);
 
-      const result = tryAssign(0, new Set(), orderedPos, fieldPlayers, {}, hist);
+      const fieldPlayers = allPlayers.filter(
+        p => p !== pitcher && p !== catcher && !benchThis.includes(p) && !lockedPlayerValues.includes(p)
+      );
+      const orderedPos = posOrder.filter(pos => fieldPos.includes(pos) && !lockedPositionKeys.includes(pos));
+
+      const result = tryAssign(0, new Set(lockedPlayerValues), orderedPos, fieldPlayers, { ...lockedThisInning }, hist);
       if (!result) { ok = false; break; }
 
       hist[pitcher].add("P");
