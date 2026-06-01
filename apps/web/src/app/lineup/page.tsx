@@ -4,6 +4,8 @@ import { useState } from "react";
 import { TopNav } from "@/components/ui/TopNav";
 import { generateLineup, DISPLAY_POSITIONS, FIELD_POSITIONS } from "@/lib/lineup-engine";
 import type { Player, LineupInput, LineupResult, OutfieldFormat, Specialization } from "@/lib/lineup-engine";
+import { parseLineupFile, exportAsMarkdown, exportAsOrg } from "@/lib/lineup-parser";
+import type { ExportState } from "@/lib/lineup-parser";
 
 type LockRow = { pos: string; player: string };
 
@@ -52,6 +54,15 @@ export default function LineupPage() {
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [downloadError, setDownloadError] = useState<string | null>(null);
 
+  // Import
+  const [importOpen, setImportOpen] = useState(false);
+  const [importText, setImportText] = useState("");
+  const [importWarnings, setImportWarnings] = useState<string[]>([]);
+
+  // Export
+  const [copiedFormat, setCopiedFormat] = useState<"markdown" | "org" | null>(null);
+  const [fallbackExportText, setFallbackExportText] = useState<string | null>(null);
+
   const validPlayers = roster.filter(p => p.name.trim() !== "");
   const playerNames = validPlayers.map(p => p.name.trim());
 
@@ -83,6 +94,118 @@ export default function LineupPage() {
     setRoster(r => r.map((p, i) => i === playerIdx
       ? { ...p, specializations: (p.specializations ?? []).map((s, j) => j !== specIdx ? s : { ...s, [field]: value }) }
       : p));
+  }
+
+  function handleImport() {
+    const { result: parsed, warnings } = parseLineupFile(importText);
+    setImportWarnings(warnings);
+
+    const hasContent = parsed.roster?.length || parsed.pitchers || parsed.catchers || parsed.teamName;
+    if (!hasContent) return;
+
+    const newRoster: Player[] = parsed.roster ?? roster;
+    const newTeamName = parsed.teamName ?? teamName;
+    const newGameDate = parsed.gameDate ?? gameDate;
+    const newInnings = parsed.innings ?? innings;
+    const newOutfieldFormat = parsed.outfieldFormat ?? outfieldFormat;
+
+    const newPitchers = Array(6).fill("") as string[];
+    (parsed.pitchers ?? pitchers).forEach((v, i) => { if (i < 6) newPitchers[i] = v; });
+
+    const newCatchers = Array(6).fill("") as string[];
+    (parsed.catchers ?? catchers).forEach((v, i) => { if (i < 6) newCatchers[i] = v; });
+
+    const newLockedFields: LockRow[][] = Array.from({ length: 6 }, () => []);
+    if (parsed.lockedFieldPositions) {
+      parsed.lockedFieldPositions.forEach((inningLocks, i) => {
+        if (i < 6) {
+          newLockedFields[i] = Object.entries(inningLocks)
+            .filter(([pos, player]) => pos && player)
+            .map(([pos, player]) => ({ pos, player }));
+        }
+      });
+    } else {
+      lockedFields.forEach((rows, i) => { newLockedFields[i] = [...rows]; });
+    }
+
+    setTeamName(newTeamName);
+    setGameDate(newGameDate);
+    setInnings(newInnings);
+    setOutfieldFormat(newOutfieldFormat);
+    setRoster(newRoster.map(p => ({ name: p.name, number: p.number ?? "", specializations: p.specializations })));
+    setPitchers(newPitchers);
+    setCatchers(newCatchers);
+    setLockedFields(newLockedFields);
+
+    const validNames = newRoster.filter(p => p.name.trim()).map(p => p.name.trim());
+    const hasRoster = validNames.length > 0;
+    const allPFilled = newPitchers.slice(0, newInnings).every(p => p);
+    const allCFilled = newCatchers.slice(0, newInnings).every(c => c);
+
+    if (hasRoster && allPFilled && allCFilled) {
+      const input: LineupInput = {
+        date: newGameDate,
+        teamName: newTeamName.trim() || "Team",
+        innings: newInnings,
+        battingOrder: validNames.map(name => {
+          const p = newRoster.find(r => r.name.trim() === name)!;
+          return {
+            name: p.name.trim(),
+            number: p.number?.trim() || undefined,
+            specializations: (p.specializations ?? []).filter(s => s.position && s.targetInnings),
+          };
+        }),
+        pitchers: newPitchers.slice(0, newInnings),
+        catchers: newCatchers.slice(0, newInnings),
+        outfieldFormat: newOutfieldFormat,
+        lockedFieldPositions: newLockedFields.slice(0, newInnings).map(rows =>
+          Object.fromEntries(rows.filter(r => r.pos && r.player).map(r => [r.pos, r.player]))
+        ),
+      };
+      const res = generateLineup(input);
+      setResult(res);
+      setDownloadUrl(null);
+      setDownloadError(null);
+      setImportOpen(false);
+      setStep("result");
+    } else if (hasRoster && (parsed.pitchers || parsed.catchers)) {
+      setImportOpen(false);
+      setStep("assignments");
+    } else {
+      setImportOpen(false);
+    }
+  }
+
+  function handleExport(format: "markdown" | "org") {
+    const exportState: ExportState = {
+      teamName: teamName.trim() || "Team",
+      gameDate,
+      innings,
+      outfieldFormat,
+      roster: validPlayers.map(p => ({
+        name: p.name.trim(),
+        number: p.number?.trim() || undefined,
+        specializations: (p.specializations ?? []).filter(s => s.position && s.targetInnings),
+      })),
+      pitchers: pitchers.slice(0, innings),
+      catchers: catchers.slice(0, innings),
+      lockedFieldPositions: lockedFields.slice(0, innings).map(rows =>
+        Object.fromEntries(rows.filter(r => r.pos && r.player).map(r => [r.pos, r.player]))
+      ),
+    };
+
+    const text = format === "markdown" ? exportAsMarkdown(exportState) : exportAsOrg(exportState);
+
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          setCopiedFormat(format);
+          setTimeout(() => setCopiedFormat(null), 2000);
+        })
+        .catch(() => setFallbackExportText(text));
+    } else {
+      setFallbackExportText(text);
+    }
   }
 
   function movePlayer(idx: number, dir: -1 | 1) {
@@ -263,6 +386,38 @@ export default function LineupPage() {
         {/* ── STEP 1: ROSTER ── */}
         {step === "setup" && (
           <div className="card p-5 flex flex-col gap-5">
+
+            {/* Import section */}
+            <div className="border-b border-white/10 pb-4">
+              <button
+                onClick={() => { setImportOpen(o => !o); setImportWarnings([]); }}
+                className="text-cream/50 hover:text-cream text-xs font-display font-semibold transition-colors"
+              >
+                {importOpen ? "▲ Hide import" : "↓ Import lineup file"}
+              </button>
+              {importOpen && (
+                <div className="mt-3 flex flex-col gap-2">
+                  <textarea
+                    value={importText}
+                    onChange={e => setImportText(e.target.value)}
+                    placeholder={"Paste a markdown or org-mode lineup file here…"}
+                    rows={8}
+                    className="w-full bg-navy-light/40 border border-white/15 text-cream text-xs font-mono
+                      rounded-lg px-3 py-2 focus:outline-none focus:border-red/60 resize-y"
+                  />
+                  {importWarnings.map((w, i) => (
+                    <p key={i} className="text-red-light text-xs">⚠ {w}</p>
+                  ))}
+                  <button
+                    onClick={handleImport}
+                    disabled={!importText.trim()}
+                    className="btn-primary text-sm self-start"
+                  >
+                    Load
+                  </button>
+                </div>
+              )}
+            </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
@@ -532,6 +687,28 @@ export default function LineupPage() {
                 Generate Rotation
               </button>
             </div>
+
+            {/* Step 2 export */}
+            <div className="flex items-center gap-2 pt-1">
+              <span className="text-cream/30 text-xs">Export:</span>
+              <button onClick={() => handleExport("markdown")}
+                className="text-cream/40 hover:text-cream text-xs font-display font-semibold transition-colors">
+                {copiedFormat === "markdown" ? "Copied!" : "Markdown"}
+              </button>
+              <span className="text-cream/20 text-xs">·</span>
+              <button onClick={() => handleExport("org")}
+                className="text-cream/40 hover:text-cream text-xs font-display font-semibold transition-colors">
+                {copiedFormat === "org" ? "Copied!" : "Org"}
+              </button>
+            </div>
+            {fallbackExportText && (
+              <textarea readOnly value={fallbackExportText}
+                rows={6}
+                className="w-full bg-navy-light/40 border border-white/15 text-cream text-xs font-mono
+                  rounded-lg px-3 py-2 focus:outline-none resize-y"
+                onClick={e => (e.target as HTMLTextAreaElement).select()}
+              />
+            )}
           </>
         )}
 
@@ -692,6 +869,26 @@ export default function LineupPage() {
                     </button>
                   )}
                 </div>
+                <div className="flex items-center gap-2 pt-1">
+                  <span className="text-cream/30 text-xs">Copy as:</span>
+                  <button onClick={() => handleExport("markdown")}
+                    className="text-cream/40 hover:text-cream text-xs font-display font-semibold transition-colors">
+                    {copiedFormat === "markdown" ? "Copied!" : "Markdown"}
+                  </button>
+                  <span className="text-cream/20 text-xs">·</span>
+                  <button onClick={() => handleExport("org")}
+                    className="text-cream/40 hover:text-cream text-xs font-display font-semibold transition-colors">
+                    {copiedFormat === "org" ? "Copied!" : "Org"}
+                  </button>
+                </div>
+                {fallbackExportText && (
+                  <textarea readOnly value={fallbackExportText}
+                    rows={6}
+                    className="w-full bg-navy-light/40 border border-white/15 text-cream text-xs font-mono
+                      rounded-lg px-3 py-2 focus:outline-none resize-y"
+                    onClick={e => (e.target as HTMLTextAreaElement).select()}
+                  />
+                )}
               </div>
             )}
 

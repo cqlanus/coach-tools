@@ -32,7 +32,9 @@
       "WebFetch(domain:joinstriveon.com)",
       "Bash(openspec new *)",
       "Bash(openspec status *)",
-      "Bash(openspec instructions *)"
+      "Bash(openspec instructions *)",
+      "Bash(mv /Users/cqlanus/projects/coach-tools/apps/web/openspec/changes/lineup-file-import-export /Users/cqlanus/projects/coach-tools/openspec/changes/)",
+      "Bash(rmdir /Users/cqlanus/projects/coach-tools/apps/web/openspec/changes /Users/cqlanus/projects/coach-tools/apps/web/openspec)"
     ]
   }
 }
