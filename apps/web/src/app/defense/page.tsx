@@ -100,7 +100,10 @@ export default function DefensePage() {
                 {BASE_STATE_OPTIONS.map((opt) => (
                   <button
                     key={opt.value}
-                    onClick={() => setBaseState(opt.value)}
+                    onClick={() => {
+                      setBaseState(opt.value);
+                      window.umami?.track('defense-scenario-viewed', { base: opt.value, play: playType });
+                    }}
                     className={`text-xs font-sans px-2 py-2 rounded-md text-left transition-colors border
                       ${baseState === opt.value
                         ? "bg-navy-light border-red text-cream"
@@ -118,7 +121,10 @@ export default function DefensePage() {
               <label className="section-label">Ball in play</label>
               <select
                 value={playType}
-                onChange={(e) => setPlayType(e.target.value as PlayType)}
+                onChange={(e) => {
+                  setPlayType(e.target.value as PlayType);
+                  window.umami?.track('defense-scenario-viewed', { base: baseState, play: e.target.value });
+                }}
                 className="bg-navy-light/40 border border-white/15 text-cream text-sm rounded-lg
                            px-3 py-2 focus:outline-none focus:border-red/60 w-full"
               >
@@ -179,6 +185,7 @@ export default function DefensePage() {
                   href={clip.video_url}
                   target="_blank"
                   rel="noopener"
+                  onClick={() => window.umami?.track('defense-clip-clicked', { scenario: `${baseState}:${playType}`, example: i + 1 })}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border
                     border-green-500/30 text-green-400 text-xs font-display font-semibold
                     hover:border-green-400/60 hover:bg-green-400/5 transition-colors"
@@ -190,6 +197,7 @@ export default function DefensePage() {
                 href={buildSavantSearchUrl(playType, baseState)}
                 target="_blank"
                 rel="noopener"
+                onClick={() => window.umami?.track('defense-search-clicked', { scenario: `${baseState}:${playType}` })}
                 className="inline-flex items-center gap-1 text-xs text-cream/40
                   hover:text-cream/70 transition-colors font-display font-semibold"
               >

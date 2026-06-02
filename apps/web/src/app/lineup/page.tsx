@@ -181,6 +181,7 @@ export default function LineupPage() {
         : [],
     };
 
+    window.umami?.track('file-imported');
     setImportOpen(false);
     applyLineupInput(input);
   }
@@ -210,6 +211,7 @@ export default function LineupPage() {
         .then(() => {
           setCopiedFormat(format);
           setTimeout(() => setCopiedFormat(null), 2000);
+          window.umami?.track(format === 'markdown' ? 'lineup-exported-markdown' : 'lineup-exported-org');
         })
         .catch(() => setFallbackExportText(text));
     } else {
@@ -228,6 +230,7 @@ export default function LineupPage() {
   }
 
   function handleLoad(saved: SavedLineup) {
+    window.umami?.track('lineup-loaded-from-history');
     applyLineupInput(saved.input);
   }
 
@@ -310,6 +313,13 @@ export default function LineupPage() {
     if (res.assignments.length > 0) {
       saveLineup(input, res);
       setHistory(loadHistory());
+      window.umami?.track('lineup-generated', {
+        players: input.battingOrder.length,
+        innings,
+        repeats: res.repeats,
+        has_locks: input.lockedFieldPositions?.some(l => Object.keys(l).length > 0) ?? false,
+        has_specs: input.battingOrder.some(p => p.specializations?.length),
+      });
     }
     setResult(res);
     setDownloadUrl(null);
@@ -346,6 +356,7 @@ export default function LineupPage() {
       }
       const data = await res.json();
       setDownloadUrl(data.docx_url);
+      window.umami?.track('docx-exported');
       const a = document.createElement("a");
       a.href = data.docx_url;
       a.download = "";
