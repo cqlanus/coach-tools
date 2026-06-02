@@ -14,6 +14,40 @@ import {
   POSITION_LABELS,
   getSituation,
 } from "@/lib/defense-situations";
+import defenseClipsRaw from "@/data/defense-clips.json";
+
+type ClipEntry = { play_id: string; video_url: string; game_date: string; matchup: string };
+const defenseClips = defenseClipsRaw as Record<string, ClipEntry[]>;
+
+function buildSavantSearchUrl(play: PlayType, base: BaseState): string {
+  const eventMap: Partial<Record<PlayType, string>> = {
+    gb_p: "field_out%7C", gb_c: "field_out%7C", gb_1b: "field_out%7C",
+    gb_2b: "field_out%7C", gb_ss: "field_out%7C", gb_3b: "field_out%7C",
+    gb_lf: "single%7C", gb_cf: "single%7C", gb_rf: "single%7C",
+    dbl_ll: "double%7C", dbl_rl: "double%7C", dbl_lg: "double%7C", dbl_rg: "double%7C",
+  };
+  const locMap: Partial<Record<PlayType, string>> = {
+    gb_p: "1", gb_c: "2", gb_1b: "3", gb_2b: "4", gb_ss: "6", gb_3b: "5",
+    gb_lf: "7", gb_cf: "8", gb_rf: "9",
+  };
+  const bbMap: Partial<Record<PlayType, string>> = {
+    gb_p: "ground_ball", gb_c: "ground_ball", gb_1b: "ground_ball",
+    gb_2b: "ground_ball", gb_ss: "ground_ball", gb_3b: "ground_ball",
+    gb_lf: "ground_ball", gb_cf: "ground_ball", gb_rf: "ground_ball",
+  };
+  const event = eventMap[play] ?? "field_out%7C";
+  const loc   = locMap[play];
+  const bb    = bbMap[play];
+  const r1 = base[0] === "1", r2 = base[1] === "1", r3 = base[2] === "1";
+  let ro = "";
+  if (!r1 && !r2 && !r3) ro = "Empty%7C";
+  else if (r1 || r2 || r3) ro = "Men_On%7C";
+  let url = `https://baseballsavant.mlb.com/statcast_search?hfGT=R%7C&hfSea=2024%7C2023%7C&player_type=batter&hfAB=${event}&type=details`;
+  if (bb)  url += `&bb_type=${bb}`;
+  if (loc) url += `&hit_location=${loc}`;
+  if (ro)  url += `&hfRO=${ro}`;
+  return url;
+}
 
 export default function DefensePage() {
   const [baseState, setBaseState] = useState<BaseState>("000");
@@ -21,6 +55,7 @@ export default function DefensePage() {
   const [activePos, setActivePos] = useState<Position | null>(null);
 
   const situation = getSituation(baseState, playType);
+  const clips = defenseClips[`${baseState}:${playType}`] ?? [];
 
   // Group play type options by group label
   const playGroups = PLAY_TYPE_OPTIONS.reduce<Record<string, typeof PLAY_TYPE_OPTIONS>>(
@@ -134,6 +169,32 @@ export default function DefensePage() {
                   onPositionHover={setActivePos}
                 />
               </div>
+            </div>
+
+            {/* Clip links + Statcast search */}
+            <div className="flex flex-wrap items-center gap-2 px-1">
+              {clips.map((clip, i) => (
+                <a
+                  key={clip.play_id}
+                  href={clip.video_url}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border
+                    border-green-500/30 text-green-400 text-xs font-display font-semibold
+                    hover:border-green-400/60 hover:bg-green-400/5 transition-colors"
+                >
+                  ▶ Example {i + 1}
+                </a>
+              ))}
+              <a
+                href={buildSavantSearchUrl(playType, baseState)}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-1 text-xs text-cream/40
+                  hover:text-cream/70 transition-colors font-display font-semibold"
+              >
+                Browse Statcast ↗
+              </a>
             </div>
 
             {/* Situation not defined yet */}

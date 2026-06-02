@@ -46,10 +46,10 @@ export const PLAY_TYPE_OPTIONS: SelectOption<PlayType>[] = [
   { value: "gb_2b", label: "Second baseman", group: "Infield Ground Ball" },
   { value: "gb_ss", label: "Shortstop",      group: "Infield Ground Ball" },
   { value: "gb_3b", label: "Third baseman",  group: "Infield Ground Ball" },
-  // Outfield ground balls
-  { value: "gb_lf", label: "Left field",     group: "Outfield Ground Ball" },
-  { value: "gb_cf", label: "Center field",   group: "Outfield Ground Ball" },
-  { value: "gb_rf", label: "Right field",    group: "Outfield Ground Ball" },
+  // Outfield singles
+  { value: "gb_lf", label: "Single to LF",  group: "Outfield Single" },
+  { value: "gb_cf", label: "Single to CF",  group: "Outfield Single" },
+  { value: "gb_rf", label: "Single to RF",  group: "Outfield Single" },
   // Doubles
   { value: "dbl_ll", label: "Down left line",       group: "Double" },
   { value: "dbl_rl", label: "Down right line",      group: "Double" },

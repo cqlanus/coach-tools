@@ -34,7 +34,14 @@
       "Bash(openspec status *)",
       "Bash(openspec instructions *)",
       "Bash(mv /Users/cqlanus/projects/coach-tools/apps/web/openspec/changes/lineup-file-import-export /Users/cqlanus/projects/coach-tools/openspec/changes/)",
-      "Bash(rmdir /Users/cqlanus/projects/coach-tools/apps/web/openspec/changes /Users/cqlanus/projects/coach-tools/apps/web/openspec)"
+      "Bash(rmdir /Users/cqlanus/projects/coach-tools/apps/web/openspec/changes /Users/cqlanus/projects/coach-tools/apps/web/openspec)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d['template']\\)\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\([a['id'] for a in d['artifacts'] if a['status']=='done']\\)\")",
+      "Bash(python3 scripts/fetch_defense_clips.py)",
+      "Bash(python3 -c \"import requests; import pandas; print\\('ok'\\)\")",
+      "Bash(pip3 install *)",
+      "Bash(/Users/cqlanus/projects/coach-tools/api/.venv/bin/python3 *)",
+      "Bash(/Users/cqlanus/projects/coach-tools/api/.venv/bin/pip install *)"
     ]
   }
 }

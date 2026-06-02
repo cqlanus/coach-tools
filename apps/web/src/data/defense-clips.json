@@ -1,0 +1,2082 @@
+{
+  "000:gb_p": [
+    {
+      "play_id": "4e5f9591-d62b-43b1-aa7d-f8850680a6ee",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=4e5f9591-d62b-43b1-aa7d-f8850680a6ee",
+      "game_date": "2024-09-06",
+      "matchup": "CIN @ NYM"
+    },
+    {
+      "play_id": "d2db5ede-4176-4767-81c4-ad372552fb7c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d2db5ede-4176-4767-81c4-ad372552fb7c",
+      "game_date": "2024-08-18",
+      "matchup": "NYY @ DET"
+    },
+    {
+      "play_id": "d2f00435-bd62-4f5a-b2e1-1edb75df7f32",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d2f00435-bd62-4f5a-b2e1-1edb75df7f32",
+      "game_date": "2024-07-06",
+      "matchup": "BAL @ ATH"
+    }
+  ],
+  "000:gb_c": [
+    {
+      "play_id": "1659c97f-1ec4-4b77-984c-1425b2fce935",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=1659c97f-1ec4-4b77-984c-1425b2fce935",
+      "game_date": "2024-07-28",
+      "matchup": "TEX @ TOR"
+    },
+    {
+      "play_id": "b2d520cb-a360-42fe-b150-da9931e93e20",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b2d520cb-a360-42fe-b150-da9931e93e20",
+      "game_date": "2024-09-24",
+      "matchup": "NYM @ ATL"
+    },
+    {
+      "play_id": "7d7ad83a-5605-402c-8b5d-6f0ad23fe717",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7d7ad83a-5605-402c-8b5d-6f0ad23fe717",
+      "game_date": "2024-08-29",
+      "matchup": "MIA @ COL"
+    }
+  ],
+  "000:gb_1b": [
+    {
+      "play_id": "f8dfc29a-12f4-4496-bc64-7ffe562e4444",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f8dfc29a-12f4-4496-bc64-7ffe562e4444",
+      "game_date": "2024-04-24",
+      "matchup": "SD @ COL"
+    },
+    {
+      "play_id": "a14cbc25-8c60-4f68-81e4-651f58ed4d25",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a14cbc25-8c60-4f68-81e4-651f58ed4d25",
+      "game_date": "2024-09-20",
+      "matchup": "ATL @ MIA"
+    },
+    {
+      "play_id": "214d2790-3961-405a-a420-9ff318f40b41",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=214d2790-3961-405a-a420-9ff318f40b41",
+      "game_date": "2024-07-12",
+      "matchup": "MIN @ SF"
+    }
+  ],
+  "000:gb_2b": [
+    {
+      "play_id": "8b40ac24-0105-4497-aca5-930371a6a9dc",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=8b40ac24-0105-4497-aca5-930371a6a9dc",
+      "game_date": "2024-06-23",
+      "matchup": "CWS @ DET"
+    },
+    {
+      "play_id": "02725f49-2201-46f7-9c54-bc817734f1e0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=02725f49-2201-46f7-9c54-bc817734f1e0",
+      "game_date": "2024-06-21",
+      "matchup": "BOS @ CIN"
+    },
+    {
+      "play_id": "13ac069d-ff48-4d8e-9d18-6a779268282b",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=13ac069d-ff48-4d8e-9d18-6a779268282b",
+      "game_date": "2024-08-02",
+      "matchup": "LAD @ ATH"
+    }
+  ],
+  "000:gb_3b": [
+    {
+      "play_id": "b20d83bd-a92e-4a7a-9068-7ba24021e427",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b20d83bd-a92e-4a7a-9068-7ba24021e427",
+      "game_date": "2024-09-09",
+      "matchup": "BAL @ BOS"
+    },
+    {
+      "play_id": "806ba327-809f-497d-baff-6d9ec004cfcb",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=806ba327-809f-497d-baff-6d9ec004cfcb",
+      "game_date": "2024-04-11",
+      "matchup": "PIT @ PHI"
+    },
+    {
+      "play_id": "a1d27dcd-a1de-4fc0-8d60-73ca30edbb8d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a1d27dcd-a1de-4fc0-8d60-73ca30edbb8d",
+      "game_date": "2024-04-13",
+      "matchup": "CIN @ CWS"
+    }
+  ],
+  "000:gb_ss": [
+    {
+      "play_id": "cb3e1043-9286-4a94-a2e5-d4cbb974952e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=cb3e1043-9286-4a94-a2e5-d4cbb974952e",
+      "game_date": "2024-07-12",
+      "matchup": "COL @ NYM"
+    },
+    {
+      "play_id": "ae72b014-24c3-4065-8c47-d2f7cf6a3dca",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ae72b014-24c3-4065-8c47-d2f7cf6a3dca",
+      "game_date": "2024-09-06",
+      "matchup": "NYY @ CHC"
+    },
+    {
+      "play_id": "7df4f4c8-d8ed-40c8-a855-b5d3c2fe6e8c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7df4f4c8-d8ed-40c8-a855-b5d3c2fe6e8c",
+      "game_date": "2024-04-08",
+      "matchup": "NYM @ ATL"
+    }
+  ],
+  "100:gb_p": [
+    {
+      "play_id": "71ab6b68-deb4-47f4-9ab7-aa26c6e9b52e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=71ab6b68-deb4-47f4-9ab7-aa26c6e9b52e",
+      "game_date": "2024-07-14",
+      "matchup": "ATL @ SD"
+    },
+    {
+      "play_id": "adf0f0ca-6e0b-4e3d-986f-e5e7e61310e4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=adf0f0ca-6e0b-4e3d-986f-e5e7e61310e4",
+      "game_date": "2024-06-17",
+      "matchup": "STL @ MIA"
+    },
+    {
+      "play_id": "52a1705d-fa6f-414b-8871-9e226ef6dfc8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=52a1705d-fa6f-414b-8871-9e226ef6dfc8",
+      "game_date": "2023-06-10",
+      "matchup": "HOU @ CLE"
+    }
+  ],
+  "100:gb_c": [
+    {
+      "play_id": "b6870d02-4eee-48d0-bb5f-e5cec21a5423",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b6870d02-4eee-48d0-bb5f-e5cec21a5423",
+      "game_date": "2024-07-24",
+      "matchup": "CWS @ TEX"
+    },
+    {
+      "play_id": "b2164f3e-9872-475e-b5de-eb9cb1ea88d5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b2164f3e-9872-475e-b5de-eb9cb1ea88d5",
+      "game_date": "2024-08-09",
+      "matchup": "ATL @ COL"
+    },
+    {
+      "play_id": "1aba9389-555f-4259-9728-e6c8d7877441",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=1aba9389-555f-4259-9728-e6c8d7877441",
+      "game_date": "2024-07-31",
+      "matchup": "CHC @ CIN"
+    }
+  ],
+  "100:gb_1b": [
+    {
+      "play_id": "e978b4b8-8bb1-4f52-ad11-eed27057c5d3",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=e978b4b8-8bb1-4f52-ad11-eed27057c5d3",
+      "game_date": "2024-05-31",
+      "matchup": "TB @ BAL"
+    },
+    {
+      "play_id": "da014a9f-5375-423f-998f-3484881a91b5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=da014a9f-5375-423f-998f-3484881a91b5",
+      "game_date": "2024-08-02",
+      "matchup": "PHI @ SEA"
+    },
+    {
+      "play_id": "fae94067-85cd-4aa1-8f18-978faffbf267",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=fae94067-85cd-4aa1-8f18-978faffbf267",
+      "game_date": "2024-09-01",
+      "matchup": "TOR @ MIN"
+    }
+  ],
+  "100:gb_2b": [
+    {
+      "play_id": "ea98546e-f0cc-48bb-8e30-f18969b7cd83",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ea98546e-f0cc-48bb-8e30-f18969b7cd83",
+      "game_date": "2024-08-17",
+      "matchup": "CWS @ HOU"
+    },
+    {
+      "play_id": "f28bcf10-3215-4c40-ab1a-5add508e0ee0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f28bcf10-3215-4c40-ab1a-5add508e0ee0",
+      "game_date": "2024-08-26",
+      "matchup": "KC @ CLE"
+    },
+    {
+      "play_id": "d9b305b2-f91c-4777-b2e8-151a4eec58a5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d9b305b2-f91c-4777-b2e8-151a4eec58a5",
+      "game_date": "2024-05-25",
+      "matchup": "CLE @ LAA"
+    }
+  ],
+  "100:gb_3b": [
+    {
+      "play_id": "00298d98-f2f1-4ff1-a405-0ab6d726b73d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=00298d98-f2f1-4ff1-a405-0ab6d726b73d",
+      "game_date": "2024-08-21",
+      "matchup": "MIL @ STL"
+    },
+    {
+      "play_id": "c8ced6a4-0dce-470e-b985-17e881bd2dce",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c8ced6a4-0dce-470e-b985-17e881bd2dce",
+      "game_date": "2024-07-31",
+      "matchup": "ATH @ SF"
+    },
+    {
+      "play_id": "e6b8dc83-a69a-4988-94b5-75918c35e5d6",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=e6b8dc83-a69a-4988-94b5-75918c35e5d6",
+      "game_date": "2024-08-18",
+      "matchup": "MIN @ TEX"
+    }
+  ],
+  "100:gb_ss": [
+    {
+      "play_id": "4dd1b7eb-120c-469a-858f-1ac4bc1e45d2",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=4dd1b7eb-120c-469a-858f-1ac4bc1e45d2",
+      "game_date": "2024-06-14",
+      "matchup": "PIT @ COL"
+    },
+    {
+      "play_id": "cdf05de6-0603-46fb-bf66-adc83589eece",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=cdf05de6-0603-46fb-bf66-adc83589eece",
+      "game_date": "2024-09-26",
+      "matchup": "TEX @ ATH"
+    },
+    {
+      "play_id": "0fd756f2-27f9-49e5-a10d-a5df518e0fc4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=0fd756f2-27f9-49e5-a10d-a5df518e0fc4",
+      "game_date": "2024-07-22",
+      "matchup": "DET @ CLE"
+    }
+  ],
+  "010:gb_p": [
+    {
+      "play_id": "1f4b64cb-c399-43fe-95fc-af494da7151d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=1f4b64cb-c399-43fe-95fc-af494da7151d",
+      "game_date": "2024-09-21",
+      "matchup": "CWS @ SD"
+    },
+    {
+      "play_id": "0e85e3c4-2155-4ecf-aea1-c1b167e43bb0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=0e85e3c4-2155-4ecf-aea1-c1b167e43bb0",
+      "game_date": "2024-08-25",
+      "matchup": "NYM @ SD"
+    },
+    {
+      "play_id": "072291f3-4929-4af7-878c-0083edf895fd",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=072291f3-4929-4af7-878c-0083edf895fd",
+      "game_date": "2024-06-04",
+      "matchup": "LAD @ PIT"
+    }
+  ],
+  "010:gb_c": [
+    {
+      "play_id": "64a717bf-d2cc-4dd3-a83f-d863e8bf68c8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=64a717bf-d2cc-4dd3-a83f-d863e8bf68c8",
+      "game_date": "2024-09-05",
+      "matchup": "DET @ SD"
+    },
+    {
+      "play_id": "a7a1597b-a792-40dd-a451-5aa61d14db1e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a7a1597b-a792-40dd-a451-5aa61d14db1e",
+      "game_date": "2024-08-23",
+      "matchup": "LAA @ TOR"
+    },
+    {
+      "play_id": "39a863c5-2d7a-420d-8553-1b0dfe6e5f72",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=39a863c5-2d7a-420d-8553-1b0dfe6e5f72",
+      "game_date": "2024-08-13",
+      "matchup": "ATL @ SF"
+    }
+  ],
+  "010:gb_1b": [
+    {
+      "play_id": "2d15ecb3-81b3-460d-9206-c5b92edfa26d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=2d15ecb3-81b3-460d-9206-c5b92edfa26d",
+      "game_date": "2024-09-11",
+      "matchup": "SD @ SEA"
+    },
+    {
+      "play_id": "3e29cf5e-3b2c-439f-969a-3a1182ad6e27",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=3e29cf5e-3b2c-439f-969a-3a1182ad6e27",
+      "game_date": "2024-05-23",
+      "matchup": "ATL @ CHC"
+    },
+    {
+      "play_id": "5bfa450a-50c4-4160-992e-c7e90deda19a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=5bfa450a-50c4-4160-992e-c7e90deda19a",
+      "game_date": "2024-09-01",
+      "matchup": "MIL @ CIN"
+    }
+  ],
+  "010:gb_2b": [
+    {
+      "play_id": "12c62797-4176-433d-b383-0bfd9238e05e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=12c62797-4176-433d-b383-0bfd9238e05e",
+      "game_date": "2024-09-26",
+      "matchup": "STL @ COL"
+    },
+    {
+      "play_id": "f555fa51-33a2-4b4b-9950-eb39f635fe0b",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f555fa51-33a2-4b4b-9950-eb39f635fe0b",
+      "game_date": "2024-06-17",
+      "matchup": "STL @ MIA"
+    },
+    {
+      "play_id": "f7fdb14d-d9bc-487e-a3bf-e24724265ff8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f7fdb14d-d9bc-487e-a3bf-e24724265ff8",
+      "game_date": "2024-09-07",
+      "matchup": "LAA @ TEX"
+    }
+  ],
+  "010:gb_3b": [
+    {
+      "play_id": "7b415e10-527f-4d3c-bfb2-badc38d7006c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7b415e10-527f-4d3c-bfb2-badc38d7006c",
+      "game_date": "2024-06-07",
+      "matchup": "TOR @ ATH"
+    },
+    {
+      "play_id": "f0940bfd-ae42-4cfc-bf0b-5026ad65cfcf",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f0940bfd-ae42-4cfc-bf0b-5026ad65cfcf",
+      "game_date": "2024-06-18",
+      "matchup": "KC @ ATH"
+    },
+    {
+      "play_id": "b2ce928c-dbef-46f6-a55c-73859bce9e42",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b2ce928c-dbef-46f6-a55c-73859bce9e42",
+      "game_date": "2024-08-06",
+      "matchup": "BOS @ KC"
+    }
+  ],
+  "010:gb_ss": [
+    {
+      "play_id": "43ef54f1-720a-4a08-9c65-d860b7a84efa",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=43ef54f1-720a-4a08-9c65-d860b7a84efa",
+      "game_date": "2024-09-17",
+      "matchup": "DET @ KC"
+    },
+    {
+      "play_id": "c80a771f-212f-46a3-932a-832df86e29cc",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c80a771f-212f-46a3-932a-832df86e29cc",
+      "game_date": "2024-08-03",
+      "matchup": "NYM @ LAA"
+    },
+    {
+      "play_id": "f1635849-b32d-4954-b63a-c5137e2667e6",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f1635849-b32d-4954-b63a-c5137e2667e6",
+      "game_date": "2024-09-10",
+      "matchup": "ATH @ HOU"
+    }
+  ],
+  "001:gb_p": [
+    {
+      "play_id": "c94a74b7-5a75-4cdb-8b85-7f4157f635c3",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c94a74b7-5a75-4cdb-8b85-7f4157f635c3",
+      "game_date": "2023-09-05",
+      "matchup": "BOS @ TB"
+    },
+    {
+      "play_id": "04d9a0a9-400a-463c-a05f-86f91fca67df",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=04d9a0a9-400a-463c-a05f-86f91fca67df",
+      "game_date": "2023-06-13",
+      "matchup": "PHI @ AZ"
+    },
+    {
+      "play_id": "10bc82fe-ca34-4436-b001-b35c3fc035b0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=10bc82fe-ca34-4436-b001-b35c3fc035b0",
+      "game_date": "2024-09-15",
+      "matchup": "LAD @ ATL"
+    }
+  ],
+  "001:gb_c": [
+    {
+      "play_id": "984c5320-c40e-45ce-8d82-52bd863fdb55",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=984c5320-c40e-45ce-8d82-52bd863fdb55",
+      "game_date": "2023-08-13",
+      "matchup": "CLE @ TB"
+    },
+    {
+      "play_id": "f42ef439-8605-4f1b-956f-24c09d93b0dd",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f42ef439-8605-4f1b-956f-24c09d93b0dd",
+      "game_date": "2024-05-25",
+      "matchup": "PHI @ COL"
+    },
+    {
+      "play_id": "a18b6601-88f8-41bf-bcad-3d90ff3a27a8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a18b6601-88f8-41bf-bcad-3d90ff3a27a8",
+      "game_date": "2024-04-19",
+      "matchup": "LAA @ CIN"
+    }
+  ],
+  "001:gb_1b": [
+    {
+      "play_id": "aead1551-4246-4280-bcff-dd47ed9b4fb1",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=aead1551-4246-4280-bcff-dd47ed9b4fb1",
+      "game_date": "2024-09-08",
+      "matchup": "CLE @ LAD"
+    },
+    {
+      "play_id": "e08c5dca-cb64-4040-9463-2b90c446d7fc",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=e08c5dca-cb64-4040-9463-2b90c446d7fc",
+      "game_date": "2024-09-05",
+      "matchup": "SEA @ ATH"
+    },
+    {
+      "play_id": "f6f8da84-434d-4da5-80d9-fee9825fd954",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f6f8da84-434d-4da5-80d9-fee9825fd954",
+      "game_date": "2024-08-27",
+      "matchup": "MIA @ COL"
+    }
+  ],
+  "001:gb_2b": [
+    {
+      "play_id": "002b4459-9078-410d-ba02-9471b3daed60",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=002b4459-9078-410d-ba02-9471b3daed60",
+      "game_date": "2024-07-03",
+      "matchup": "BOS @ MIA"
+    },
+    {
+      "play_id": "8a2e7a65-cb8c-4a77-97dd-b787fadc32f8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=8a2e7a65-cb8c-4a77-97dd-b787fadc32f8",
+      "game_date": "2024-09-02",
+      "matchup": "CWS @ BAL"
+    },
+    {
+      "play_id": "9e6d77f8-1a89-4292-a865-518aca2c72bf",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9e6d77f8-1a89-4292-a865-518aca2c72bf",
+      "game_date": "2024-08-18",
+      "matchup": "SD @ COL"
+    }
+  ],
+  "001:gb_3b": [
+    {
+      "play_id": "92f42b80-cf22-499a-9c17-93447f45cafe",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=92f42b80-cf22-499a-9c17-93447f45cafe",
+      "game_date": "2024-06-07",
+      "matchup": "ATL @ WSH"
+    },
+    {
+      "play_id": "02ca1dc3-5c8c-4e6f-a8a1-05535ea276b0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=02ca1dc3-5c8c-4e6f-a8a1-05535ea276b0",
+      "game_date": "2024-08-20",
+      "matchup": "CIN @ TOR"
+    },
+    {
+      "play_id": "39250767-a643-437e-bff5-1b7aa2b2bbcf",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=39250767-a643-437e-bff5-1b7aa2b2bbcf",
+      "game_date": "2023-09-19",
+      "matchup": "CWS @ WSH"
+    }
+  ],
+  "001:gb_ss": [
+    {
+      "play_id": "0809e9b8-2b72-4f7c-a5f9-34f4598c6973",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=0809e9b8-2b72-4f7c-a5f9-34f4598c6973",
+      "game_date": "2024-07-04",
+      "matchup": "SD @ TEX"
+    },
+    {
+      "play_id": "35ddc9cd-0909-4417-9d17-1a7450b64fd9",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=35ddc9cd-0909-4417-9d17-1a7450b64fd9",
+      "game_date": "2024-05-01",
+      "matchup": "MIN @ CWS"
+    },
+    {
+      "play_id": "92471603-0292-446e-8065-725893098021",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=92471603-0292-446e-8065-725893098021",
+      "game_date": "2024-04-27",
+      "matchup": "HOU @ COL"
+    }
+  ],
+  "110:gb_p": [
+    {
+      "play_id": "9a696928-6e75-4b22-9f5f-4f7cf682e784",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9a696928-6e75-4b22-9f5f-4f7cf682e784",
+      "game_date": "2024-07-01",
+      "matchup": "HOU @ TOR"
+    },
+    {
+      "play_id": "fc161e20-2564-4d98-83e8-5da1e5b219d4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=fc161e20-2564-4d98-83e8-5da1e5b219d4",
+      "game_date": "2023-07-18",
+      "matchup": "CWS @ NYM"
+    },
+    {
+      "play_id": "781cb06d-cf6d-4511-899b-f696cab4c86d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=781cb06d-cf6d-4511-899b-f696cab4c86d",
+      "game_date": "2024-08-07",
+      "matchup": "SF @ WSH"
+    }
+  ],
+  "110:gb_c": [
+    {
+      "play_id": "a65817ef-a39f-477b-a32a-09f8c62b6092",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a65817ef-a39f-477b-a32a-09f8c62b6092",
+      "game_date": "2024-07-06",
+      "matchup": "STL @ WSH"
+    },
+    {
+      "play_id": "b78891d0-375e-4f3a-bec9-bc9efeb798ca",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b78891d0-375e-4f3a-bec9-bc9efeb798ca",
+      "game_date": "2024-09-08",
+      "matchup": "CWS @ BOS"
+    },
+    {
+      "play_id": "7fad1240-7b08-4053-bba3-8ab6f3b59e78",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7fad1240-7b08-4053-bba3-8ab6f3b59e78",
+      "game_date": "2023-08-05",
+      "matchup": "TOR @ BOS"
+    }
+  ],
+  "110:gb_1b": [
+    {
+      "play_id": "7b3586e6-a5f3-4c5a-8189-988d41a4bab4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7b3586e6-a5f3-4c5a-8189-988d41a4bab4",
+      "game_date": "2024-08-03",
+      "matchup": "MIL @ WSH"
+    },
+    {
+      "play_id": "e08cf071-2963-4388-92c3-79646a820580",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=e08cf071-2963-4388-92c3-79646a820580",
+      "game_date": "2024-09-29",
+      "matchup": "MIA @ TOR"
+    },
+    {
+      "play_id": "bb341920-02a0-4eb4-a161-07804578cd79",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=bb341920-02a0-4eb4-a161-07804578cd79",
+      "game_date": "2024-09-02",
+      "matchup": "DET @ SD"
+    }
+  ],
+  "110:gb_2b": [
+    {
+      "play_id": "7e85c5f7-6a1a-4b2c-b588-bd86b9686044",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7e85c5f7-6a1a-4b2c-b588-bd86b9686044",
+      "game_date": "2024-06-15",
+      "matchup": "NYY @ BOS"
+    },
+    {
+      "play_id": "9306086d-6d8e-4b06-a429-84ab3e08fa4a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9306086d-6d8e-4b06-a429-84ab3e08fa4a",
+      "game_date": "2024-05-17",
+      "matchup": "WSH @ PHI"
+    },
+    {
+      "play_id": "7e3ab6db-1ea0-4219-8c6e-ec3ab52b26a9",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7e3ab6db-1ea0-4219-8c6e-ec3ab52b26a9",
+      "game_date": "2024-09-28",
+      "matchup": "LAD @ COL"
+    }
+  ],
+  "110:gb_3b": [
+    {
+      "play_id": "0c43ddfa-6433-4950-8283-b5e97477c527",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=0c43ddfa-6433-4950-8283-b5e97477c527",
+      "game_date": "2024-09-13",
+      "matchup": "HOU @ LAA"
+    },
+    {
+      "play_id": "f0e9ba6a-1d10-4eac-adcb-5cc2eb9134f8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f0e9ba6a-1d10-4eac-adcb-5cc2eb9134f8",
+      "game_date": "2024-07-12",
+      "matchup": "SEA @ LAA"
+    },
+    {
+      "play_id": "5c4dfd0c-4d10-4a57-85e9-b28534f440c7",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=5c4dfd0c-4d10-4a57-85e9-b28534f440c7",
+      "game_date": "2024-04-27",
+      "matchup": "CHC @ BOS"
+    }
+  ],
+  "110:gb_ss": [
+    {
+      "play_id": "909dbe42-cbf3-488a-96e6-16036b9bb742",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=909dbe42-cbf3-488a-96e6-16036b9bb742",
+      "game_date": "2024-07-14",
+      "matchup": "TEX @ HOU"
+    },
+    {
+      "play_id": "dfb61717-b85f-4b0c-bb84-f5aed47f2017",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=dfb61717-b85f-4b0c-bb84-f5aed47f2017",
+      "game_date": "2024-07-13",
+      "matchup": "LAD @ DET"
+    },
+    {
+      "play_id": "26889745-f3e9-4028-b0b3-d3ff3d950052",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=26889745-f3e9-4028-b0b3-d3ff3d950052",
+      "game_date": "2024-04-05",
+      "matchup": "NYM @ CIN"
+    }
+  ],
+  "101:gb_p": [
+    {
+      "play_id": "d4d07f8b-3f6f-4483-b693-d30cb8d0abdb",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d4d07f8b-3f6f-4483-b693-d30cb8d0abdb",
+      "game_date": "2023-05-19",
+      "matchup": "NYY @ CIN"
+    },
+    {
+      "play_id": "53d3fab8-cef3-4bda-90f0-9c204f6375f2",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=53d3fab8-cef3-4bda-90f0-9c204f6375f2",
+      "game_date": "2024-04-03",
+      "matchup": "TEX @ TB"
+    },
+    {
+      "play_id": "22f527a0-3665-4313-a768-de9e595ec060",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=22f527a0-3665-4313-a768-de9e595ec060",
+      "game_date": "2024-04-05",
+      "matchup": "PHI @ WSH"
+    }
+  ],
+  "101:gb_c": [
+    {
+      "play_id": "af7fb2e7-c35f-48da-9a1c-623f4dd4d2b1",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=af7fb2e7-c35f-48da-9a1c-623f4dd4d2b1",
+      "game_date": "2024-05-25",
+      "matchup": "NYY @ SD"
+    },
+    {
+      "play_id": "435f684f-9460-45a3-ab1e-727774c1e762",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=435f684f-9460-45a3-ab1e-727774c1e762",
+      "game_date": "2024-07-04",
+      "matchup": "HOU @ TOR"
+    },
+    {
+      "play_id": "ec611517-11bc-478d-b501-3994da89bb2f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ec611517-11bc-478d-b501-3994da89bb2f",
+      "game_date": "2024-04-28",
+      "matchup": "CHC @ BOS"
+    }
+  ],
+  "101:gb_1b": [
+    {
+      "play_id": "663546a1-1dd1-4f15-b5e2-f5161d9052a5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=663546a1-1dd1-4f15-b5e2-f5161d9052a5",
+      "game_date": "2024-07-09",
+      "matchup": "CLE @ DET"
+    },
+    {
+      "play_id": "011c8a35-a509-48ef-b51f-3cabc23cf517",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=011c8a35-a509-48ef-b51f-3cabc23cf517",
+      "game_date": "2024-04-17",
+      "matchup": "COL @ PHI"
+    },
+    {
+      "play_id": "9f583b92-a87c-4b44-bb91-88b66362a4df",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9f583b92-a87c-4b44-bb91-88b66362a4df",
+      "game_date": "2024-05-16",
+      "matchup": "TB @ BOS"
+    }
+  ],
+  "101:gb_2b": [
+    {
+      "play_id": "6e8bd03f-8df1-44b7-9fe7-1b223a84e7d8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6e8bd03f-8df1-44b7-9fe7-1b223a84e7d8",
+      "game_date": "2024-06-05",
+      "matchup": "MIN @ NYY"
+    },
+    {
+      "play_id": "4cf587ec-4770-4c87-be20-e084f5db6e7f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=4cf587ec-4770-4c87-be20-e084f5db6e7f",
+      "game_date": "2024-08-13",
+      "matchup": "ATL @ SF"
+    },
+    {
+      "play_id": "086ae066-79c8-4754-9604-1b8827050283",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=086ae066-79c8-4754-9604-1b8827050283",
+      "game_date": "2024-08-19",
+      "matchup": "AZ @ MIA"
+    }
+  ],
+  "101:gb_3b": [
+    {
+      "play_id": "43d1af70-219e-4a25-b75d-2bb16b817708",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=43d1af70-219e-4a25-b75d-2bb16b817708",
+      "game_date": "2024-05-15",
+      "matchup": "NYM @ PHI"
+    },
+    {
+      "play_id": "39422bb8-6e11-49c1-8876-0f5998597a36",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=39422bb8-6e11-49c1-8876-0f5998597a36",
+      "game_date": "2024-09-28",
+      "matchup": "STL @ SF"
+    },
+    {
+      "play_id": "be16cf58-f952-4c97-940d-b28529466f33",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=be16cf58-f952-4c97-940d-b28529466f33",
+      "game_date": "2024-05-31",
+      "matchup": "TEX @ MIA"
+    }
+  ],
+  "101:gb_ss": [
+    {
+      "play_id": "13fbf8f7-771e-4dec-9a88-07d51f663155",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=13fbf8f7-771e-4dec-9a88-07d51f663155",
+      "game_date": "2024-05-28",
+      "matchup": "KC @ MIN"
+    },
+    {
+      "play_id": "14e5658f-0ee9-4a8a-9997-99f188a036c5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=14e5658f-0ee9-4a8a-9997-99f188a036c5",
+      "game_date": "2024-08-09",
+      "matchup": "SD @ MIA"
+    },
+    {
+      "play_id": "14451f13-9885-43f9-8f4a-4e636642d7e9",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=14451f13-9885-43f9-8f4a-4e636642d7e9",
+      "game_date": "2024-06-30",
+      "matchup": "HOU @ NYM"
+    }
+  ],
+  "011:gb_p": [
+    {
+      "play_id": "af164bd6-c5c2-4b73-9bff-7d454b2fb127",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=af164bd6-c5c2-4b73-9bff-7d454b2fb127",
+      "game_date": "2024-05-13",
+      "matchup": "PHI @ NYM"
+    },
+    {
+      "play_id": "becdc4e4-65a7-4d1a-9fe1-eb0089015ecb",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=becdc4e4-65a7-4d1a-9fe1-eb0089015ecb",
+      "game_date": "2024-04-24",
+      "matchup": "MIA @ ATL"
+    },
+    {
+      "play_id": "e13c5ac6-8b6b-4bbe-93d0-6ac47d6da1c8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=e13c5ac6-8b6b-4bbe-93d0-6ac47d6da1c8",
+      "game_date": "2023-07-03",
+      "matchup": "CHC @ MIL"
+    }
+  ],
+  "011:gb_c": [
+    {
+      "play_id": "b9b65694-e4cf-4748-b789-6184f6161963",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b9b65694-e4cf-4748-b789-6184f6161963",
+      "game_date": "2024-05-04",
+      "matchup": "BOS @ MIN"
+    },
+    {
+      "play_id": "fe403983-3ef0-4ff8-9564-afed36dbd2c0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=fe403983-3ef0-4ff8-9564-afed36dbd2c0",
+      "game_date": "2024-04-18",
+      "matchup": "CLE @ BOS"
+    },
+    {
+      "play_id": "433dfc5e-55fa-4c90-8d76-8b14fc6ab623",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=433dfc5e-55fa-4c90-8d76-8b14fc6ab623",
+      "game_date": "2024-06-14",
+      "matchup": "LAA @ SF"
+    }
+  ],
+  "011:gb_1b": [
+    {
+      "play_id": "19581be4-dc5d-4433-b414-1a3a0e7b6377",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=19581be4-dc5d-4433-b414-1a3a0e7b6377",
+      "game_date": "2024-06-30",
+      "matchup": "TEX @ BAL"
+    },
+    {
+      "play_id": "6d42ef7a-2684-4732-9315-14ac2a02b875",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6d42ef7a-2684-4732-9315-14ac2a02b875",
+      "game_date": "2024-07-07",
+      "matchup": "TOR @ SEA"
+    },
+    {
+      "play_id": "4dd2bb4d-6a71-488a-92db-1fc8d06c25fe",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=4dd2bb4d-6a71-488a-92db-1fc8d06c25fe",
+      "game_date": "2024-04-28",
+      "matchup": "LAD @ TOR"
+    }
+  ],
+  "011:gb_2b": [
+    {
+      "play_id": "6b8a4519-9c93-4d59-9205-d051475d5f9a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6b8a4519-9c93-4d59-9205-d051475d5f9a",
+      "game_date": "2024-08-15",
+      "matchup": "ATH @ NYM"
+    },
+    {
+      "play_id": "2f592c87-3d10-44bc-a902-4b52b9d07e1b",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=2f592c87-3d10-44bc-a902-4b52b9d07e1b",
+      "game_date": "2024-07-03",
+      "matchup": "SF @ ATL"
+    },
+    {
+      "play_id": "7bfe6996-d783-495a-b9bb-0d13a3cb92d6",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7bfe6996-d783-495a-b9bb-0d13a3cb92d6",
+      "game_date": "2024-08-23",
+      "matchup": "CIN @ PIT"
+    }
+  ],
+  "011:gb_3b": [
+    {
+      "play_id": "8f41de15-7613-4de4-abbd-f0cb08e376e5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=8f41de15-7613-4de4-abbd-f0cb08e376e5",
+      "game_date": "2024-09-24",
+      "matchup": "SEA @ HOU"
+    },
+    {
+      "play_id": "2fc3b28d-6efc-46bb-991d-0955fe76d14e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=2fc3b28d-6efc-46bb-991d-0955fe76d14e",
+      "game_date": "2024-09-04",
+      "matchup": "PIT @ CHC"
+    },
+    {
+      "play_id": "63d39ebf-a828-476c-90a7-382e15d1b9bd",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=63d39ebf-a828-476c-90a7-382e15d1b9bd",
+      "game_date": "2024-07-19",
+      "matchup": "SF @ COL"
+    }
+  ],
+  "011:gb_ss": [
+    {
+      "play_id": "52f95d0e-042f-44a1-817c-871bbedaf44d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=52f95d0e-042f-44a1-817c-871bbedaf44d",
+      "game_date": "2024-06-15",
+      "matchup": "LAA @ SF"
+    },
+    {
+      "play_id": "7984fc2b-80a2-481e-96bd-3c9acd509aff",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7984fc2b-80a2-481e-96bd-3c9acd509aff",
+      "game_date": "2024-09-02",
+      "matchup": "HOU @ CIN"
+    },
+    {
+      "play_id": "6eb65c52-059c-44dd-b6f1-a5075cc01b96",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6eb65c52-059c-44dd-b6f1-a5075cc01b96",
+      "game_date": "2024-09-28",
+      "matchup": "LAD @ COL"
+    }
+  ],
+  "111:gb_p": [
+    {
+      "play_id": "b095362b-9b01-442a-8127-52dd688ddd3b",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b095362b-9b01-442a-8127-52dd688ddd3b",
+      "game_date": "2024-04-16",
+      "matchup": "SD @ MIL"
+    },
+    {
+      "play_id": "ec911436-064b-42e2-a264-8517355f2250",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ec911436-064b-42e2-a264-8517355f2250",
+      "game_date": "2024-04-27",
+      "matchup": "CHC @ BOS"
+    },
+    {
+      "play_id": "1993d651-4c46-4922-bfc5-ec501ea30ee9",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=1993d651-4c46-4922-bfc5-ec501ea30ee9",
+      "game_date": "2024-04-16",
+      "matchup": "CLE @ BOS"
+    }
+  ],
+  "111:gb_c": [
+    {
+      "play_id": "01c82c6c-853c-4727-8ecf-af1ab1b891a8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=01c82c6c-853c-4727-8ecf-af1ab1b891a8",
+      "game_date": "2024-05-22",
+      "matchup": "SF @ PIT"
+    },
+    {
+      "play_id": "f8096919-1c9a-4b05-9a0f-5a3527630943",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f8096919-1c9a-4b05-9a0f-5a3527630943",
+      "game_date": "2024-07-23",
+      "matchup": "STL @ PIT"
+    },
+    {
+      "play_id": "3f9b44df-c98c-4a5c-bed7-02dae6411e18",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=3f9b44df-c98c-4a5c-bed7-02dae6411e18",
+      "game_date": "2023-05-17",
+      "matchup": "MIL @ STL"
+    }
+  ],
+  "111:gb_1b": [
+    {
+      "play_id": "6bb3ae4f-54e6-4daf-a6d5-b924bc25d638",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6bb3ae4f-54e6-4daf-a6d5-b924bc25d638",
+      "game_date": "2024-07-04",
+      "matchup": "HOU @ TOR"
+    },
+    {
+      "play_id": "b2e5b410-6077-4ad8-8079-52c951530b36",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b2e5b410-6077-4ad8-8079-52c951530b36",
+      "game_date": "2024-04-09",
+      "matchup": "NYM @ ATL"
+    },
+    {
+      "play_id": "737fdea6-c7cc-409f-a7d9-5b86ef07504c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=737fdea6-c7cc-409f-a7d9-5b86ef07504c",
+      "game_date": "2024-06-18",
+      "matchup": "KC @ ATH"
+    }
+  ],
+  "111:gb_2b": [
+    {
+      "play_id": "2466d5df-6257-46f4-97b8-72f7e2d8500c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=2466d5df-6257-46f4-97b8-72f7e2d8500c",
+      "game_date": "2024-08-14",
+      "matchup": "ATL @ SF"
+    },
+    {
+      "play_id": "d94c5c15-6121-4815-b8ec-9dc735119e64",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d94c5c15-6121-4815-b8ec-9dc735119e64",
+      "game_date": "2024-04-15",
+      "matchup": "SD @ MIL"
+    },
+    {
+      "play_id": "48fbaabb-6950-42c9-9bb0-52cd2faea72f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=48fbaabb-6950-42c9-9bb0-52cd2faea72f",
+      "game_date": "2024-09-01",
+      "matchup": "MIA @ SF"
+    }
+  ],
+  "111:gb_3b": [
+    {
+      "play_id": "4adc93f0-5071-4083-8bb5-27ae39565011",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=4adc93f0-5071-4083-8bb5-27ae39565011",
+      "game_date": "2024-04-13",
+      "matchup": "MIL @ BAL"
+    },
+    {
+      "play_id": "b8893590-ad4b-4399-a8f8-6f42eb60ae07",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b8893590-ad4b-4399-a8f8-6f42eb60ae07",
+      "game_date": "2024-07-06",
+      "matchup": "SF @ CLE"
+    },
+    {
+      "play_id": "b29de7c3-651d-4380-ba24-8021867f011b",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b29de7c3-651d-4380-ba24-8021867f011b",
+      "game_date": "2023-05-26",
+      "matchup": "LAD @ TB"
+    }
+  ],
+  "111:gb_ss": [
+    {
+      "play_id": "60827f58-a264-4766-840a-55535b88e9cb",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=60827f58-a264-4766-840a-55535b88e9cb",
+      "game_date": "2024-06-25",
+      "matchup": "PHI @ DET"
+    },
+    {
+      "play_id": "db46d394-913b-414c-a5f6-cfa4820affd5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=db46d394-913b-414c-a5f6-cfa4820affd5",
+      "game_date": "2023-08-06",
+      "matchup": "TOR @ BOS"
+    },
+    {
+      "play_id": "dd25dc55-adbe-43b8-b14f-78e140a71453",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=dd25dc55-adbe-43b8-b14f-78e140a71453",
+      "game_date": "2024-07-19",
+      "matchup": "TB @ NYY"
+    }
+  ],
+  "000:gb_lf": [
+    {
+      "play_id": "12631040-bc1d-40b7-945f-05c61fe3adfe",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=12631040-bc1d-40b7-945f-05c61fe3adfe",
+      "game_date": "2024-05-31",
+      "matchup": "CWS @ MIL"
+    },
+    {
+      "play_id": "36ef0a65-5578-4936-bac7-4e8644b36a92",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=36ef0a65-5578-4936-bac7-4e8644b36a92",
+      "game_date": "2024-06-30",
+      "matchup": "SD @ BOS"
+    },
+    {
+      "play_id": "b2b659a0-df87-4f89-84d8-bc3a0da8117c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b2b659a0-df87-4f89-84d8-bc3a0da8117c",
+      "game_date": "2024-06-30",
+      "matchup": "CLE @ KC"
+    }
+  ],
+  "000:gb_cf": [
+    {
+      "play_id": "daebef1e-bbb1-4e2c-a5fc-f070055fbf7e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=daebef1e-bbb1-4e2c-a5fc-f070055fbf7e",
+      "game_date": "2024-05-31",
+      "matchup": "STL @ PHI"
+    },
+    {
+      "play_id": "a9eda1a2-9005-4554-992e-6ff601d69b07",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a9eda1a2-9005-4554-992e-6ff601d69b07",
+      "game_date": "2024-08-04",
+      "matchup": "TOR @ NYY"
+    },
+    {
+      "play_id": "c164b84d-81a1-4c8e-9b73-08f1b10b1012",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c164b84d-81a1-4c8e-9b73-08f1b10b1012",
+      "game_date": "2024-08-05",
+      "matchup": "AZ @ CLE"
+    }
+  ],
+  "000:gb_rf": [
+    {
+      "play_id": "92d0a1b9-270c-40fd-901c-f9bd09409427",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=92d0a1b9-270c-40fd-901c-f9bd09409427",
+      "game_date": "2024-08-18",
+      "matchup": "CWS @ HOU"
+    },
+    {
+      "play_id": "b2a9ef78-fc13-4967-a310-cd576ed3df9e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b2a9ef78-fc13-4967-a310-cd576ed3df9e",
+      "game_date": "2024-07-23",
+      "matchup": "BOS @ COL"
+    },
+    {
+      "play_id": "cf736068-7841-426f-a175-aa317573b12b",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=cf736068-7841-426f-a175-aa317573b12b",
+      "game_date": "2024-07-07",
+      "matchup": "LAA @ CHC"
+    }
+  ],
+  "100:gb_lf": [
+    {
+      "play_id": "ca413c72-ae7b-48c9-83a9-bb55a7506d62",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ca413c72-ae7b-48c9-83a9-bb55a7506d62",
+      "game_date": "2024-06-30",
+      "matchup": "PIT @ ATL"
+    },
+    {
+      "play_id": "7d44a1dc-afd4-4b23-b4ac-983f341857fc",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7d44a1dc-afd4-4b23-b4ac-983f341857fc",
+      "game_date": "2024-09-01",
+      "matchup": "BAL @ COL"
+    },
+    {
+      "play_id": "c7c2df79-c913-4bfa-baee-5ab3bc9d5966",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c7c2df79-c913-4bfa-baee-5ab3bc9d5966",
+      "game_date": "2024-08-28",
+      "matchup": "KC @ CLE"
+    }
+  ],
+  "100:gb_cf": [
+    {
+      "play_id": "cc9c6f6f-cb65-4c50-9bb8-5e8f3f0d72df",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=cc9c6f6f-cb65-4c50-9bb8-5e8f3f0d72df",
+      "game_date": "2024-09-21",
+      "matchup": "AZ @ MIL"
+    },
+    {
+      "play_id": "88e9ec38-61bd-46f3-b766-5d9d3aa695f0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=88e9ec38-61bd-46f3-b766-5d9d3aa695f0",
+      "game_date": "2024-08-07",
+      "matchup": "LAA @ NYY"
+    },
+    {
+      "play_id": "c8dab498-e1c7-4aa9-9dd8-8ba341d32aed",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c8dab498-e1c7-4aa9-9dd8-8ba341d32aed",
+      "game_date": "2024-08-11",
+      "matchup": "HOU @ BOS"
+    }
+  ],
+  "100:gb_rf": [
+    {
+      "play_id": "cc62813d-9385-4254-a3a6-069b2e553eb9",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=cc62813d-9385-4254-a3a6-069b2e553eb9",
+      "game_date": "2024-04-24",
+      "matchup": "ATH @ NYY"
+    },
+    {
+      "play_id": "19e2375c-43d2-4685-965a-1e69a95f786a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=19e2375c-43d2-4685-965a-1e69a95f786a",
+      "game_date": "2024-04-09",
+      "matchup": "CWS @ CLE"
+    },
+    {
+      "play_id": "61b9d158-ce29-47d9-8455-5e85e731d9ed",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=61b9d158-ce29-47d9-8455-5e85e731d9ed",
+      "game_date": "2024-04-14",
+      "matchup": "KC @ NYM"
+    }
+  ],
+  "010:gb_lf": [
+    {
+      "play_id": "847960a0-5635-4a74-a919-1e1d688771c1",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=847960a0-5635-4a74-a919-1e1d688771c1",
+      "game_date": "2024-05-05",
+      "matchup": "SD @ AZ"
+    },
+    {
+      "play_id": "b51728bd-bc4e-4fd0-aca1-6db969cb9632",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b51728bd-bc4e-4fd0-aca1-6db969cb9632",
+      "game_date": "2024-09-11",
+      "matchup": "ATH @ HOU"
+    },
+    {
+      "play_id": "14ec2f10-7780-4b14-b50f-f3a206a76dd4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=14ec2f10-7780-4b14-b50f-f3a206a76dd4",
+      "game_date": "2024-04-26",
+      "matchup": "CLE @ ATL"
+    }
+  ],
+  "010:gb_cf": [
+    {
+      "play_id": "b35b2be2-a843-454f-a9a2-22506687063e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b35b2be2-a843-454f-a9a2-22506687063e",
+      "game_date": "2024-08-03",
+      "matchup": "BOS @ TEX"
+    },
+    {
+      "play_id": "cbfe4e8e-ab76-4b92-ab3b-4f2016568abd",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=cbfe4e8e-ab76-4b92-ab3b-4f2016568abd",
+      "game_date": "2024-09-04",
+      "matchup": "MIN @ TB"
+    },
+    {
+      "play_id": "ec9b1fc7-244e-48c1-9aa1-3e5b586ec447",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ec9b1fc7-244e-48c1-9aa1-3e5b586ec447",
+      "game_date": "2024-04-28",
+      "matchup": "KC @ DET"
+    }
+  ],
+  "010:gb_rf": [
+    {
+      "play_id": "09a07ba8-dc6c-4e3a-a5db-aa4629d7fb7d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=09a07ba8-dc6c-4e3a-a5db-aa4629d7fb7d",
+      "game_date": "2024-04-24",
+      "matchup": "MIA @ ATL"
+    },
+    {
+      "play_id": "26459090-ae0d-430b-9c1f-9e98c6296700",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=26459090-ae0d-430b-9c1f-9e98c6296700",
+      "game_date": "2024-05-05",
+      "matchup": "BAL @ CIN"
+    },
+    {
+      "play_id": "25b0a9a0-cc46-4c7e-ab50-869dc52c319e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=25b0a9a0-cc46-4c7e-ab50-869dc52c319e",
+      "game_date": "2024-09-14",
+      "matchup": "SD @ SF"
+    }
+  ],
+  "001:gb_lf": [
+    {
+      "play_id": "0b48856c-7576-46a0-b181-b93a9853f74a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=0b48856c-7576-46a0-b181-b93a9853f74a",
+      "game_date": "2024-07-30",
+      "matchup": "NYY @ PHI"
+    },
+    {
+      "play_id": "e356a77d-3d3d-4619-b14a-cfe778699877",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=e356a77d-3d3d-4619-b14a-cfe778699877",
+      "game_date": "2024-09-16",
+      "matchup": "ATH @ CHC"
+    },
+    {
+      "play_id": "a8ae4265-c6da-4224-ae79-290ba30226a9",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a8ae4265-c6da-4224-ae79-290ba30226a9",
+      "game_date": "2024-06-18",
+      "matchup": "DET @ ATL"
+    }
+  ],
+  "001:gb_cf": [
+    {
+      "play_id": "9fefeba4-bd58-4876-a01f-98705e039a47",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9fefeba4-bd58-4876-a01f-98705e039a47",
+      "game_date": "2024-04-01",
+      "matchup": "LAA @ MIA"
+    },
+    {
+      "play_id": "51d2718f-2c44-458f-8e4a-ba9da8df6499",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=51d2718f-2c44-458f-8e4a-ba9da8df6499",
+      "game_date": "2024-06-22",
+      "matchup": "SEA @ MIA"
+    },
+    {
+      "play_id": "e593f3a8-3d9e-4346-90ba-099a989f0872",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=e593f3a8-3d9e-4346-90ba-099a989f0872",
+      "game_date": "2024-08-24",
+      "matchup": "COL @ NYY"
+    }
+  ],
+  "001:gb_rf": [
+    {
+      "play_id": "d9e3ba58-692f-4480-b161-fb21e5eb81ce",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d9e3ba58-692f-4480-b161-fb21e5eb81ce",
+      "game_date": "2024-07-27",
+      "matchup": "PIT @ AZ"
+    },
+    {
+      "play_id": "a12680e6-a558-4495-9250-6f82c9294bdd",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a12680e6-a558-4495-9250-6f82c9294bdd",
+      "game_date": "2024-04-07",
+      "matchup": "TB @ COL"
+    },
+    {
+      "play_id": "d8682d4e-7f9e-4f13-8975-7a897d21aeaf",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d8682d4e-7f9e-4f13-8975-7a897d21aeaf",
+      "game_date": "2024-05-28",
+      "matchup": "BOS @ BAL"
+    }
+  ],
+  "110:gb_lf": [
+    {
+      "play_id": "49b7acd5-8f12-40cd-bacf-d29d3263dcf0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=49b7acd5-8f12-40cd-bacf-d29d3263dcf0",
+      "game_date": "2024-08-07",
+      "matchup": "MIL @ ATL"
+    },
+    {
+      "play_id": "b9c99533-32fe-4936-a0eb-0ffa8fc40527",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b9c99533-32fe-4936-a0eb-0ffa8fc40527",
+      "game_date": "2024-08-05",
+      "matchup": "CIN @ MIA"
+    },
+    {
+      "play_id": "0ea0f854-791e-4ec0-92c3-e7161e034e59",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=0ea0f854-791e-4ec0-92c3-e7161e034e59",
+      "game_date": "2024-08-14",
+      "matchup": "LAD @ MIL"
+    }
+  ],
+  "110:gb_cf": [
+    {
+      "play_id": "c2c7b21c-e7c4-4d15-8ee1-ebcc82e744ed",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c2c7b21c-e7c4-4d15-8ee1-ebcc82e744ed",
+      "game_date": "2024-08-06",
+      "matchup": "BAL @ TOR"
+    },
+    {
+      "play_id": "9a1f5e41-02ad-4d47-94a6-1c1d4c280048",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9a1f5e41-02ad-4d47-94a6-1c1d4c280048",
+      "game_date": "2024-04-28",
+      "matchup": "HOU @ COL"
+    },
+    {
+      "play_id": "97673e87-0c3a-4410-b90a-31407a35c5cd",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=97673e87-0c3a-4410-b90a-31407a35c5cd",
+      "game_date": "2024-09-12",
+      "matchup": "MIA @ WSH"
+    }
+  ],
+  "110:gb_rf": [
+    {
+      "play_id": "d99e0325-8505-4130-953e-54504ae9b04f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d99e0325-8505-4130-953e-54504ae9b04f",
+      "game_date": "2024-04-01",
+      "matchup": "LAA @ MIA"
+    },
+    {
+      "play_id": "a37aa025-b26d-4127-8821-76d49183891f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a37aa025-b26d-4127-8821-76d49183891f",
+      "game_date": "2024-06-25",
+      "matchup": "ATH @ LAA"
+    },
+    {
+      "play_id": "e59d0726-eee3-4789-a701-4485054a7ce2",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=e59d0726-eee3-4789-a701-4485054a7ce2",
+      "game_date": "2024-05-09",
+      "matchup": "CLE @ CWS"
+    }
+  ],
+  "101:gb_lf": [
+    {
+      "play_id": "9926bfbd-940c-4a71-ae7d-9c074771e4e5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9926bfbd-940c-4a71-ae7d-9c074771e4e5",
+      "game_date": "2024-09-28",
+      "matchup": "STL @ SF"
+    },
+    {
+      "play_id": "84a65655-e46c-4ebc-80ae-fa16ab598d3d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=84a65655-e46c-4ebc-80ae-fa16ab598d3d",
+      "game_date": "2024-04-22",
+      "matchup": "DET @ TB"
+    },
+    {
+      "play_id": "cd58483b-73cd-4e86-93b9-79c2b6fdae39",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=cd58483b-73cd-4e86-93b9-79c2b6fdae39",
+      "game_date": "2024-05-12",
+      "matchup": "KC @ LAA"
+    }
+  ],
+  "101:gb_cf": [
+    {
+      "play_id": "4fb76250-fcfb-480a-8fa1-faec3ef13b30",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=4fb76250-fcfb-480a-8fa1-faec3ef13b30",
+      "game_date": "2024-09-07",
+      "matchup": "TOR @ ATL"
+    },
+    {
+      "play_id": "c667b84c-5125-4b9d-ac8d-7a514d9ef026",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c667b84c-5125-4b9d-ac8d-7a514d9ef026",
+      "game_date": "2024-04-07",
+      "matchup": "BOS @ LAA"
+    },
+    {
+      "play_id": "daefdd2c-c414-41cd-b0a8-016cb066e9a4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=daefdd2c-c414-41cd-b0a8-016cb066e9a4",
+      "game_date": "2024-04-24",
+      "matchup": "TOR @ KC"
+    }
+  ],
+  "101:gb_rf": [
+    {
+      "play_id": "31a6dfe9-e033-4f13-857d-f1088b026979",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=31a6dfe9-e033-4f13-857d-f1088b026979",
+      "game_date": "2024-04-12",
+      "matchup": "MIN @ DET"
+    },
+    {
+      "play_id": "f2a9110f-1073-4c87-bd9f-794dcbbb5f17",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f2a9110f-1073-4c87-bd9f-794dcbbb5f17",
+      "game_date": "2024-04-14",
+      "matchup": "MIL @ BAL"
+    },
+    {
+      "play_id": "27460a4a-88a1-467f-89a6-fc4c14833e1c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=27460a4a-88a1-467f-89a6-fc4c14833e1c",
+      "game_date": "2024-04-04",
+      "matchup": "CLE @ MIN"
+    }
+  ],
+  "011:gb_lf": [
+    {
+      "play_id": "36b8e467-e357-4ed4-a54c-c026b341f066",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=36b8e467-e357-4ed4-a54c-c026b341f066",
+      "game_date": "2024-06-16",
+      "matchup": "NYY @ BOS"
+    },
+    {
+      "play_id": "6fba65e5-6eca-437b-bc78-bb236b7393cf",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6fba65e5-6eca-437b-bc78-bb236b7393cf",
+      "game_date": "2024-08-02",
+      "matchup": "TOR @ NYY"
+    },
+    {
+      "play_id": "3350f649-fe87-4cf1-9d27-68a1b28d1791",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=3350f649-fe87-4cf1-9d27-68a1b28d1791",
+      "game_date": "2024-09-09",
+      "matchup": "LAA @ MIN"
+    }
+  ],
+  "011:gb_cf": [
+    {
+      "play_id": "1acb6f14-744a-49e1-bb82-b065a2847507",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=1acb6f14-744a-49e1-bb82-b065a2847507",
+      "game_date": "2024-06-15",
+      "matchup": "CLE @ TOR"
+    },
+    {
+      "play_id": "5a56bb03-0487-4953-9cef-ee1faaeb374e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=5a56bb03-0487-4953-9cef-ee1faaeb374e",
+      "game_date": "2024-08-13",
+      "matchup": "WSH @ BAL"
+    },
+    {
+      "play_id": "736b0846-0e33-46cc-89df-ef9b057412da",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=736b0846-0e33-46cc-89df-ef9b057412da",
+      "game_date": "2024-08-13",
+      "matchup": "ATH @ NYM"
+    }
+  ],
+  "011:gb_rf": [
+    {
+      "play_id": "513b7756-1a5a-4a56-af59-76697453affb",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=513b7756-1a5a-4a56-af59-76697453affb",
+      "game_date": "2024-04-27",
+      "matchup": "MIN @ LAA"
+    },
+    {
+      "play_id": "df2398d4-1cf0-43be-b302-5230dd3a3aee",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=df2398d4-1cf0-43be-b302-5230dd3a3aee",
+      "game_date": "2024-04-09",
+      "matchup": "MIL @ CIN"
+    },
+    {
+      "play_id": "207ba4d3-ba1d-4e0f-b78d-8dda318181a9",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=207ba4d3-ba1d-4e0f-b78d-8dda318181a9",
+      "game_date": "2024-05-04",
+      "matchup": "NYM @ TB"
+    }
+  ],
+  "111:gb_lf": [
+    {
+      "play_id": "07fd68ae-5ef3-4b1b-bb50-8b355a704c8e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=07fd68ae-5ef3-4b1b-bb50-8b355a704c8e",
+      "game_date": "2024-04-08",
+      "matchup": "HOU @ TEX"
+    },
+    {
+      "play_id": "8c9c935c-8f37-40be-9615-b557e7bca043",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=8c9c935c-8f37-40be-9615-b557e7bca043",
+      "game_date": "2024-07-19",
+      "matchup": "AZ @ CHC"
+    },
+    {
+      "play_id": "7227f614-952c-409f-800f-fd36b0ae9623",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7227f614-952c-409f-800f-fd36b0ae9623",
+      "game_date": "2024-05-05",
+      "matchup": "SEA @ HOU"
+    }
+  ],
+  "111:gb_cf": [
+    {
+      "play_id": "81edd6d5-bfcc-40a0-962c-189bfe7a52b4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=81edd6d5-bfcc-40a0-962c-189bfe7a52b4",
+      "game_date": "2024-07-27",
+      "matchup": "WSH @ STL"
+    },
+    {
+      "play_id": "64b8c36e-3e74-448b-a048-183dfb29dd59",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=64b8c36e-3e74-448b-a048-183dfb29dd59",
+      "game_date": "2024-07-25",
+      "matchup": "TB @ TOR"
+    },
+    {
+      "play_id": "c34fe7a9-c11c-4bfb-9780-e5c7a302173b",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c34fe7a9-c11c-4bfb-9780-e5c7a302173b",
+      "game_date": "2024-04-30",
+      "matchup": "CLE @ HOU"
+    }
+  ],
+  "111:gb_rf": [
+    {
+      "play_id": "179ada8e-ded0-46a1-87ea-17b334ffcb85",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=179ada8e-ded0-46a1-87ea-17b334ffcb85",
+      "game_date": "2024-07-19",
+      "matchup": "HOU @ SEA"
+    },
+    {
+      "play_id": "4732eb9c-1ad3-4d27-80d7-ec31840017d8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=4732eb9c-1ad3-4d27-80d7-ec31840017d8",
+      "game_date": "2024-07-07",
+      "matchup": "TB @ TEX"
+    },
+    {
+      "play_id": "d6f18c27-3c5c-499a-b078-9f8a1e1199e0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d6f18c27-3c5c-499a-b078-9f8a1e1199e0",
+      "game_date": "2024-06-25",
+      "matchup": "PIT @ CIN"
+    }
+  ],
+  "000:dbl_ll": [
+    {
+      "play_id": "5e259264-a801-4d46-b851-e3a6d75ab46e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=5e259264-a801-4d46-b851-e3a6d75ab46e",
+      "game_date": "2024-07-09",
+      "matchup": "PIT @ MIL"
+    },
+    {
+      "play_id": "6e83a881-dcb7-4045-9923-5abc4baeb1d3",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6e83a881-dcb7-4045-9923-5abc4baeb1d3",
+      "game_date": "2024-07-13",
+      "matchup": "COL @ NYM"
+    },
+    {
+      "play_id": "5c53565a-51bf-4e1d-9c49-18708e53c005",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=5c53565a-51bf-4e1d-9c49-18708e53c005",
+      "game_date": "2024-07-22",
+      "matchup": "AZ @ KC"
+    }
+  ],
+  "000:dbl_rl": [
+    {
+      "play_id": "7e435ea1-2dc1-4edc-b517-bc06fb380a4a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7e435ea1-2dc1-4edc-b517-bc06fb380a4a",
+      "game_date": "2024-05-31",
+      "matchup": "LAA @ SEA"
+    },
+    {
+      "play_id": "63847ea4-08ea-40f6-9e4c-39b71008e3dd",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=63847ea4-08ea-40f6-9e4c-39b71008e3dd",
+      "game_date": "2024-08-17",
+      "matchup": "NYY @ DET"
+    },
+    {
+      "play_id": "7eff9048-4ca6-43ad-9756-ec347ae67e59",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=7eff9048-4ca6-43ad-9756-ec347ae67e59",
+      "game_date": "2024-08-16",
+      "matchup": "TOR @ CHC"
+    }
+  ],
+  "000:dbl_lg": [
+    {
+      "play_id": "c88a683f-eacb-4533-bfc2-bc4b527a79e5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c88a683f-eacb-4533-bfc2-bc4b527a79e5",
+      "game_date": "2024-05-31",
+      "matchup": "DET @ BOS"
+    },
+    {
+      "play_id": "529ae602-fbee-47d9-b954-e71ed71d6987",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=529ae602-fbee-47d9-b954-e71ed71d6987",
+      "game_date": "2024-08-27",
+      "matchup": "KC @ CLE"
+    },
+    {
+      "play_id": "5ee7c792-36d8-4188-8251-f2e0347d38d4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=5ee7c792-36d8-4188-8251-f2e0347d38d4",
+      "game_date": "2024-04-25",
+      "matchup": "HOU @ CHC"
+    }
+  ],
+  "000:dbl_rg": [
+    {
+      "play_id": "3ae32690-c7d5-4054-a486-8335fa316e33",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=3ae32690-c7d5-4054-a486-8335fa316e33",
+      "game_date": "2024-07-10",
+      "matchup": "COL @ CIN"
+    },
+    {
+      "play_id": "3f171db0-ac94-4666-99a2-9230d7d78ce2",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=3f171db0-ac94-4666-99a2-9230d7d78ce2",
+      "game_date": "2024-07-26",
+      "matchup": "COL @ SF"
+    },
+    {
+      "play_id": "25fbe78b-c645-44ce-a4d5-282f088ab652",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=25fbe78b-c645-44ce-a4d5-282f088ab652",
+      "game_date": "2024-06-18",
+      "matchup": "TB @ MIN"
+    }
+  ],
+  "100:dbl_ll": [
+    {
+      "play_id": "05c0182a-7f06-4d8c-a3c0-5291aad86891",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=05c0182a-7f06-4d8c-a3c0-5291aad86891",
+      "game_date": "2024-06-01",
+      "matchup": "NYY @ SF"
+    },
+    {
+      "play_id": "27da09ee-467e-4564-9140-d00cdab2ad37",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=27da09ee-467e-4564-9140-d00cdab2ad37",
+      "game_date": "2024-09-04",
+      "matchup": "SEA @ ATH"
+    },
+    {
+      "play_id": "c81b8bf5-282b-4362-b58c-4b6affadd6cd",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c81b8bf5-282b-4362-b58c-4b6affadd6cd",
+      "game_date": "2024-08-27",
+      "matchup": "KC @ CLE"
+    }
+  ],
+  "100:dbl_rl": [
+    {
+      "play_id": "1e5e14cb-30dc-426e-85da-ec897f23a9f8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=1e5e14cb-30dc-426e-85da-ec897f23a9f8",
+      "game_date": "2024-07-10",
+      "matchup": "KC @ STL"
+    },
+    {
+      "play_id": "c9cc426b-1435-41bb-bcae-baed314cbef8",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c9cc426b-1435-41bb-bcae-baed314cbef8",
+      "game_date": "2024-09-04",
+      "matchup": "AZ @ SF"
+    },
+    {
+      "play_id": "702fd5ef-db84-478f-939a-e8ef8dd31375",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=702fd5ef-db84-478f-939a-e8ef8dd31375",
+      "game_date": "2024-06-23",
+      "matchup": "TOR @ CLE"
+    }
+  ],
+  "100:dbl_lg": [
+    {
+      "play_id": "c527a8cf-81b8-4ddb-b459-262b05a075b5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c527a8cf-81b8-4ddb-b459-262b05a075b5",
+      "game_date": "2024-09-18",
+      "matchup": "TOR @ TEX"
+    },
+    {
+      "play_id": "a6d15fc8-0666-4622-bb5f-cbd2243600a3",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a6d15fc8-0666-4622-bb5f-cbd2243600a3",
+      "game_date": "2024-08-26",
+      "matchup": "KC @ CLE"
+    },
+    {
+      "play_id": "66073020-19da-48b2-8d0c-3acdcf1774b0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=66073020-19da-48b2-8d0c-3acdcf1774b0",
+      "game_date": "2024-05-10",
+      "matchup": "LAD @ SD"
+    }
+  ],
+  "100:dbl_rg": [
+    {
+      "play_id": "9f812227-6f07-405a-a6ca-ba017e08bf50",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9f812227-6f07-405a-a6ca-ba017e08bf50",
+      "game_date": "2024-08-09",
+      "matchup": "ATL @ COL"
+    },
+    {
+      "play_id": "234e3863-dd20-47d8-8db6-17f5a2283f2a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=234e3863-dd20-47d8-8db6-17f5a2283f2a",
+      "game_date": "2024-05-03",
+      "matchup": "NYM @ TB"
+    },
+    {
+      "play_id": "53d21203-35fb-41b0-81b3-dc53db3d64bb",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=53d21203-35fb-41b0-81b3-dc53db3d64bb",
+      "game_date": "2024-04-08",
+      "matchup": "LAD @ MIN"
+    }
+  ],
+  "010:dbl_ll": [
+    {
+      "play_id": "ef7e355d-c2c5-46c2-9560-85ce65d7b49e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ef7e355d-c2c5-46c2-9560-85ce65d7b49e",
+      "game_date": "2024-05-05",
+      "matchup": "CWS @ STL"
+    },
+    {
+      "play_id": "011f4eea-4d1e-4cf8-814d-ae34f92fe53d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=011f4eea-4d1e-4cf8-814d-ae34f92fe53d",
+      "game_date": "2024-05-13",
+      "matchup": "PHI @ NYM"
+    },
+    {
+      "play_id": "b681efb6-f86a-49e4-ac9a-90441cb2b4f5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b681efb6-f86a-49e4-ac9a-90441cb2b4f5",
+      "game_date": "2024-06-16",
+      "matchup": "LAA @ SF"
+    }
+  ],
+  "010:dbl_rl": [
+    {
+      "play_id": "5f71cd22-5e12-490d-b2d0-4aaab53654f2",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=5f71cd22-5e12-490d-b2d0-4aaab53654f2",
+      "game_date": "2024-05-31",
+      "matchup": "AZ @ NYM"
+    },
+    {
+      "play_id": "642b8350-a2ff-41e2-a031-2f42ae78d587",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=642b8350-a2ff-41e2-a031-2f42ae78d587",
+      "game_date": "2024-08-12",
+      "matchup": "TEX @ BOS"
+    },
+    {
+      "play_id": "fc8aa9b3-e9c0-4598-a6cd-242f229f1406",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=fc8aa9b3-e9c0-4598-a6cd-242f229f1406",
+      "game_date": "2024-05-08",
+      "matchup": "BAL @ WSH"
+    }
+  ],
+  "010:dbl_lg": [
+    {
+      "play_id": "e266b0c5-3c76-472f-bdcf-39acac48e6ba",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=e266b0c5-3c76-472f-bdcf-39acac48e6ba",
+      "game_date": "2024-04-11",
+      "matchup": "BAL @ BOS"
+    },
+    {
+      "play_id": "6b4bd57b-07a7-4bf6-a889-c96a291a5bdc",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6b4bd57b-07a7-4bf6-a889-c96a291a5bdc",
+      "game_date": "2024-05-08",
+      "matchup": "MIL @ KC"
+    },
+    {
+      "play_id": "284d58f0-e9de-47c8-abc5-2f74115079e0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=284d58f0-e9de-47c8-abc5-2f74115079e0",
+      "game_date": "2024-06-12",
+      "matchup": "COL @ MIN"
+    }
+  ],
+  "010:dbl_rg": [
+    {
+      "play_id": "88fa09e9-061e-4790-9b99-a3aa56298d2f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=88fa09e9-061e-4790-9b99-a3aa56298d2f",
+      "game_date": "2024-09-04",
+      "matchup": "AZ @ SF"
+    },
+    {
+      "play_id": "4b0c565a-4444-47d5-af6f-0f3ad05bc711",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=4b0c565a-4444-47d5-af6f-0f3ad05bc711",
+      "game_date": "2024-08-21",
+      "matchup": "CWS @ SF"
+    },
+    {
+      "play_id": "ba3388f1-bd8e-4e9d-b862-e8b9f41197f0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ba3388f1-bd8e-4e9d-b862-e8b9f41197f0",
+      "game_date": "2024-06-15",
+      "matchup": "CIN @ MIL"
+    }
+  ],
+  "001:dbl_ll": [
+    {
+      "play_id": "377bcc92-65be-493a-a1d8-507840c60bd5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=377bcc92-65be-493a-a1d8-507840c60bd5",
+      "game_date": "2024-04-16",
+      "matchup": "CHC @ AZ"
+    },
+    {
+      "play_id": "34f40177-cb3e-496e-b8a4-172d9cfd3263",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=34f40177-cb3e-496e-b8a4-172d9cfd3263",
+      "game_date": "2024-05-14",
+      "matchup": "LAD @ SF"
+    },
+    {
+      "play_id": "84f71a5f-7671-4eb1-bee6-df5b4785057c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=84f71a5f-7671-4eb1-bee6-df5b4785057c",
+      "game_date": "2023-08-11",
+      "matchup": "CIN @ PIT"
+    }
+  ],
+  "001:dbl_rl": [
+    {
+      "play_id": "ed4ba7e9-b61d-4e49-a372-fcf2d111c13a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ed4ba7e9-b61d-4e49-a372-fcf2d111c13a",
+      "game_date": "2024-04-11",
+      "matchup": "HOU @ KC"
+    },
+    {
+      "play_id": "d4dc4f37-356c-4fed-a34c-bf94cbbc498d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d4dc4f37-356c-4fed-a34c-bf94cbbc498d",
+      "game_date": "2024-05-19",
+      "matchup": "SD @ ATL"
+    },
+    {
+      "play_id": "9775edcd-95f1-4b61-8b22-e354f597c337",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9775edcd-95f1-4b61-8b22-e354f597c337",
+      "game_date": "2024-04-09",
+      "matchup": "NYM @ ATL"
+    }
+  ],
+  "001:dbl_lg": [
+    {
+      "play_id": "32f23fb4-e387-45fe-9b29-c968fab854ae",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=32f23fb4-e387-45fe-9b29-c968fab854ae",
+      "game_date": "2023-06-14",
+      "matchup": "TOR @ BAL"
+    },
+    {
+      "play_id": "61399ad1-58f8-434b-be97-22190d9c0f90",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=61399ad1-58f8-434b-be97-22190d9c0f90",
+      "game_date": "2023-08-10",
+      "matchup": "TOR @ CLE"
+    },
+    {
+      "play_id": "a6ce4afc-857f-4de1-b6f1-9de393581dc4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=a6ce4afc-857f-4de1-b6f1-9de393581dc4",
+      "game_date": "2024-09-24",
+      "matchup": "BOS @ TOR"
+    }
+  ],
+  "001:dbl_rg": [
+    {
+      "play_id": "95907bef-3c39-4ee9-bfe0-52539b5800a9",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=95907bef-3c39-4ee9-bfe0-52539b5800a9",
+      "game_date": "2024-05-10",
+      "matchup": "CIN @ SF"
+    },
+    {
+      "play_id": "76362386-01d5-463d-b7fb-cf7b296a3d45",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=76362386-01d5-463d-b7fb-cf7b296a3d45",
+      "game_date": "2024-09-04",
+      "matchup": "SEA @ ATH"
+    },
+    {
+      "play_id": "793b295d-1d22-497b-b9b2-a6e34f7f7143",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=793b295d-1d22-497b-b9b2-a6e34f7f7143",
+      "game_date": "2024-07-31",
+      "matchup": "WSH @ AZ"
+    }
+  ],
+  "110:dbl_ll": [
+    {
+      "play_id": "f05c322d-2e4f-4c68-8101-5858483b379f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f05c322d-2e4f-4c68-8101-5858483b379f",
+      "game_date": "2024-08-18",
+      "matchup": "SEA @ PIT"
+    },
+    {
+      "play_id": "690329ec-e7d8-4526-8873-21206f527af1",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=690329ec-e7d8-4526-8873-21206f527af1",
+      "game_date": "2024-09-27",
+      "matchup": "HOU @ CLE"
+    },
+    {
+      "play_id": "22206f3c-65aa-4abf-9b1b-c6ea6484a26c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=22206f3c-65aa-4abf-9b1b-c6ea6484a26c",
+      "game_date": "2024-04-29",
+      "matchup": "LAD @ AZ"
+    }
+  ],
+  "110:dbl_rl": [
+    {
+      "play_id": "0833439d-c415-4629-843e-aae3051a784a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=0833439d-c415-4629-843e-aae3051a784a",
+      "game_date": "2024-04-27",
+      "matchup": "MIN @ LAA"
+    },
+    {
+      "play_id": "6805511e-0368-424c-9d44-1b4982dbda77",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6805511e-0368-424c-9d44-1b4982dbda77",
+      "game_date": "2024-06-08",
+      "matchup": "CLE @ MIA"
+    },
+    {
+      "play_id": "3479790a-36da-4dca-85c9-dccd77422bbb",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=3479790a-36da-4dca-85c9-dccd77422bbb",
+      "game_date": "2024-09-24",
+      "matchup": "SEA @ HOU"
+    }
+  ],
+  "110:dbl_lg": [
+    {
+      "play_id": "335f3d00-0607-4d9e-a79d-5de456bbf045",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=335f3d00-0607-4d9e-a79d-5de456bbf045",
+      "game_date": "2024-04-17",
+      "matchup": "STL @ ATH"
+    },
+    {
+      "play_id": "82e5fb75-662a-475e-91ff-4142095aa46d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=82e5fb75-662a-475e-91ff-4142095aa46d",
+      "game_date": "2024-05-17",
+      "matchup": "DET @ AZ"
+    },
+    {
+      "play_id": "27004632-7604-45f7-9656-e9b02bd8db79",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=27004632-7604-45f7-9656-e9b02bd8db79",
+      "game_date": "2024-07-02",
+      "matchup": "HOU @ TOR"
+    }
+  ],
+  "110:dbl_rg": [
+    {
+      "play_id": "b19fc8d7-235b-4248-a18b-5fa3a72533ce",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b19fc8d7-235b-4248-a18b-5fa3a72533ce",
+      "game_date": "2024-05-14",
+      "matchup": "LAD @ SF"
+    },
+    {
+      "play_id": "f97d7da1-c461-415c-ad43-30ec7d854d10",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f97d7da1-c461-415c-ad43-30ec7d854d10",
+      "game_date": "2024-07-24",
+      "matchup": "BOS @ COL"
+    },
+    {
+      "play_id": "ca8f70cc-c151-4cc2-b8e2-505438242008",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ca8f70cc-c151-4cc2-b8e2-505438242008",
+      "game_date": "2023-08-04",
+      "matchup": "LAD @ SD"
+    }
+  ],
+  "101:dbl_ll": [
+    {
+      "play_id": "2f1b9716-d01f-4f83-a247-250ac5505fb7",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=2f1b9716-d01f-4f83-a247-250ac5505fb7",
+      "game_date": "2024-05-08",
+      "matchup": "LAA @ PIT"
+    },
+    {
+      "play_id": "78540078-a479-4fe4-848d-00a721035f2d",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=78540078-a479-4fe4-848d-00a721035f2d",
+      "game_date": "2024-06-28",
+      "matchup": "NYY @ TOR"
+    },
+    {
+      "play_id": "f5181b38-46dc-49d5-b626-e0433f33030e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f5181b38-46dc-49d5-b626-e0433f33030e",
+      "game_date": "2024-05-23",
+      "matchup": "SD @ CIN"
+    }
+  ],
+  "101:dbl_rl": [
+    {
+      "play_id": "10991774-93c3-4b7d-8a39-2011ef25aeec",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=10991774-93c3-4b7d-8a39-2011ef25aeec",
+      "game_date": "2024-06-16",
+      "matchup": "CWS @ AZ"
+    },
+    {
+      "play_id": "9f99352b-80ac-4da0-978d-dd69f25aeb19",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9f99352b-80ac-4da0-978d-dd69f25aeb19",
+      "game_date": "2024-07-10",
+      "matchup": "KC @ STL"
+    },
+    {
+      "play_id": "800485cb-e4d7-40a8-a8e8-68753b1f4010",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=800485cb-e4d7-40a8-a8e8-68753b1f4010",
+      "game_date": "2024-09-08",
+      "matchup": "SEA @ STL"
+    }
+  ],
+  "101:dbl_lg": [
+    {
+      "play_id": "c4c06c3a-18cd-4065-bbc7-a838d5ab446c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c4c06c3a-18cd-4065-bbc7-a838d5ab446c",
+      "game_date": "2024-06-23",
+      "matchup": "MIN @ ATH"
+    },
+    {
+      "play_id": "6cdfb7f7-ed8f-4ac6-b429-2392a098206f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6cdfb7f7-ed8f-4ac6-b429-2392a098206f",
+      "game_date": "2024-05-26",
+      "matchup": "TOR @ DET"
+    },
+    {
+      "play_id": "d94e6f6d-4e42-4557-aa99-7fb625df7e15",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d94e6f6d-4e42-4557-aa99-7fb625df7e15",
+      "game_date": "2024-04-27",
+      "matchup": "MIN @ LAA"
+    }
+  ],
+  "101:dbl_rg": [
+    {
+      "play_id": "af6693cd-558a-419a-a45f-76c6d55ee0b0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=af6693cd-558a-419a-a45f-76c6d55ee0b0",
+      "game_date": "2024-07-19",
+      "matchup": "PHI @ PIT"
+    },
+    {
+      "play_id": "ddcd2eee-d670-4d7f-a535-05f64d8aef67",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ddcd2eee-d670-4d7f-a535-05f64d8aef67",
+      "game_date": "2023-09-01",
+      "matchup": "TOR @ COL"
+    },
+    {
+      "play_id": "449a5d55-033f-4530-bcf9-809781adcede",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=449a5d55-033f-4530-bcf9-809781adcede",
+      "game_date": "2024-05-13",
+      "matchup": "COL @ SD"
+    }
+  ],
+  "011:dbl_ll": [
+    {
+      "play_id": "c6e68c22-b81d-44fb-bcb8-1b02aae8401e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=c6e68c22-b81d-44fb-bcb8-1b02aae8401e",
+      "game_date": "2024-07-21",
+      "matchup": "BOS @ LAD"
+    },
+    {
+      "play_id": "13218d4f-d5cf-4573-807b-587dc4bc419a",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=13218d4f-d5cf-4573-807b-587dc4bc419a",
+      "game_date": "2024-07-24",
+      "matchup": "HOU @ ATH"
+    },
+    {
+      "play_id": "d15bf57d-eb89-41ba-b453-53a39f89ccc1",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=d15bf57d-eb89-41ba-b453-53a39f89ccc1",
+      "game_date": "2024-04-21",
+      "matchup": "NYM @ LAD"
+    }
+  ],
+  "011:dbl_rl": [
+    {
+      "play_id": "6f267289-b6f7-4c6b-9e01-5d94a694eedf",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=6f267289-b6f7-4c6b-9e01-5d94a694eedf",
+      "game_date": "2024-06-13",
+      "matchup": "ATL @ BAL"
+    },
+    {
+      "play_id": "b928b8bb-179c-4ada-893f-ae7b64dfa38c",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=b928b8bb-179c-4ada-893f-ae7b64dfa38c",
+      "game_date": "2024-06-16",
+      "matchup": "LAA @ SF"
+    },
+    {
+      "play_id": "718619c0-b218-449d-a01b-926f2f2b7bb2",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=718619c0-b218-449d-a01b-926f2f2b7bb2",
+      "game_date": "2024-09-03",
+      "matchup": "SEA @ ATH"
+    }
+  ],
+  "011:dbl_lg": [
+    {
+      "play_id": "1060d91e-7729-44b0-87c7-4d7de720f9b2",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=1060d91e-7729-44b0-87c7-4d7de720f9b2",
+      "game_date": "2024-08-31",
+      "matchup": "LAD @ AZ"
+    },
+    {
+      "play_id": "ecbf96eb-6c3f-4463-8c29-ece69294c504",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ecbf96eb-6c3f-4463-8c29-ece69294c504",
+      "game_date": "2023-09-08",
+      "matchup": "MIL @ NYY"
+    },
+    {
+      "play_id": "ec86adc6-47f3-4e29-b5b7-4e32bd66589f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=ec86adc6-47f3-4e29-b5b7-4e32bd66589f",
+      "game_date": "2024-05-24",
+      "matchup": "LAD @ CIN"
+    }
+  ],
+  "011:dbl_rg": [
+    {
+      "play_id": "89c8ea8a-e4b9-4f49-af26-3dbb2f5265a0",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=89c8ea8a-e4b9-4f49-af26-3dbb2f5265a0",
+      "game_date": "2024-06-21",
+      "matchup": "WSH @ COL"
+    },
+    {
+      "play_id": "72da73b7-c615-46a6-8e18-6c08dd90be76",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=72da73b7-c615-46a6-8e18-6c08dd90be76",
+      "game_date": "2024-06-24",
+      "matchup": "PHI @ DET"
+    },
+    {
+      "play_id": "da0df21c-daac-492c-bb8f-6010621c16e5",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=da0df21c-daac-492c-bb8f-6010621c16e5",
+      "game_date": "2024-06-21",
+      "matchup": "BAL @ HOU"
+    }
+  ],
+  "111:dbl_ll": [
+    {
+      "play_id": "da122e35-2fee-432e-a30f-5411a1665759",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=da122e35-2fee-432e-a30f-5411a1665759",
+      "game_date": "2024-05-07",
+      "matchup": "TEX @ ATH"
+    },
+    {
+      "play_id": "9c94a56d-2afe-48cf-902a-582357a061da",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=9c94a56d-2afe-48cf-902a-582357a061da",
+      "game_date": "2024-06-16",
+      "matchup": "LAA @ SF"
+    },
+    {
+      "play_id": "f234d44e-ad82-493e-91cd-7c1c388fb0f4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=f234d44e-ad82-493e-91cd-7c1c388fb0f4",
+      "game_date": "2023-08-02",
+      "matchup": "AZ @ SF"
+    }
+  ],
+  "111:dbl_rl": [
+    {
+      "play_id": "1a09ec57-76e8-4a06-b5f4-e95b93363684",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=1a09ec57-76e8-4a06-b5f4-e95b93363684",
+      "game_date": "2024-05-17",
+      "matchup": "SEA @ BAL"
+    },
+    {
+      "play_id": "383c48f2-25d8-4224-a66e-1ad27a102c3e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=383c48f2-25d8-4224-a66e-1ad27a102c3e",
+      "game_date": "2024-06-09",
+      "matchup": "MIN @ PIT"
+    },
+    {
+      "play_id": "98bc0ed6-c58c-4e66-ad94-4dce9b8d2a11",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=98bc0ed6-c58c-4e66-ad94-4dce9b8d2a11",
+      "game_date": "2024-06-25",
+      "matchup": "TOR @ BOS"
+    }
+  ],
+  "111:dbl_lg": [
+    {
+      "play_id": "3338d850-6d25-4605-b263-7c4b419684c6",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=3338d850-6d25-4605-b263-7c4b419684c6",
+      "game_date": "2024-05-15",
+      "matchup": "NYM @ PHI"
+    },
+    {
+      "play_id": "78f490e4-6807-4b41-a864-dba9fab0ce77",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=78f490e4-6807-4b41-a864-dba9fab0ce77",
+      "game_date": "2024-06-26",
+      "matchup": "MIN @ AZ"
+    },
+    {
+      "play_id": "bbdb282f-1d3e-4164-af84-7b6496fb8f1e",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=bbdb282f-1d3e-4164-af84-7b6496fb8f1e",
+      "game_date": "2024-04-03",
+      "matchup": "LAA @ MIA"
+    }
+  ],
+  "111:dbl_rg": [
+    {
+      "play_id": "453823e6-73ca-408b-88ab-157a9d029f13",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=453823e6-73ca-408b-88ab-157a9d029f13",
+      "game_date": "2024-09-21",
+      "matchup": "DET @ BAL"
+    },
+    {
+      "play_id": "0626630a-2b9b-4650-b6fa-a77021b131f4",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=0626630a-2b9b-4650-b6fa-a77021b131f4",
+      "game_date": "2024-08-27",
+      "matchup": "MIA @ COL"
+    },
+    {
+      "play_id": "fc2086c5-ccf9-4fc7-81e3-66449c745c1f",
+      "video_url": "https://baseballsavant.mlb.com/sporty-videos?playId=fc2086c5-ccf9-4fc7-81e3-66449c745c1f",
+      "game_date": "2023-09-17",
+      "matchup": "CIN @ NYM"
+    }
+  ]
+}
