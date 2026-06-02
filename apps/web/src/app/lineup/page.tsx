@@ -6,6 +6,9 @@ import { generateLineup, DISPLAY_POSITIONS, FIELD_POSITIONS } from "@/lib/lineup
 import type { Player, LineupInput, LineupResult, OutfieldFormat, Specialization } from "@/lib/lineup-engine";
 import { parseLineupFile, exportAsMarkdown, exportAsOrg } from "@/lib/lineup-parser";
 import type { ExportState } from "@/lib/lineup-parser";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { saveLineup, loadHistory, deleteLineup } from "@/lib/lineup-history";
+import type { SavedLineup } from "@/lib/lineup-history";
 
 type LockRow = { pos: string; player: string };
 
@@ -63,6 +66,9 @@ export default function LineupPage() {
   const [copiedFormat, setCopiedFormat] = useState<"markdown" | "org" | null>(null);
   const [fallbackExportText, setFallbackExportText] = useState<string | null>(null);
 
+  // History
+  const [history, setHistory] = useLocalStorage<SavedLineup[]>("lineup_history", []);
+
   const validPlayers = roster.filter(p => p.name.trim() !== "");
   const playerNames = validPlayers.map(p => p.name.trim());
 
@@ -96,6 +102,54 @@ export default function LineupPage() {
       : p));
   }
 
+  function applyLineupInput(input: LineupInput) {
+    const newRoster = input.battingOrder.map(p => ({
+      name: p.name,
+      number: p.number ?? "",
+      specializations: p.specializations,
+    }));
+
+    const newPitchers = Array(6).fill("") as string[];
+    input.pitchers.forEach((v, i) => { if (i < 6) newPitchers[i] = v; });
+
+    const newCatchers = Array(6).fill("") as string[];
+    input.catchers.forEach((v, i) => { if (i < 6) newCatchers[i] = v; });
+
+    const newLockedFields: LockRow[][] = Array.from({ length: 6 }, () => []);
+    (input.lockedFieldPositions ?? []).forEach((inningLocks, i) => {
+      if (i < 6) {
+        newLockedFields[i] = Object.entries(inningLocks)
+          .filter(([pos, player]) => pos && player)
+          .map(([pos, player]) => ({ pos, player }));
+      }
+    });
+
+    setTeamName(input.teamName);
+    setGameDate(input.date);
+    setInnings(input.innings);
+    setOutfieldFormat(input.outfieldFormat);
+    setRoster(newRoster);
+    setPitchers(newPitchers);
+    setCatchers(newCatchers);
+    setLockedFields(newLockedFields);
+
+    const hasRoster = newRoster.some(p => p.name.trim());
+    const allPFilled = newPitchers.slice(0, input.innings).every(p => p);
+    const allCFilled = newCatchers.slice(0, input.innings).every(c => c);
+
+    if (hasRoster && allPFilled && allCFilled) {
+      const res = generateLineup(input);
+      setResult(res);
+      setDownloadUrl(null);
+      setDownloadError(null);
+      setStep("result");
+    } else if (hasRoster && (newPitchers.some(p => p) || newCatchers.some(c => c))) {
+      setStep("assignments");
+    } else {
+      setStep("setup");
+    }
+  }
+
   function handleImport() {
     const { result: parsed, warnings } = parseLineupFile(importText);
     setImportWarnings(warnings);
@@ -104,76 +158,31 @@ export default function LineupPage() {
     if (!hasContent) return;
 
     const newRoster: Player[] = parsed.roster ?? roster;
-    const newTeamName = parsed.teamName ?? teamName;
-    const newGameDate = parsed.gameDate ?? TODAY;
     const newInnings = parsed.innings ?? 6;
-    const newOutfieldFormat = parsed.outfieldFormat ?? "standard" as OutfieldFormat;
-
     const newPitchers = Array(6).fill("") as string[];
-    (parsed.pitchers ?? pitchers).forEach((v, i) => { if (i < 6) newPitchers[i] = v; });
-
+    (parsed.pitchers ?? []).forEach((v, i) => { if (i < 6) newPitchers[i] = v; });
     const newCatchers = Array(6).fill("") as string[];
-    (parsed.catchers ?? catchers).forEach((v, i) => { if (i < 6) newCatchers[i] = v; });
+    (parsed.catchers ?? []).forEach((v, i) => { if (i < 6) newCatchers[i] = v; });
 
-    const newLockedFields: LockRow[][] = Array.from({ length: 6 }, () => []);
-    if (parsed.lockedFieldPositions) {
-      parsed.lockedFieldPositions.forEach((inningLocks, i) => {
-        if (i < 6) {
-          newLockedFields[i] = Object.entries(inningLocks)
-            .filter(([pos, player]) => pos && player)
-            .map(([pos, player]) => ({ pos, player }));
-        }
-      });
-    } else {
-      lockedFields.forEach((rows, i) => { newLockedFields[i] = [...rows]; });
-    }
+    const input: LineupInput = {
+      date: parsed.gameDate ?? TODAY,
+      teamName: (parsed.teamName ?? teamName).trim() || "Team",
+      innings: newInnings,
+      battingOrder: newRoster.filter(p => p.name.trim()).map(p => ({
+        name: p.name.trim(),
+        number: p.number?.trim() || undefined,
+        specializations: (p.specializations ?? []).filter(s => s.position && s.targetInnings),
+      })),
+      pitchers: newPitchers.slice(0, newInnings),
+      catchers: newCatchers.slice(0, newInnings),
+      outfieldFormat: parsed.outfieldFormat ?? "standard" as OutfieldFormat,
+      lockedFieldPositions: parsed.lockedFieldPositions
+        ? parsed.lockedFieldPositions.slice(0, newInnings).map(r => r ?? {})
+        : [],
+    };
 
-    setTeamName(newTeamName);
-    setGameDate(newGameDate);
-    setInnings(newInnings);
-    setOutfieldFormat(newOutfieldFormat);
-    setRoster(newRoster.map(p => ({ name: p.name, number: p.number ?? "", specializations: p.specializations })));
-    setPitchers(newPitchers);
-    setCatchers(newCatchers);
-    setLockedFields(newLockedFields);
-
-    const validNames = newRoster.filter(p => p.name.trim()).map(p => p.name.trim());
-    const hasRoster = validNames.length > 0;
-    const allPFilled = newPitchers.slice(0, newInnings).every(p => p);
-    const allCFilled = newCatchers.slice(0, newInnings).every(c => c);
-
-    if (hasRoster && allPFilled && allCFilled) {
-      const input: LineupInput = {
-        date: newGameDate,
-        teamName: newTeamName.trim() || "Team",
-        innings: newInnings,
-        battingOrder: validNames.map(name => {
-          const p = newRoster.find(r => r.name.trim() === name)!;
-          return {
-            name: p.name.trim(),
-            number: p.number?.trim() || undefined,
-            specializations: (p.specializations ?? []).filter(s => s.position && s.targetInnings),
-          };
-        }),
-        pitchers: newPitchers.slice(0, newInnings),
-        catchers: newCatchers.slice(0, newInnings),
-        outfieldFormat: newOutfieldFormat,
-        lockedFieldPositions: newLockedFields.slice(0, newInnings).map(rows =>
-          Object.fromEntries(rows.filter(r => r.pos && r.player).map(r => [r.pos, r.player]))
-        ),
-      };
-      const res = generateLineup(input);
-      setResult(res);
-      setDownloadUrl(null);
-      setDownloadError(null);
-      setImportOpen(false);
-      setStep("result");
-    } else if (hasRoster && (parsed.pitchers || parsed.catchers)) {
-      setImportOpen(false);
-      setStep("assignments");
-    } else {
-      setImportOpen(false);
-    }
+    setImportOpen(false);
+    applyLineupInput(input);
   }
 
   function handleExport(format: "markdown" | "org") {
@@ -216,6 +225,15 @@ export default function LineupPage() {
       [arr[idx], arr[next]] = [arr[next], arr[idx]];
       return arr;
     });
+  }
+
+  function handleLoad(saved: SavedLineup) {
+    applyLineupInput(saved.input);
+  }
+
+  function handleDeleteHistory(id: string) {
+    deleteLineup(id);
+    setHistory(loadHistory());
   }
 
   function addLockRow(inningIdx: number) {
@@ -289,6 +307,10 @@ export default function LineupPage() {
       ),
     };
     const res = generateLineup(input);
+    if (res.assignments.length > 0) {
+      saveLineup(input, res);
+      setHistory(loadHistory());
+    }
     setResult(res);
     setDownloadUrl(null);
     setDownloadError(null);
@@ -363,6 +385,36 @@ export default function LineupPage() {
             Enter your roster, pitchers, and catchers to get a full position rotation with minimal repeats.
           </p>
         </div>
+
+        {/* Previous lineups */}
+        {history.length > 0 && (
+          <div className="card p-4 flex flex-col gap-2">
+            <p className="section-label">Previous lineups</p>
+            <div className="flex flex-col gap-1.5">
+              {history.map(saved => (
+                <div key={saved.id} className="flex items-center justify-between gap-3">
+                  <span className="text-cream/70 text-sm truncate">
+                    {saved.input.teamName} · {new Date(saved.input.date + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                  </span>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <button
+                      onClick={() => handleLoad(saved)}
+                      className="text-xs font-display font-semibold text-cream/50 hover:text-cream transition-colors"
+                    >
+                      Load
+                    </button>
+                    <button
+                      onClick={() => handleDeleteHistory(saved.id)}
+                      className="text-cream/30 hover:text-red-light text-sm transition-colors"
+                    >
+                      ×
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Step indicator */}
         <div className="flex items-center gap-2 text-xs">

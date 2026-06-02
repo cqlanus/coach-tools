@@ -41,7 +41,11 @@
       "Bash(python3 -c \"import requests; import pandas; print\\('ok'\\)\")",
       "Bash(pip3 install *)",
       "Bash(/Users/cqlanus/projects/coach-tools/api/.venv/bin/python3 *)",
-      "Bash(/Users/cqlanus/projects/coach-tools/api/.venv/bin/pip install *)"
+      "Bash(/Users/cqlanus/projects/coach-tools/api/.venv/bin/pip install *)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(a['id'],a['status']\\) for a in d['artifacts']]\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('complete:', d['isComplete']\\)\")",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }
