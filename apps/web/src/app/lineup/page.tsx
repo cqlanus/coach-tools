@@ -419,7 +419,7 @@ export default function LineupPage() {
               )}
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <p className="section-label mb-2">Game Date</p>
                 <input type="date" value={gameDate} onChange={e => setGameDate(e.target.value)} className={inputCls} />
@@ -481,7 +481,20 @@ export default function LineupPage() {
                       <input
                         type="text" placeholder="Player name" value={player.name}
                         onChange={e => updatePlayer(idx, "name", e.target.value)}
-                        className="flex-1 bg-navy-light/40 border border-white/15 text-cream text-sm
+                        onKeyDown={e => {
+                          if (e.key !== "Enter") return;
+                          e.preventDefault();
+                          if (idx < roster.length - 1) {
+                            (document.querySelectorAll<HTMLInputElement>(".player-name-input")[idx + 1])?.focus();
+                          } else {
+                            addPlayer();
+                            setTimeout(() => {
+                              const inputs = document.querySelectorAll<HTMLInputElement>(".player-name-input");
+                              inputs[inputs.length - 1]?.focus();
+                            }, 0);
+                          }
+                        }}
+                        className="player-name-input flex-1 bg-navy-light/40 border border-white/15 text-cream text-sm
                           rounded-lg px-3 py-1.5 focus:outline-none focus:border-red/60"
                       />
                       <input

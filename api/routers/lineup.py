@@ -344,6 +344,22 @@ def _pos_style(pos):
     return dict(fg=DARK, bold=False, italic=False, bg=None)
 
 
+def _set_table_margins(table, top=80, bottom=80, left=130, right=130):
+    """Set uniform cell margins for a table (values in twips, 1pt = 20twips)."""
+    tbl = table._tbl
+    tblPr = tbl.find(qn("w:tblPr"))
+    if tblPr is None:
+        tblPr = OxmlElement("w:tblPr")
+        tbl.insert(0, tblPr)
+    tblCellMar = OxmlElement("w:tblCellMar")
+    for side, val in [("top", top), ("bottom", bottom), ("left", left), ("right", right)]:
+        el = OxmlElement(f"w:{side}")
+        el.set(qn("w:w"), str(val))
+        el.set(qn("w:type"), "dxa")
+        tblCellMar.append(el)
+    tblPr.append(tblCellMar)
+
+
 def _disp(name, roster_map):
     num = roster_map.get(name)
     return f"{name} #{num}" if num else name
@@ -392,23 +408,66 @@ def generate_docx(req: LineupRequest, assignments, bench, bench_per_inning, fiel
 
     doc.add_paragraph()
 
-    # ── Table 1: By Position ─────────────────────────────────────────────────
-    heading = doc.add_paragraph("By Position")
-    heading.runs[0].bold = True
-    heading.runs[0].font.size = Pt(11)
-    heading.runs[0].font.color.rgb = _rgb("1B3A6B")
+    # Build position lookup per player per inning (used by By Player table)
+    player_positions: Dict[str, List[str]] = {p: [] for p in all_players}
+    for i in range(innings):
+        player_positions[fixed[i]["pitcher"]].append("P")
+        player_positions[fixed[i]["catcher"]].append("C")
+        for b in bench[i]:
+            player_positions[b].append("BENCH")
+        for pos, name in assignments[i].items():
+            player_positions[name].append(pos)
+
+    # ── Table 1: By Player ───────────────────────────────────────────────────
+    heading1 = doc.add_paragraph("By Player")
+    heading1.runs[0].bold = True
+    heading1.runs[0].font.size = Pt(11)
+    heading1.runs[0].font.color.rgb = _rgb("1B3A6B")
+
+    t1 = doc.add_table(rows=1 + len(all_players), cols=2 + innings)
+    t1.style = "Table Grid"
+    _set_table_margins(t1)
+
+    _cell(t1.rows[0].cells[0], "#",      bold=True, fg=WHITE, bg=NAVY)
+    _cell(t1.rows[0].cells[1], "Player", bold=True, fg=WHITE, bg=NAVY, center=False)
+    for j in range(innings):
+        _cell(t1.rows[0].cells[j + 2], f"Inn {j + 1}", bold=True, fg=WHITE, bg=NAVY)
+
+    for row_idx, player in enumerate(req.batting_order):
+        row = t1.rows[row_idx + 1]
+        row_bg = ALT if row_idx % 2 == 0 else WHITE
+        _cell(row.cells[0], str(row_idx + 1), fg="888888", bg=row_bg)
+        _cell(row.cells[1], _disp(player.name, roster_map),
+              bold=True, center=False, fg=DARK, bg=row_bg)
+
+        positions = player_positions.get(player.name, [])
+        for j, pos in enumerate(positions):
+            style = _pos_style(pos)
+            cell_bg = style.get("bg") or row_bg
+            _cell(row.cells[j + 2], pos,
+                  bold=style["bold"], italic=style["italic"],
+                  fg=style["fg"], bg=cell_bg)
+
+    # ── Page break ───────────────────────────────────────────────────────────
+    doc.add_page_break()
+
+    # ── Table 2: By Position ─────────────────────────────────────────────────
+    heading2 = doc.add_paragraph("By Position")
+    heading2.runs[0].bold = True
+    heading2.runs[0].font.size = Pt(11)
+    heading2.runs[0].font.color.rgb = _rgb("1B3A6B")
 
     col_count = 1 + innings
-    t1 = doc.add_table(rows=1 + len(display_pos), cols=col_count)
-    t1.style = "Table Grid"
+    t2 = doc.add_table(rows=1 + len(display_pos), cols=col_count)
+    t2.style = "Table Grid"
+    _set_table_margins(t2)
 
-    # Header row
-    _cell(t1.rows[0].cells[0], "Position", bold=True, fg=WHITE, bg=NAVY)
+    _cell(t2.rows[0].cells[0], "Position", bold=True, fg=WHITE, bg=NAVY)
     for j in range(innings):
-        _cell(t1.rows[0].cells[j + 1], f"Inn {j + 1}", bold=True, fg=WHITE, bg=NAVY)
+        _cell(t2.rows[0].cells[j + 1], f"Inn {j + 1}", bold=True, fg=WHITE, bg=NAVY)
 
     for row_idx, pos in enumerate(display_pos):
-        row = t1.rows[row_idx + 1]
+        row = t2.rows[row_idx + 1]
         row_bg = ALT if row_idx % 2 == 0 else WHITE
         _cell(row.cells[0], pos, bold=True, center=False, fg="444444", bg=row_bg)
 
@@ -433,47 +492,6 @@ def generate_docx(req: LineupRequest, assignments, bench, bench_per_inning, fiel
                   bold=style["bold"], italic=style["italic"],
                   fg=style["fg"], bg=cell_bg)
 
-    doc.add_paragraph()
-
-    # ── Table 2: By Player ───────────────────────────────────────────────────
-    heading2 = doc.add_paragraph("By Player")
-    heading2.runs[0].bold = True
-    heading2.runs[0].font.size = Pt(11)
-    heading2.runs[0].font.color.rgb = _rgb("1B3A6B")
-
-    t2 = doc.add_table(rows=1 + len(all_players), cols=2 + innings)
-    t2.style = "Table Grid"
-
-    _cell(t2.rows[0].cells[0], "#",      bold=True, fg=WHITE, bg=NAVY)
-    _cell(t2.rows[0].cells[1], "Player", bold=True, fg=WHITE, bg=NAVY, center=False)
-    for j in range(innings):
-        _cell(t2.rows[0].cells[j + 2], f"Inn {j + 1}", bold=True, fg=WHITE, bg=NAVY)
-
-    # Build position lookup per player per inning
-    player_positions: Dict[str, List[str]] = {p: [] for p in all_players}
-    for i in range(innings):
-        player_positions[fixed[i]["pitcher"]].append("P")
-        player_positions[fixed[i]["catcher"]].append("C")
-        for b in bench[i]:
-            player_positions[b].append("BENCH")
-        for pos, name in assignments[i].items():
-            player_positions[name].append(pos)
-
-    for row_idx, player in enumerate(req.batting_order):
-        row = t2.rows[row_idx + 1]
-        row_bg = ALT if row_idx % 2 == 0 else WHITE
-        _cell(row.cells[0], str(row_idx + 1), fg="888888", bg=row_bg)
-        _cell(row.cells[1], _disp(player.name, roster_map),
-              bold=True, center=False, fg=DARK, bg=row_bg)
-
-        positions = player_positions.get(player.name, [])
-        for j, pos in enumerate(positions):
-            style = _pos_style(pos)
-            cell_bg = style.get("bg") or row_bg
-            _cell(row.cells[j + 2], pos,
-                  bold=style["bold"], italic=style["italic"],
-                  fg=style["fg"], bg=cell_bg)
-
     # Legend footnote
     doc.add_paragraph()
     legend = doc.add_paragraph()
@@ -486,7 +504,11 @@ def generate_docx(req: LineupRequest, assignments, bench, bench_per_inning, fiel
     legend_run.font.color.rgb = _rgb("888888")
     legend_run.font.name = "Arial"
 
-    filename = f"lineup_{uuid.uuid4().hex[:8]}.docx"
+    import re
+    safe_team = re.sub(r"[^\w\s-]", "", req.team_name or "Team").strip().replace(" ", "_")
+    short_id = uuid.uuid4().hex[:6]
+    safe_date = req.date.replace("-", "")
+    filename = f"{safe_team}_{safe_date}_{short_id}.docx"
     path = OUTPUT_DIR / filename
     doc.save(str(path))
     return str(path)
