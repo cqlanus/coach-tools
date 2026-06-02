@@ -105,9 +105,9 @@ export default function LineupPage() {
 
     const newRoster: Player[] = parsed.roster ?? roster;
     const newTeamName = parsed.teamName ?? teamName;
-    const newGameDate = parsed.gameDate ?? gameDate;
-    const newInnings = parsed.innings ?? innings;
-    const newOutfieldFormat = parsed.outfieldFormat ?? outfieldFormat;
+    const newGameDate = parsed.gameDate ?? TODAY;
+    const newInnings = parsed.innings ?? 6;
+    const newOutfieldFormat = parsed.outfieldFormat ?? "standard" as OutfieldFormat;
 
     const newPitchers = Array(6).fill("") as string[];
     (parsed.pitchers ?? pitchers).forEach((v, i) => { if (i < 6) newPitchers[i] = v; });
