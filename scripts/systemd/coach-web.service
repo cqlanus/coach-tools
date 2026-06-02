@@ -10,6 +10,7 @@ ExecStart=/home/cqlanus/.nvm/versions/node/v24.16.0/bin/node node_modules/.bin/n
 Restart=on-failure
 RestartSec=5
 Environment=NODE_ENV=production
+Environment=NEXT_PUBLIC_UMAMI_WEBSITE_ID=793e2f93-bcb1-484e-bea5-918d77945be0
 
 [Install]
 WantedBy=multi-user.target
