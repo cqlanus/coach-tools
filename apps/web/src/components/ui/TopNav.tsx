@@ -9,6 +9,7 @@ const tools = [
   { href: "/throwing",      label: "Throwing", icon: "⚾" },
   { href: "/lineup",        label: "Lineup",   icon: "📝" },
   { href: "/defense",       label: "Defense",  icon: "🏟️" },
+  { href: "/videos",        label: "Videos",   icon: "🎬" },
 ];
 
 export function TopNav() {

@@ -24,11 +24,11 @@
 
 ## 5. Environment Variable
 
-- [ ] 5.1 Set `NEXT_PUBLIC_UMAMI_WEBSITE_ID=793e2f93-bcb1-484e-bea5-918d77945be0` in the deployment environment (lanbuntu systemd service or `.env.local`)
+- [x] 5.1 Set `NEXT_PUBLIC_UMAMI_WEBSITE_ID=793e2f93-bcb1-484e-bea5-918d77945be0` in the deployment environment (lanbuntu systemd service or `.env.local`)
 
 ## 6. Verification
 
 - [x] 6.1 TypeScript type check passes: `npx tsc --noEmit`
-- [ ] 6.2 In browser devtools, confirm no errors in console related to the Script tag
-- [ ] 6.3 After Umami is deployed and `NEXT_PUBLIC_UMAMI_WEBSITE_ID` is set: generate a lineup, confirm the event appears in the Umami dashboard under the website's events
-- [ ] 6.4 Confirm defense scenario changes appear as `defense-scenario-viewed` events in Umami
+- [x] 6.2 In browser devtools, confirm no errors in console related to the Script tag
+- [x] 6.3 After Umami is deployed and `NEXT_PUBLIC_UMAMI_WEBSITE_ID` is set: generate a lineup, confirm the event appears in the Umami dashboard under the website's events
+- [x] 6.4 Confirm defense scenario changes appear as `defense-scenario-viewed` events in Umami

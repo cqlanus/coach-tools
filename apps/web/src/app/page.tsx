@@ -44,6 +44,14 @@ const tools = [
     icon: "🏟️",
     status: "live",
   },
+  {
+    href: "/videos",
+    label: "Video Library",
+    description:
+      "Curated YouTube playlists organized by topic — hitting, throwing, fielding, and game situations.",
+    icon: "🎬",
+    status: "live",
+  },
 ];
 
 export default function HomePage() {
